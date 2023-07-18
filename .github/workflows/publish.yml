@@ -1,0 +1,29 @@
+name: Publish
+on:
+  push:
+    branches:
+      - main
+jobs:
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+      - name: Install Semantic Release
+        run: |
+          npm i semantic-release@21
+          npm i conventional-changelog-conventionalcommits@5
+          npm i @semantic-release/commit-analyzer@9
+          npm i @semantic-release/release-notes-generator@11
+          npm i @semantic-release/changelog@6
+          npm i @semantic-release/npm@10
+          npm i @semantic-release/git@10
+          npm i @semantic-release/github@8
+      - name: Semantic Release
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release
