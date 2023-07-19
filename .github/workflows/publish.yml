@@ -14,14 +14,15 @@ jobs:
           node-version: "20"
       - name: Install Semantic Release
         run: |
-          npm i --no-save semantic-release@21
-          npm i --no-save conventional-changelog-conventionalcommits@5
-          npm i --no-save @semantic-release/commit-analyzer@9
-          npm i --no-save @semantic-release/release-notes-generator@11
-          npm i --no-save @semantic-release/changelog@6
-          npm i --no-save @semantic-release/npm@10
-          npm i --no-save @semantic-release/git@10
-          npm i --no-save @semantic-release/github@8
+          npm i --no-save \
+            semantic-release@21 \
+            conventional-changelog-conventionalcommits@5 \
+            @semantic-release/commit-analyzer@9 \
+            @semantic-release/release-notes-generator@11 \
+            @semantic-release/changelog@6 \
+            @semantic-release/npm@10 \
+            @semantic-release/git@10 \
+            @semantic-release/github@8
       - name: Semantic Release
         env:
           GITHUB_TOKEN: ${{ github.token }}
