@@ -229,7 +229,7 @@ module.exports = {
       },
     },
     {
-      files: ["*/app/**/route.ts"],
+      files: ["**/app/**/route.ts"],
       rules: {
         "@typescript-eslint/naming-convention": [
           "error",

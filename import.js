@@ -74,7 +74,7 @@ module.exports = {
       rules: { "import/prefer-default-export": "off" },
     },
     {
-      files: ["*/app/**/page.@(jsx|tsx)", "*/app/**/layout.@(jsx|tsx)"],
+      files: ["**/app/**/page.@(jsx|tsx)", "**/app/**/layout.@(jsx|tsx)"],
       rules: {
         "import/no-default-export": "off",
         "import/prefer-default-export": ["error", { target: "any" }],
