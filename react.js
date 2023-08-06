@@ -154,6 +154,11 @@ module.exports = {
       },
     },
     {
+      files: ["*.@(jsx|tsx)", "use*.@(js|ts)"],
+      plugins: ["react-hooks"],
+      extends: ["plugin:react-hooks/recommended"],
+    },
+    {
       files: ["*.tsx"],
       rules: {
         "react/require-default-props": "off",
