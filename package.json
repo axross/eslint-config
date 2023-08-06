@@ -1,17 +1,17 @@
 {
   "name": "@axross/eslint-config",
   "version": "1.2.0",
-  "main": "index.js",
   "files": [
     "compat.js",
     "constants.js",
     "eslint.js",
     "import.js",
-    "index.js",
+    "javascript.js",
     "jest.js",
-    "react-hooks.js",
+    "prettier.js",
     "react.js",
     "storybook.js",
+    "testing-library.js",
     "typescript.js"
   ],
   "scripts": {
@@ -19,31 +19,31 @@
     "lint": "eslint ."
   },
   "peerDependencies": {
-    "eslint": ">= 3"
+    "@eslint/js": ">=8",
+    "eslint": ">=3"
   },
-  "dependencies": {
-    "@eslint/js": "^8.44.0",
-    "@typescript-eslint/eslint-plugin": "^5.62.0",
-    "@typescript-eslint/parser": "^5.62.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-import-resolver-typescript": "^3.5.5",
-    "eslint-plugin-compat": "^4.1.4",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-jest": "^27.2.2",
-    "eslint-plugin-jest-dom": "^5.0.1",
-    "eslint-plugin-jest-formatting": "^3.1.0",
-    "eslint-plugin-jsx-a11y": "^6.7.1",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.32.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-storybook": "^0.6.12",
-    "eslint-plugin-tailwindcss": "^3.13.0",
-    "eslint-plugin-testing-library": "^5.11.0",
-    "prettier-eslint": "^15.0.1"
+  "optionalDependencies": {
+    "@typescript-eslint/eslint-plugin": ">=5",
+    "@typescript-eslint/parser": ">=5",
+    "eslint-config-prettier": ">=8",
+    "eslint-import-resolver-typescript": ">=3",
+    "eslint-plugin-compat": ">=4",
+    "eslint-plugin-import": ">=2",
+    "eslint-plugin-jest-dom": ">=5",
+    "eslint-plugin-jsx-a11y": ">=6",
+    "eslint-plugin-prettier": ">=4",
+    "eslint-plugin-react": ">=7",
+    "eslint-plugin-react-hooks": ">=4",
+    "eslint-plugin-storybook": ">=0.6",
+    "eslint-plugin-tailwindcss": ">=3",
+    "eslint-plugin-testing-library": ">=5",
+    "prettier-eslint": ">=15",
+    "eslint-plugin-jest": ">=27",
+    "eslint-plugin-jest-formatting": ">=3"
   },
   "devDependencies": {
     "@axross/prettier-config": "^0.1.0",
     "eslint": "^8.45.0",
-    "prettier": "^2.8.8"
+    "prettier": "^3.0.1"
   }
 }

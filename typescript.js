@@ -64,7 +64,11 @@ module.exports = {
         "@typescript-eslint/no-import-type-side-effects": "off",
         "@typescript-eslint/no-misused-promises": [
           "error",
-          { ignoreVoid: true },
+          {
+            checksConditionals: true,
+            checksVoidReturn: true,
+            checksSpreads: true,
+          },
         ],
         "@typescript-eslint/no-redundant-type-constituents": "error",
         "@typescript-eslint/no-require-imports": "error",
@@ -226,6 +230,14 @@ module.exports = {
             ignoreEnums: true,
           },
         ],
+      },
+    },
+    {
+      files: ["*.@(spec|test).@(ts|tsx)"],
+      rules: {
+        "no-untyped-mock-factory": "error",
+        "@typescript-eslint/unbound-method": "off",
+        "unbound-method": "error",
       },
     },
     {

@@ -1,5 +1,13 @@
 /* eslint-env node */
 
 module.exports = {
-  extends: ["./index.js"],
+  extends: [
+    "./javascript.js",
+    "./typescript.js",
+    "./prettier.js",
+    "./react.js",
+    "./storybook.js",
+    "./jest.js",
+    "./testing-library.js",
+  ],
 };
