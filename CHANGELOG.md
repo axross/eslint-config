@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/axross/eslint-config/compare/v1.2.0...v1.3.0) (2023-08-06)
+
+
+### Features
+
+* separate configurations ([#2](https://github.com/axross/eslint-config/issues/2)) ([c34bd4c](https://github.com/axross/eslint-config/commit/c34bd4cdfa0b4b0bfa5d8763cd2780a245659158))
+
 # [1.2.0](https://github.com/axross/eslint-config/compare/v1.1.0...v1.2.0) (2023-07-19)
 
 ### Features
