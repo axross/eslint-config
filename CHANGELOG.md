@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/axross/eslint-config/compare/v1.3.0...v1.3.1) (2023-08-06)
+
+
+### Bug Fixes
+
+* update dependencies ([622d69a](https://github.com/axross/eslint-config/commit/622d69adb1224127d6184da861ed39839999e1de))
+
 # [1.3.0](https://github.com/axross/eslint-config/compare/v1.2.0...v1.3.0) (2023-08-06)
 
 
