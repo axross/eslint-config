@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/axross/eslint-config/compare/v1.3.1...v1.3.2) (2023-08-06)
+
+
+### Bug Fixes
+
+* update typescript plugin version ([223a3aa](https://github.com/axross/eslint-config/commit/223a3aa27f0c60b5e66529b231dbded0bf4e4d52))
+
 ## [1.3.1](https://github.com/axross/eslint-config/compare/v1.3.0...v1.3.1) (2023-08-06)
 
 
