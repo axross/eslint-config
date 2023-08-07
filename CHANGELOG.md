@@ -1,23 +1,20 @@
 ## [1.3.2](https://github.com/axross/eslint-config/compare/v1.3.1...v1.3.2) (2023-08-06)
 
-
 ### Bug Fixes
 
-* update typescript plugin version ([223a3aa](https://github.com/axross/eslint-config/commit/223a3aa27f0c60b5e66529b231dbded0bf4e4d52))
+- update typescript plugin version ([223a3aa](https://github.com/axross/eslint-config/commit/223a3aa27f0c60b5e66529b231dbded0bf4e4d52))
 
 ## [1.3.1](https://github.com/axross/eslint-config/compare/v1.3.0...v1.3.1) (2023-08-06)
 
-
 ### Bug Fixes
 
-* update dependencies ([622d69a](https://github.com/axross/eslint-config/commit/622d69adb1224127d6184da861ed39839999e1de))
+- update dependencies ([622d69a](https://github.com/axross/eslint-config/commit/622d69adb1224127d6184da861ed39839999e1de))
 
 # [1.3.0](https://github.com/axross/eslint-config/compare/v1.2.0...v1.3.0) (2023-08-06)
 
-
 ### Features
 
-* separate configurations ([#2](https://github.com/axross/eslint-config/issues/2)) ([c34bd4c](https://github.com/axross/eslint-config/commit/c34bd4cdfa0b4b0bfa5d8763cd2780a245659158))
+- separate configurations ([#2](https://github.com/axross/eslint-config/issues/2)) ([c34bd4c](https://github.com/axross/eslint-config/commit/c34bd4cdfa0b4b0bfa5d8763cd2780a245659158))
 
 # [1.2.0](https://github.com/axross/eslint-config/compare/v1.1.0...v1.2.0) (2023-07-19)
 
