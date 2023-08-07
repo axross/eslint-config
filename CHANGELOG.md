@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/axross/eslint-config/compare/v1.3.2...v1.4.0) (2023-08-07)
+
+
+### Features
+
+* rename files into cjs ([#3](https://github.com/axross/eslint-config/issues/3)) ([87a6739](https://github.com/axross/eslint-config/commit/87a67391992eb2158682d5b718be020815431a92))
+
 ## [1.3.2](https://github.com/axross/eslint-config/compare/v1.3.1...v1.3.2) (2023-08-06)
 
 ### Bug Fixes
