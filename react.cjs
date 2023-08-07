@@ -1,6 +1,6 @@
 /* eslint-env node */
 
-const { indent } = require("./constants");
+const { indent } = require("./constants.cjs");
 
 module.exports = {
   overrides: [

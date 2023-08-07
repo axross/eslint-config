@@ -1,11 +1,11 @@
 /* eslint-env node */
 
-const { ignoredMagicNumbersInReact, indent } = require("./constants");
+const { ignoredMagicNumbersInReact, indent } = require("./constants.cjs");
 
 module.exports = {
   overrides: [
     {
-      files: ["*.@(ts|tsx)"],
+      files: ["*.@(ts|mts|cts|tsx)"],
       parser: "@typescript-eslint/parser",
       parserOptions: {
         ecmaVersion: "latest",
@@ -174,7 +174,7 @@ module.exports = {
       },
     },
     {
-      files: ["*.@(jsx|tsx)", "*.stories.@(js|jsx|ts|tsx)"],
+      files: ["*.@(jsx|tsx)", "*.stories.@(js|mjs|cjs|jsx|ts|mts|cts|tsx)"],
       rules: {
         "@typescript-eslint/naming-convention": [
           "error",
@@ -233,7 +233,7 @@ module.exports = {
       },
     },
     {
-      files: ["*.@(spec|test).@(ts|tsx)"],
+      files: ["*.@(spec|test).@(ts|mts|cts|tsx)"],
       rules: {
         "no-untyped-mock-factory": "error",
         "@typescript-eslint/unbound-method": "off",
@@ -241,7 +241,7 @@ module.exports = {
       },
     },
     {
-      files: ["**/app/**/route.ts"],
+      files: ["**/app/**/route.@(ts|mts|cts)"],
       rules: {
         "@typescript-eslint/naming-convention": [
           "error",
