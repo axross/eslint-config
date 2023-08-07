@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/axross/eslint-config/compare/v1.4.0...v1.5.0) (2023-08-07)
+
+
+### Features
+
+* remove no-duplicate-imports ([6818358](https://github.com/axross/eslint-config/commit/6818358adf05379b53c8009a4993f9129231ad17))
+
 # [1.4.0](https://github.com/axross/eslint-config/compare/v1.3.2...v1.4.0) (2023-08-07)
 
 
