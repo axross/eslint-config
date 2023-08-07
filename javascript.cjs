@@ -323,6 +323,9 @@ module.exports = {
           },
         ],
         "import/prefer-default-export": "off",
+
+        // disabled in favor of import/no-duplicates
+        "no-duplicate-imports": "off",
       },
     },
     {
