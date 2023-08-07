@@ -105,7 +105,16 @@ module.exports = {
         "brace-style": "off",
         "@typescript-eslint/brace-style": "error",
         "comma-dangle": "off",
-        "@typescript-eslint/comma-dangle": "error",
+        "@typescript-eslint/comma-dangle": [
+          "error",
+          {
+            arrays: "always-multiline",
+            objects: "always-multiline",
+            imports: "always-multiline",
+            exports: "always-multiline",
+            functions: "always-multiline",
+          },
+        ],
         "comma-spacing": "off",
         "@typescript-eslint/comma-spacing": "error",
         "default-param-last": "off",
@@ -166,7 +175,14 @@ module.exports = {
         "space-before-blocks": "off",
         "@typescript-eslint/space-before-blocks": "error",
         "space-before-function-paren": "off",
-        "@typescript-eslint/space-before-function-paren": "error",
+        "@typescript-eslint/space-before-function-paren": [
+          "error",
+          {
+            anonymous: "never",
+            named: "never",
+            asyncArrow: "always",
+          },
+        ],
         "space-infix-ops": "off",
         "@typescript-eslint/space-infix-ops": "error",
       },
