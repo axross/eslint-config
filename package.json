@@ -3,44 +3,40 @@
   "version": "1.6.0",
   "files": [
     "constants.cjs",
-    "javascript.cjs",
-    "jest.cjs",
-    "prettier.cjs",
-    "react.cjs",
-    "storybook.cjs",
-    "testing-library.cjs",
-    "typescript.cjs"
+    "config.cjs"
   ],
+  "main": "config.cjs",
   "scripts": {
     "format": "prettier --write .",
     "lint": "eslint ."
   },
+  "dependencies": {
+    "has-pkg": "^0.0.1"
+  },
   "peerDependencies": {
     "@eslint/js": ">=8",
-    "eslint": ">=8",
-    "eslint-plugin-compat": ">=4",
-    "eslint-plugin-import": ">=2"
-  },
-  "optionalDependencies": {
-    "@typescript-eslint/eslint-plugin": ">=6",
-    "@typescript-eslint/parser": ">=6",
-    "eslint-config-prettier": ">=8",
-    "eslint-import-resolver-typescript": ">=3",
-    "eslint-plugin-jest-dom": ">=5",
-    "eslint-plugin-jsx-a11y": ">=6",
-    "eslint-plugin-prettier": ">=4",
-    "eslint-plugin-react": ">=7",
-    "eslint-plugin-react-hooks": ">=4",
-    "eslint-plugin-storybook": ">=0.6",
-    "eslint-plugin-tailwindcss": ">=3",
-    "eslint-plugin-testing-library": ">=5",
-    "prettier-eslint": ">=15",
-    "eslint-plugin-jest": ">=27",
-    "eslint-plugin-jest-formatting": ">=3"
+    "eslint": ">=8"
   },
   "devDependencies": {
     "@axross/prettier-config": "^1.2.0",
+    "@typescript-eslint/eslint-plugin": "^6.3.0",
+    "@typescript-eslint/parser": "^6.3.0",
     "eslint": "^8.45.0",
-    "prettier": "^3.0.1"
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-import-resolver-typescript": "^3.5.5",
+    "eslint-plugin-compat": "^4.1.4",
+    "eslint-plugin-import": "^2.28.0",
+    "eslint-plugin-jest": "^27.2.3",
+    "eslint-plugin-jest-dom": "^5.0.2",
+    "eslint-plugin-jest-formatting": "^3.1.0",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-react": "^7.33.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-storybook": "^0.6.13",
+    "eslint-plugin-tailwindcss": "^3.13.0",
+    "eslint-plugin-testing-library": "^5.11.1",
+    "prettier": "^3.0.1",
+    "prettier-eslint": "^15.0.1"
   }
 }
