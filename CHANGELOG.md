@@ -1,3 +1,5 @@
+# [2.0.0](https://github.com/axross/eslint-config/compare/v1.6.0...v2.0.0) (2023-08-08)
+
 # [1.6.0](https://github.com/axross/eslint-config/compare/v1.5.0...v1.6.0) (2023-08-08)
 
 
