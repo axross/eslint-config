@@ -9,8 +9,7 @@ A hand-picked configuration set for [ESLint](https://eslint.org/).
 Install this package along with ESlint:
 
 ```sh
-npm i -D eslint @eslint/js eslint-plugin-compat eslint-plugin-import
-npm i -D @axross/eslint-config
+npm i -D eslint @eslint/js @axross/eslint-config
 ```
 
 And extends your ESLint config (`.eslint.js`) with:
@@ -23,151 +22,28 @@ module.exports = {
   // ...
   extends: [
     // ...
-    "@axross/eslint-config/javascript",
+    "@axross/eslint-config",
   ],
 };
 ```
 
-### Prettier
+## Plugin Configurations
 
-If you have your project Prettier set up, install these packages as well:
+If you have installed some plugins listed below, this eslint-config will automatically detects the plugin existence and extends the config.
 
-```sh
-npm i -D prettier-eslint eslint-config-prettier eslint-plugin-prettier
-```
-
-And add `"@axross/eslint-config/prettier"` to `extends` in your ESLint config:
-
-```javascript
-module.exports = {
-  // ...
-  extends: [
-    // ...
-    "@axross/eslint-config/prettier",
-  ],
-};
-```
-
-### TypeScript
-
-If your project is written in TypeScript, install these packages as well:
-
-```sh
-npm i -D @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-import-resolver-typescript
-```
-
-And add `"@axross/eslint-config/typescript"` to `extends` in your ESLint config:
-
-```javascript
-module.exports = {
-  // ...
-  extends: [
-    // ...
-    "@axross/eslint-config/typescript",
-  ],
-};
-```
-
-### React
-
-For React projects, install these packages as well:
-
-```sh
-npm i -D eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jsx-a11y
-```
-
-And add `"@axross/eslint-config/react"` to `extends` in your ESLint config:
-
-```javascript
-module.exports = {
-  // ...
-  extends: [
-    // ...
-    "@axross/eslint-config/react",
-  ],
-};
-```
-
-### Tailwind CSS
-
-For a project with [Tailwind CSS](https://tailwindcss.com/), install these packages as well:
-
-```sh
-npm i -D eslint-plugin-tailwindcss
-```
-
-And add `"@axross/eslint-config/tailwindcss"` to `extends` in your ESLint config:
-
-```javascript
-module.exports = {
-  // ...
-  extends: [
-    // ...
-    "@axross/eslint-config/tailwindcss",
-  ],
-};
-```
-
-### Storybook
-
-If you have your project [Storybook](https://storybook.js.org/) set up, install these packages as well:
-
-```sh
-npm i -D eslint-plugin-storybook
-```
-
-And add `"@axross/eslint-config/storybook"` to `extends` in your ESLint config:
-
-```javascript
-module.exports = {
-  // ...
-  extends: [
-    // ...
-    "@axross/eslint-config/storybook",
-  ],
-};
-```
-
-### Jest
-
-If you're using [Jest](https://jestjs.io/) for testing, install these packages as well:
-
-```sh
-npm i -D eslint-plugin-jest eslint-plugin-jest-formatting
-```
-
-And add `"@axross/eslint-config/jest"` to `extends` in your ESLint config:
-
-```javascript
-module.exports = {
-  // ...
-  extends: [
-    // ...
-    "@axross/eslint-config/jest",
-  ],
-};
-```
-
-### Testing Library
-
-If your tests rely on [Testing Library](https://testing-library.com/), install these packages as well:
-
-```sh
-npm i -D eslint-plugin-testing-library eslint-plugin-jest-dom
-```
-
-And add `"@axross/eslint-config/testing-library"` to `extends` in your ESLint config:
-
-```javascript
-module.exports = {
-  // ...
-  extends: [
-    // ...
-    "@axross/eslint-config/javascript",
-    "@axross/eslint-config/testing-library",
-  ],
-};
-```
+- [`eslint-plugin-compat`](https://github.com/amilajack/eslint-plugin-compat)
+- [`eslint-plugin-import`](https://github.com/import-js/eslint-plugin-import)
+- [`prettier-eslint`](https://github.com/prettier/prettier-eslint), [`eslint-config-prettier`](https://github.com/prettier/eslint-config-prettier) and [`eslint-plugin-prettier`](https://github.com/prettier/eslint-plugin-prettier)
+- [`@typescript-eslint/eslint-plugin`](https://github.com/typescript-eslint/typescript-eslint), [`@typescript-eslint/parser`](https://github.com/typescript-eslint/typescript-eslint) (and [`eslint-import-resolver-typescript`](https://github.com/import-js/eslint-import-resolver-typescript))
+- [`eslint-plugin-react`](https://github.com/jsx-eslint/eslint-plugin-react)
+- [`eslint-plugin-react-hooks`](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks)
+- [`eslint-plugin-jsx-a11y`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y)
+- [`eslint-plugin-tailwindcss`](https://github.com/francoismassart/eslint-plugin-tailwindcss)
+- [`eslint-plugin-storybook`](https://github.com/storybookjs/eslint-plugin-storybook)
+- [`eslint-plugin-jest`](https://github.com/jest-community/eslint-plugin-jest)
+- [`eslint-plugin-jest-formatting`](https://github.com/dangreenisrael/eslint-plugin-jest-formatting)
+- [`eslint-plugin-testing-library`](https://github.com/testing-library/eslint-plugin-testing-library)
+- [`eslint-plugin-jest-dom`](https://github.com/testing-library/eslint-plugin-jest-dom)
 
 ## License
 
