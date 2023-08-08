@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/axross/eslint-config/compare/v1.5.0...v1.6.0) (2023-08-08)
+
+
+### Features
+
+* sync rules with prettier ([#4](https://github.com/axross/eslint-config/issues/4)) ([0eb4198](https://github.com/axross/eslint-config/commit/0eb4198275398c72151bfb5d2975863881d9f2ab))
+
 # [1.5.0](https://github.com/axross/eslint-config/compare/v1.4.0...v1.5.0) (2023-08-07)
 
 
