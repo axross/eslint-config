@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/axross/eslint-config/compare/v2.0.0...v2.1.0) (2023-08-22)
+
+
+### Features
+
+* loosen rules for config files ([#8](https://github.com/axross/eslint-config/issues/8)) ([5b4c8fa](https://github.com/axross/eslint-config/commit/5b4c8fade5cce769cdf7104b4c6414f31a913178))
+
 # [2.0.0](https://github.com/axross/eslint-config/compare/v1.6.0...v2.0.0) (2023-08-08)
 
 # [1.6.0](https://github.com/axross/eslint-config/compare/v1.5.0...v1.6.0) (2023-08-08)
