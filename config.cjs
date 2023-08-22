@@ -21,6 +21,16 @@ const overrides = [
       ],
     },
   },
+  {
+    files: [
+      "*rc.@(js|mjs|cjs|ts|mts|cts|json)",
+      "*.config.@(js|mjs|cjs|ts|mts|cts|json)",
+    ],
+    rules: {
+      "no-magic-numbers": "off",
+      "no-ternary": "off",
+    },
+  },
 ];
 
 if (hasPkg("eslint-plugin-compat")) {
@@ -365,6 +375,19 @@ if (
             custom: {
               match: true,
               regex: "^--[a-z]+(?:-[a-z]+)*$",
+            },
+          },
+          {
+            selector: "objectLiteralProperty",
+            types: ["string"],
+            format: null,
+            filter: {
+              match: true,
+              regex: "^(data|aria)-[a-z]+(?:-[a-z]+)*$",
+            },
+            custom: {
+              match: true,
+              regex: "^(data|aria)-[a-z]+(?:-[a-z]+)*$",
             },
           },
           {
