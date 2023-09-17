@@ -132,21 +132,6 @@ if (hasPkg("eslint-plugin-import")) {
       },
     },
   );
-
-  overrides.push({
-    files: ["*.stories.@(js|jsx|ts|tsx)"],
-    plugins: ["react-hooks", "storybook"],
-    extends: [
-      "plugin:storybook/recommended",
-      "plugin:storybook/csf-strict",
-      "plugin:storybook/addon-interactions",
-    ],
-    rules: {
-      "import/group-exports": "off",
-      "import/no-default-export": "off",
-      "react-hooks/rules-of-hooks": "off",
-    },
-  });
 }
 
 if (
@@ -629,6 +614,27 @@ if (hasPkg("eslint-plugin-storybook")) {
       "plugin:storybook/addon-interactions",
     ],
   });
+
+  if (hasPkg("eslint-plugin-import")) {
+    overrides.push({
+      files: ["*.stories.@(js|jsx|ts|tsx)"],
+      plugins: ["import"],
+      rules: {
+        "import/group-exports": "off",
+        "import/no-default-export": "off",
+      },
+    });
+  }
+
+  if (hasPkg("eslint-plugin-react-hooks")) {
+    overrides.push({
+      files: ["*.stories.@(js|jsx|ts|tsx)"],
+      plugins: ["react-hooks"],
+      rules: {
+        "react-hooks/rules-of-hooks": "off",
+      },
+    });
+  }
 }
 
 if (hasPkg("eslint-plugin-jest") && hasPkg("jest")) {
