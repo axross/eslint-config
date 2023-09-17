@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/axross/eslint-config/compare/v2.1.0...v2.1.1) (2023-09-17)
+
+
+### Bug Fixes
+
+* **config:** handle configurations with multiple plugins ([01b39ec](https://github.com/axross/eslint-config/commit/01b39ecd95568d04497a4b8f64f9d45e9aa9f256))
+
 # [2.1.0](https://github.com/axross/eslint-config/compare/v2.0.0...v2.1.0) (2023-08-22)
 
 
