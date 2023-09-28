@@ -33,6 +33,30 @@ const overrides = [
   },
 ];
 
+if (hasPkg("eslint-plugin-unicorn")) {
+  overrides.push(
+    {
+      files: ["*.@(js|mjs|cjs|jsx|ts|mts|cts|tsx)"],
+      extends: ["plugin:unicorn/recommended"],
+      rules: {
+        "unicorn/custom-error-definition": "error",
+        "unicorn/no-null": "off",
+        "unicorn/numeric-separators-style": "off",
+      },
+    },
+    {
+      files: [
+        "*rc.@(js|mjs|cjs|ts|mts|cts|json)",
+        "*.config.@(js|mjs|cjs|ts|mts|cts|json)",
+      ],
+      plugins: ["eslint-plugin-unicorn"],
+      rules: {
+        "unicorn/prefer-module": "off",
+      },
+    },
+  );
+}
+
 if (hasPkg("eslint-plugin-compat")) {
   overrides.push({
     files: ["*.@(js|mjs|cjs|jsx|ts|mts|cts|tsx)"],
@@ -733,39 +757,40 @@ if (hasPkg("eslint-plugin-jest-dom")) {
   });
 }
 
-if (hasPkg("eslint-plugin-testing-library")) {
-  if (hasPkg("@testing-library/react")) {
-    overrides.push({
-      files: ["*.@(spec|test).@(jsx|tsx)"],
-      extends: ["plugin:testing-library/react"],
-      rules: {
-        // extending eslint-plugin-testing-library v5.11.0
-        "testing-library/consistent-data-testid": [
-          "error",
-          {
-            testIdPattern: "[a-z]+(-[a-z]+)*",
-            testIdAttribute: ["data-testid"],
-          },
-        ],
-        "testing-library/no-global-regexp-flag-in-query": "error",
-        "testing-library/no-manual-cleanup": "error",
-        "testing-library/prefer-explicit-assert": "error",
-        "testing-library/prefer-query-matchers": [
-          "error",
-          {
-            validEntries: [
-              {
-                matcher: "toBeVisible",
-                query: "get",
-              },
-            ],
-          },
-        ],
-        "testing-library/prefer-user-event": "error",
-        "testing-library/prefer-wait-for": "error",
-      },
-    });
-  }
+if (
+  hasPkg("eslint-plugin-testing-library") &&
+  hasPkg("@testing-library/react")
+) {
+  overrides.push({
+    files: ["*.@(spec|test).@(jsx|tsx)"],
+    extends: ["plugin:testing-library/react"],
+    rules: {
+      // extending eslint-plugin-testing-library v5.11.0
+      "testing-library/consistent-data-testid": [
+        "error",
+        {
+          testIdPattern: "[a-z]+(-[a-z]+)*",
+          testIdAttribute: ["data-testid"],
+        },
+      ],
+      "testing-library/no-global-regexp-flag-in-query": "error",
+      "testing-library/no-manual-cleanup": "error",
+      "testing-library/prefer-explicit-assert": "error",
+      "testing-library/prefer-query-matchers": [
+        "error",
+        {
+          validEntries: [
+            {
+              matcher: "toBeVisible",
+              query: "get",
+            },
+          ],
+        },
+      ],
+      "testing-library/prefer-user-event": "error",
+      "testing-library/prefer-wait-for": "error",
+    },
+  });
 }
 
 if (hasPkg("eslint-plugin-prettier")) {
