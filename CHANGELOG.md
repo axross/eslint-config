@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/axross/eslint-config/compare/v2.1.1...v2.2.0) (2023-09-28)
+
+
+### Features
+
+* add eslint-plugin-unicorn support ([#9](https://github.com/axross/eslint-config/issues/9)) ([d947950](https://github.com/axross/eslint-config/commit/d9479503655542f423f09f99e47e0eeb56bab8ad))
+
 ## [2.1.1](https://github.com/axross/eslint-config/compare/v2.1.0...v2.1.1) (2023-09-17)
 
 
