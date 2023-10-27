@@ -40,8 +40,37 @@ if (hasPkg("eslint-plugin-unicorn")) {
       extends: ["plugin:unicorn/recommended"],
       rules: {
         "unicorn/custom-error-definition": "error",
+        "unicorn/expiring-todo-comments": [
+          "error",
+          { allowWarningComments: true },
+        ],
         "unicorn/no-null": "off",
         "unicorn/numeric-separators-style": "off",
+        "unicorn/prefer-ternary": "off",
+        "unicorn/prevent-abbreviations": [
+          "error",
+          {
+            replacements: {
+              db: false,
+            },
+          },
+        ],
+      },
+    },
+    {
+      files: ["*.@(jsx|mjsx|cjsx|tsx|mtsx|ctsx)"],
+      rules: {
+        "unicorn/prevent-abbreviations": [
+          "error",
+          {
+            replacements: {
+              ref: false,
+              refs: false,
+              prop: false,
+              props: false,
+            },
+          },
+        ],
       },
     },
     {
@@ -99,7 +128,7 @@ if (hasPkg("eslint-plugin-import")) {
         "import/extensions": "error",
         "import/first": "error",
         "import/group-exports": "error",
-        "import/max-dependencies": "error",
+        "import/max-dependencies": ["error", { max: 20 }],
         "import/newline-after-import": "error",
         "import/no-anonymous-default-export": "error",
         "import/no-default-export": "error",
@@ -305,7 +334,7 @@ if (
           "error",
           {
             // eslint-disable-next-line no-magic-numbers
-            ignore: [1],
+            ignore: [0, 1],
             ignoreArrayIndexes: true,
             enforceConst: true,
             ignoreEnums: true,
