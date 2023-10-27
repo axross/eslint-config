@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/axross/eslint-config/compare/v2.2.0...v2.3.0) (2023-10-27)
+
+
+### Features
+
+* modify some rules from the feedbacks in real usage in react ([#10](https://github.com/axross/eslint-config/issues/10)) ([33477ef](https://github.com/axross/eslint-config/commit/33477ef8a0d7261f972c56ed0ace58d61f1e7ec9))
+
 # [2.2.0](https://github.com/axross/eslint-config/compare/v2.1.1...v2.2.0) (2023-09-28)
 
 
