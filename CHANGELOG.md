@@ -1,3 +1,10 @@
+# [2.4.0](https://github.com/axross/eslint-config/compare/v2.3.0...v2.4.0) (2023-11-05)
+
+
+### Features
+
+* ignore "searchParams" in abbrviation prevention ([#11](https://github.com/axross/eslint-config/issues/11)) ([5b16893](https://github.com/axross/eslint-config/commit/5b168931edd1365b6a89953b8e0e4219a516ac6d))
+
 # [2.3.0](https://github.com/axross/eslint-config/compare/v2.2.0...v2.3.0) (2023-10-27)
 
 
