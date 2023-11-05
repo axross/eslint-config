@@ -52,6 +52,7 @@ if (hasPkg("eslint-plugin-unicorn")) {
           {
             replacements: {
               db: false,
+              searchParams: false,
             },
           },
         ],
@@ -68,6 +69,7 @@ if (hasPkg("eslint-plugin-unicorn")) {
               refs: false,
               prop: false,
               props: false,
+              searchParams: false,
             },
           },
         ],
