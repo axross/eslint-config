@@ -1,3 +1,10 @@
+# [2.5.0](https://github.com/axross/eslint-config/compare/v2.4.0...v2.5.0) (2023-11-11)
+
+
+### Features
+
+* loosen the jsx prop name rule ([#12](https://github.com/axross/eslint-config/issues/12)) ([7a7d24a](https://github.com/axross/eslint-config/commit/7a7d24a5329d3ebb1abf152ba153d222a43e7aea))
+
 # [2.4.0](https://github.com/axross/eslint-config/compare/v2.3.0...v2.4.0) (2023-11-05)
 
 
