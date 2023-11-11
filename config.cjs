@@ -530,7 +530,7 @@ if (hasPkg("eslint-plugin-react")) {
         "react/jsx-handler-names": [
           "error",
           {
-            eventHandlerPrefix: "on",
+            eventHandlerPrefix: false,
             eventHandlerPropPrefix: "on",
             checkLocalVariables: true,
             checkInlineFunction: true,
