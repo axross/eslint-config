@@ -14,30 +14,28 @@
     "has-pkg": "^0.0.1"
   },
   "peerDependencies": {
-    "@eslint/js": ">=8",
-    "eslint": ">=8"
+    "@eslint/js": "^8.53.0",
+    "eslint": "^8.53.0"
   },
   "devDependencies": {
     "@axross/prettier-config": "^1.2.0",
-    "@typescript-eslint/eslint-plugin": "^6.3.0",
-    "@typescript-eslint/parser": "^6.3.0",
-    "eslint": "^8.45.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-import-resolver-typescript": "^3.5.5",
-    "eslint-plugin-compat": "^4.1.4",
-    "eslint-plugin-import": "^2.28.0",
-    "eslint-plugin-jest": "^27.2.3",
-    "eslint-plugin-jest-dom": "^5.0.2",
+    "@eslint/js": "^8.54.0",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/parser": "^6.12.0",
+    "eslint": "^8.54.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-compat": "^4.2.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-jest": "^27.6.0",
+    "eslint-plugin-jest-dom": "^5.1.0",
     "eslint-plugin-jest-formatting": "^3.1.0",
-    "eslint-plugin-jsx-a11y": "^6.7.1",
-    "eslint-plugin-prettier": "^5.0.0",
-    "eslint-plugin-react": "^7.33.1",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-storybook": "^0.6.13",
+    "eslint-plugin-storybook": "^0.6.15",
     "eslint-plugin-tailwindcss": "^3.13.0",
-    "eslint-plugin-testing-library": "^5.11.1",
-    "eslint-plugin-unicorn": "^48.0.1",
-    "prettier": "^3.0.1",
-    "prettier-eslint": "^15.0.1"
+    "eslint-plugin-testing-library": "^6.2.0",
+    "eslint-plugin-unicorn": "^49.0.0",
+    "prettier": "^3.0.1"
   }
 }
