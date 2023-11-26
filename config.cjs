@@ -824,13 +824,6 @@ if (
   });
 }
 
-if (hasPkg("eslint-plugin-prettier")) {
-  overrides.push({
-    files: ["*"],
-    extends: ["plugin:prettier/recommended"],
-  });
-}
-
 module.exports = {
   env: {
     browser: true,
@@ -994,89 +987,6 @@ module.exports = {
     "symbol-description": "error",
     "vars-on-top": "error",
     yoda: "error",
-
-    // layout & formatting
-    "array-bracket-newline": "error",
-    "array-bracket-spacing": "error",
-    "array-element-newline": ["error", { multiline: true }],
-    "arrow-parens": ["error", "always"],
-    "arrow-spacing": "error",
-    "block-spacing": "error",
-    "brace-style": "error",
-    "comma-dangle": [
-      "error",
-      {
-        arrays: "always-multiline",
-        objects: "always-multiline",
-        imports: "never",
-        exports: "never",
-        functions: "never",
-      },
-    ],
-    "comma-spacing": "error",
-    "comma-style": "error",
-    "computed-property-spacing": "error",
-    "dot-location": "error",
-    "eol-last": "error",
-    "func-call-spacing": "error",
-    "function-call-argument-newline": ["error", "never"],
-    "function-paren-newline": "error",
-    "generator-star-spacing": "error",
-    "implicit-arrow-linebreak": "error",
-    indent: ["error", indent],
-    "jsx-quotes": "error",
-    "key-spacing": "error",
-    "keyword-spacing": "error",
-    "line-comment-position": "error",
-    "linebreak-style": "error",
-    "lines-around-comment": "error",
-    "lines-between-class-members": "error",
-    "max-len": ["error", { code: 120 }],
-    "max-statements-per-line": "error",
-    "multiline-ternary": ["error", "always-multiline"],
-    "new-parens": "error",
-    "newline-per-chained-call": "error",
-    "no-extra-parens": "error",
-    "no-mixed-spaces-and-tabs": "error",
-    "no-multi-spaces": "error",
-    "no-multiple-empty-lines": ["error", { max: 1 }],
-    "no-tabs": "error",
-    "no-trailing-spaces": "error",
-    "no-whitespace-before-property": "error",
-    "nonblock-statement-body-position": "error",
-    "object-curly-newline": ["error", { multiline: true }],
-    "object-curly-spacing": ["error", "always"],
-    "object-property-newline": [
-      "error",
-      { allowAllPropertiesOnSameLine: true },
-    ],
-    "operator-linebreak": ["error", "after"],
-    "padded-blocks": ["error", "never"],
-    "padding-line-between-statements": "error",
-    quotes: "error",
-    "rest-spread-spacing": "error",
-    semi: "error",
-    "semi-spacing": "error",
-    "semi-style": "error",
-    "space-before-blocks": "error",
-    "space-before-function-paren": [
-      "error",
-      {
-        anonymous: "never",
-        named: "never",
-        asyncArrow: "always",
-      },
-    ],
-    "space-in-parens": "error",
-    "space-infix-ops": "error",
-    "space-unary-ops": "error",
-    "switch-colon-spacing": "error",
-    "template-curly-spacing": "error",
-    "template-tag-spacing": "error",
-    "unicode-bom": "error",
-    "wrap-iife": "error",
-    "wrap-regex": "error",
-    "yield-star-spacing": "error",
   },
   overrides,
 };
