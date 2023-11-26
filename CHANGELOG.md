@@ -1,3 +1,10 @@
+# [2.7.0](https://github.com/axross/eslint-config/compare/v2.6.0...v2.7.0) (2023-11-26)
+
+
+### Features
+
+* ts formatting rule deletion ([b936e38](https://github.com/axross/eslint-config/commit/b936e387a810951f173df57ba2241321d2a8e47a))
+
 # [2.6.0](https://github.com/axross/eslint-config/compare/v2.5.0...v2.6.0) (2023-11-26)
 
 
