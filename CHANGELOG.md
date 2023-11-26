@@ -1,3 +1,10 @@
+# [2.6.0](https://github.com/axross/eslint-config/compare/v2.5.0...v2.6.0) (2023-11-26)
+
+
+### Features
+
+* stylistic rule deprecation ([#13](https://github.com/axross/eslint-config/issues/13)) ([1751848](https://github.com/axross/eslint-config/commit/17518487d9ecc24181b78b99491acf556ea147e6))
+
 # [2.5.0](https://github.com/axross/eslint-config/compare/v2.4.0...v2.5.0) (2023-11-11)
 
 
