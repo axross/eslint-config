@@ -1,3 +1,10 @@
+# [2.8.0](https://github.com/axross/eslint-config/compare/v2.7.0...v2.8.0) (2023-11-28)
+
+
+### Features
+
+* modify magic number config ([f47d2c9](https://github.com/axross/eslint-config/commit/f47d2c9288fc8c6d8211af218a46c962ba695a43))
+
 # [2.7.0](https://github.com/axross/eslint-config/compare/v2.6.0...v2.7.0) (2023-11-26)
 
 
