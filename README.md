@@ -29,11 +29,10 @@ module.exports = {
 
 ## Plugin Configurations
 
-If you have installed some plugins listed below, this eslint-config will automatically detects the plugin existence and extends the config.
+If you have installed one of the plugins listed below, this eslint-config will automatically extends the config.
 
 - [`eslint-plugin-compat`](https://github.com/amilajack/eslint-plugin-compat)
 - [`eslint-plugin-import`](https://github.com/import-js/eslint-plugin-import)
-- [`prettier-eslint`](https://github.com/prettier/prettier-eslint), [`eslint-config-prettier`](https://github.com/prettier/eslint-config-prettier) and [`eslint-plugin-prettier`](https://github.com/prettier/eslint-plugin-prettier)
 - [`@typescript-eslint/eslint-plugin`](https://github.com/typescript-eslint/typescript-eslint), [`@typescript-eslint/parser`](https://github.com/typescript-eslint/typescript-eslint) (and [`eslint-import-resolver-typescript`](https://github.com/import-js/eslint-import-resolver-typescript))
 - [`eslint-plugin-react`](https://github.com/jsx-eslint/eslint-plugin-react)
 - [`eslint-plugin-react-hooks`](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks)
