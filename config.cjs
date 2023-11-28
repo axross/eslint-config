@@ -1,20 +1,19 @@
 /* eslint-env node */
 const hasPkg = require("has-pkg");
 const {
-  ignoredMagicNumbersInReact,
+  ignoredMagicNumbers,
   indent,
   maxComplexity,
 } = require("./constants.cjs");
 
 const overrides = [
   {
-    files: ["*.jsx"],
+    files: ["*.?(m|c)js?(x)"],
     rules: {
       "no-magic-numbers": [
         "error",
         {
-          // eslint-disable-next-line no-magic-numbers
-          ignore: ignoredMagicNumbersInReact,
+          ignore: ignoredMagicNumbers,
           ignoreArrayIndexes: true,
           enforceConst: true,
         },
@@ -23,8 +22,10 @@ const overrides = [
   },
   {
     files: [
-      "*rc.@(js|mjs|cjs|ts|mts|cts|json)",
-      "*.config.@(js|mjs|cjs|ts|mts|cts|json)",
+      "*rc.?(m|c)@(j|t)s?(x)",
+      "*rc?(.json)",
+      "*.config.?(m|c)@(j|t)s?(x)",
+      "*.config.json",
     ],
     rules: {
       "no-magic-numbers": "off",
@@ -36,7 +37,7 @@ const overrides = [
 if (hasPkg("eslint-plugin-unicorn")) {
   overrides.push(
     {
-      files: ["*.@(js|mjs|cjs|jsx|ts|mts|cts|tsx)"],
+      files: ["*.?(m|c)@(j|t)s?(x)"],
       extends: ["plugin:unicorn/recommended"],
       rules: {
         "unicorn/custom-error-definition": "error",
@@ -59,7 +60,24 @@ if (hasPkg("eslint-plugin-unicorn")) {
       },
     },
     {
-      files: ["*.@(jsx|mjsx|cjsx|tsx|mtsx|ctsx)"],
+      files: ["*.?(m|c)@(j|t)sx"],
+      rules: {
+        "unicorn/prevent-abbreviations": [
+          "error",
+          {
+            replacements: {
+              ref: false,
+              refs: false,
+              prop: false,
+              props: false,
+              searchParams: false,
+            },
+          },
+        ],
+      },
+    },
+    {
+      files: ["use*.?(m|c)@(j|t)s?(x)"],
       rules: {
         "unicorn/prevent-abbreviations": [
           "error",
@@ -77,8 +95,10 @@ if (hasPkg("eslint-plugin-unicorn")) {
     },
     {
       files: [
-        "*rc.@(js|mjs|cjs|ts|mts|cts|json)",
-        "*.config.@(js|mjs|cjs|ts|mts|cts|json)",
+        "*rc.?(m|c)@(j|t)s?(x)",
+        "*rc?(.json)",
+        "*.config.?(m|c)@(j|t)s?(x)",
+        "*.config.json",
       ],
       plugins: ["eslint-plugin-unicorn"],
       rules: {
@@ -90,7 +110,7 @@ if (hasPkg("eslint-plugin-unicorn")) {
 
 if (hasPkg("eslint-plugin-compat")) {
   overrides.push({
-    files: ["*.@(js|mjs|cjs|jsx|ts|mts|cts|tsx)"],
+    files: ["*.?(m|c)@(j|t)s?(x)"],
     extends: ["plugin:compat/recommended"],
   });
 }
@@ -98,7 +118,7 @@ if (hasPkg("eslint-plugin-compat")) {
 if (hasPkg("eslint-plugin-import")) {
   overrides.push(
     {
-      files: ["*.@(js|mjs|cjs|jsx|ts|mts|cts|tsx)"],
+      files: ["*.?(m|c)@(j|t)s?(x)"],
       extends: ["plugin:import/recommended"],
       rules: {
         // extending eslint-plugin-import v2.25.2 recommended rules
@@ -164,23 +184,26 @@ if (hasPkg("eslint-plugin-import")) {
       rules: { "import/no-commonjs": "off" },
     },
     {
-      files: ["*.@(ts|mts|cts|tsx)"],
+      files: ["*.?(m|c)ts?(x)"],
       settings: { "import/resolver": { typescript: true } },
       extends: ["plugin:import/typescript"],
     },
     {
-      files: ["*.stories.@(ts|mts|cts|tsx)"],
+      files: ["*.stories.?(m|c)ts?(x)"],
       rules: { "import/prefer-default-export": "off" },
     },
     {
-      files: ["**/app/**/page.@(jsx|tsx)", "**/app/**/layout.@(jsx|tsx)"],
+      files: [
+        "**/app/**/page.?(m|c)@(j|t)sx",
+        "**/app/**/layout.?(m|c)@(j|t)sx",
+      ],
       rules: {
         "import/no-default-export": "off",
         "import/prefer-default-export": ["error", { target: "any" }],
       },
     },
     {
-      files: ["*.stories.@(js|mjs|cjs|jsx|ts|mts|cts|tsx)"],
+      files: ["*.stories.?(m|c)@(j|t)s?(x)"],
       rules: {
         "import/group-exports": "off",
         "import/no-default-export": "off",
@@ -195,7 +218,7 @@ if (
 ) {
   overrides.push(
     {
-      files: ["*.@(ts|mts|cts|tsx)"],
+      files: ["*.?(m|c)ts?(x)"],
       parser: "@typescript-eslint/parser",
       parserOptions: {
         ecmaVersion: "latest",
@@ -304,8 +327,7 @@ if (
         "@typescript-eslint/no-magic-numbers": [
           "error",
           {
-            // eslint-disable-next-line no-magic-numbers
-            ignore: [0, 1],
+            ignore: ignoredMagicNumbers,
             ignoreArrayIndexes: true,
             enforceConst: true,
             ignoreEnums: true,
@@ -326,7 +348,7 @@ if (
       },
     },
     {
-      files: ["*.@(jsx|tsx)", "*.stories.@(js|mjs|cjs|jsx|ts|mts|cts|tsx)"],
+      files: ["*.?(m|c)@(j|t)sx", "*.stories.?(m|c)@(j|t)s?(x)"],
       rules: {
         "@typescript-eslint/naming-convention": [
           "error",
@@ -388,8 +410,7 @@ if (
         "@typescript-eslint/no-magic-numbers": [
           "error",
           {
-            // eslint-disable-next-line no-magic-numbers
-            ignore: [1, ...ignoredMagicNumbersInReact],
+            ignore: ignoredMagicNumbers,
             ignoreArrayIndexes: true,
             enforceConst: true,
             ignoreEnums: true,
@@ -398,7 +419,7 @@ if (
       },
     },
     {
-      files: ["**/app/**/route.@(ts|mts|cts)"],
+      files: ["**/app/**/route.?(m|c)ts?(x)"],
       rules: {
         "@typescript-eslint/naming-convention": [
           "error",
@@ -422,7 +443,7 @@ if (
       },
     },
     {
-      files: ["*.@(spec|test).@(ts|mts|cts|tsx)"],
+      files: ["*.@(spec|test).?(m|c)ts?(x)"],
       rules: {
         "@typescript-eslint/unbound-method": "off",
       },
@@ -433,7 +454,7 @@ if (
 if (hasPkg("eslint-plugin-react")) {
   overrides.push(
     {
-      files: ["*.@(jsx|tsx)"],
+      files: ["*.?(m|c)@(j|t)sx"],
       extends: ["plugin:react/recommended", "plugin:react/jsx-runtime"],
       settings: { react: { version: "detect" } },
       rules: {
@@ -583,7 +604,7 @@ if (hasPkg("eslint-plugin-react")) {
 
 if (hasPkg("eslint-plugin-jsx-a11y")) {
   overrides.push({
-    files: ["*.@(jsx|tsx)"],
+    files: ["*.?(m|c)@(j|t)sx"],
     extends: ["plugin:jsx-a11y/recommended"],
     rules: {
       // extending eslint-plugin-jsx-a11y v6.6.0 rules
@@ -596,11 +617,11 @@ if (hasPkg("eslint-plugin-jsx-a11y")) {
 if (hasPkg("eslint-plugin-react-hooks")) {
   overrides.push(
     {
-      files: ["*.@(jsx|tsx)", "use*.@(js|ts)"],
+      files: ["*.?(m|c)@(j|t)sx", "use*.@(js|ts)"],
       extends: ["plugin:react-hooks/recommended"],
     },
     {
-      files: ["*.stories.@(js|jsx|ts|tsx)"],
+      files: ["*.stories.?(m|c)@(j|t)s?(x)"],
       rules: {
         "react-hooks/rules-of-hooks": "off",
       },
@@ -610,7 +631,7 @@ if (hasPkg("eslint-plugin-react-hooks")) {
 
 if (hasPkg("eslint-plugin-storybook")) {
   overrides.push({
-    files: ["*.stories.@(js|jsx|ts|tsx)"],
+    files: ["*.stories.?(m|c)@(j|t)s?(x)"],
     extends: [
       "plugin:storybook/recommended",
       "plugin:storybook/csf-strict",
@@ -620,7 +641,7 @@ if (hasPkg("eslint-plugin-storybook")) {
 
   if (hasPkg("eslint-plugin-import")) {
     overrides.push({
-      files: ["*.stories.@(js|jsx|ts|tsx)"],
+      files: ["*.stories.?(m|c)@(j|t)s?(x)"],
       plugins: ["import"],
       rules: {
         "import/group-exports": "off",
@@ -631,7 +652,7 @@ if (hasPkg("eslint-plugin-storybook")) {
 
   if (hasPkg("eslint-plugin-react-hooks")) {
     overrides.push({
-      files: ["*.stories.@(js|jsx|ts|tsx)"],
+      files: ["*.stories.?(m|c)@(j|t)s?(x)"],
       plugins: ["react-hooks"],
       rules: {
         "react-hooks/rules-of-hooks": "off",
@@ -643,7 +664,7 @@ if (hasPkg("eslint-plugin-storybook")) {
 if (hasPkg("eslint-plugin-jest") && hasPkg("jest")) {
   overrides.push(
     {
-      files: ["*.@(spec|test).@(js|jsx|ts|tsx)"],
+      files: ["*.@(spec|test).?(m|c)@(j|t)s?(x)"],
       extends: ["plugin:jest/recommended", "plugin:jest/style"],
       rules: {
         // extending eslint-plugin-jest v27.2.1
@@ -713,7 +734,7 @@ if (hasPkg("eslint-plugin-jest") && hasPkg("jest")) {
       },
     },
     {
-      files: ["*.@(spec|test).@(ts|mts|cts|tsx)"],
+      files: ["*.@(spec|test).?(m|c)ts?(x)"],
       rules: {
         "jest/no-untyped-mock-factory": "error",
         "jest/unbound-method": "error",
@@ -724,14 +745,14 @@ if (hasPkg("eslint-plugin-jest") && hasPkg("jest")) {
 
 if (hasPkg("eslint-plugin-jest-formatting")) {
   overrides.push({
-    files: ["*.@(spec|test).@(js|jsx|ts|tsx)"],
+    files: ["*.@(spec|test).?(m|c)@(j|t)s?(x)"],
     extends: ["plugin:jest-formatting/strict"],
   });
 }
 
 if (hasPkg("eslint-plugin-jest-dom")) {
   overrides.push({
-    files: ["*.@(spec|test).@(jsx|tsx)"],
+    files: ["*.@(spec|test).?(m|c)@(j|t)sx"],
     extends: ["plugin:jest-dom/recommended"],
   });
 }
@@ -741,7 +762,7 @@ if (
   hasPkg("@testing-library/react")
 ) {
   overrides.push({
-    files: ["*.@(spec|test).@(jsx|tsx)"],
+    files: ["*.@(spec|test).?(m|c)@(j|t)sx"],
     extends: ["plugin:testing-library/react"],
     rules: {
       // extending eslint-plugin-testing-library v5.11.0
@@ -863,6 +884,7 @@ module.exports = {
     "no-magic-numbers": [
       "error",
       {
+        ignore: ignoredMagicNumbers,
         ignoreArrayIndexes: true,
         ignoreDefaultValues: true,
       },
