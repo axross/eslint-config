@@ -84,10 +84,7 @@ if (hasPkg("eslint-plugin-react")) {
         ],
         "react/hook-use-state": "error",
         "react/iframe-missing-sandbox": "error",
-        "react/jsx-boolean-value": [
-          "error",
-          "never",
-        ],
+        "react/jsx-boolean-value": ["error", "never"],
         // "react/jsx-child-element-spacing": "error",
         // "react/jsx-closing-bracket-location": "error",
         // "react/jsx-closing-tag-location": "error",
@@ -106,10 +103,7 @@ if (hasPkg("eslint-plugin-react")) {
           "error",
           {
             allow: "as-needed",
-            extensions: [
-              ".jsx",
-              ".tsx",
-            ],
+            extensions: [".jsx", ".tsx"],
           },
         ],
         // "react/jsx-first-prop-new-line": "error",
@@ -135,10 +129,7 @@ if (hasPkg("eslint-plugin-react")) {
         //   "error",
         //   indent,
         // ],
-        "react/jsx-max-depth": [
-          "error",
-          { max: 10 },
-        ],
+        "react/jsx-max-depth": ["error", { max: 10 }],
         // "react/jsx-max-props-per-line": [
         //   "error",
         //   {
@@ -150,10 +141,7 @@ if (hasPkg("eslint-plugin-react")) {
         //   "error",
         //   { prevent: false },
         // ],
-        "react/jsx-no-bind": [
-          "error",
-          { allowArrowFunctions: true },
-        ],
+        "react/jsx-no-bind": ["error", { allowArrowFunctions: true }],
         "react/jsx-no-constructed-context-values": "error",
         "react/jsx-no-leaked-render": "error",
         "react/jsx-no-literals": "error",
@@ -259,10 +247,7 @@ if (hasPkg("eslint-plugin-react-hooks")) {
 
   config.push(
     {
-      files: [
-        "*.?(m|c)@(j|t)sx",
-        "use*.@(js|ts)",
-      ],
+      files: ["*.?(m|c)@(j|t)sx", "use*.@(js|ts)"],
       plugins: {
         "react-hooks": reactHooksPlugin,
       },

@@ -1,19 +1,20 @@
 const hasPkg = require("has-pkg");
-const { ignoredMagicNumbers, baseNamingConvention } = require("../constants.cjs");
+const {
+  ignoredMagicNumbers,
+  baseNamingConvention,
+} = require("../constants.cjs");
 
 const config = [];
 
 if (
-  hasPkg("@typescript-eslint/parser") && hasPkg("@typescript-eslint/eslint-plugin")
+  hasPkg("@typescript-eslint/parser") &&
+  hasPkg("@typescript-eslint/eslint-plugin")
 ) {
   const typescriptPlugin = require("@typescript-eslint/eslint-plugin");
   const typescriptParser = require("@typescript-eslint/parser");
 
   config.push({
-    files: [
-      "*.?(m|c)@(j|t)sx",
-      "*.stories.?(m|c)@(j|t)s?(x)",
-    ],
+    files: ["*.?(m|c)@(j|t)sx", "*.stories.?(m|c)@(j|t)s?(x)"],
     plugins: {
       "@typescript-eslint": typescriptPlugin,
     },
@@ -29,35 +30,23 @@ if (
         ...baseNamingConvention,
         {
           selector: "variable",
-          format: [
-            "camelCase",
-            "PascalCase",
-          ],
+          format: ["camelCase", "PascalCase"],
           leadingUnderscore: "forbid",
           trailingUnderscore: "forbid",
         },
         {
           selector: "function",
-          format: [
-            "camelCase",
-            "PascalCase",
-          ],
+          format: ["camelCase", "PascalCase"],
           leadingUnderscore: "forbid",
           trailingUnderscore: "forbid",
         },
         {
           selector: "objectLiteralProperty",
-          format: [
-            "camelCase",
-            "PascalCase",
-          ],
+          format: ["camelCase", "PascalCase"],
         },
         {
           selector: "objectLiteralProperty",
-          types: [
-            "number",
-            "string",
-          ],
+          types: ["number", "string"],
           format: null,
           filter: {
             match: true,

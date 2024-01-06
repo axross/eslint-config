@@ -31,27 +31,15 @@ if (hasPkg("@eslint/js")) {
 
         // [suggestions](https://eslint.org/docs/latest/rules/#suggestions)
         "accessor-pairs": "error",
-        "arrow-body-style": [
-          "error",
-          "always",
-        ],
+        "arrow-body-style": ["error", "always"],
         "block-scoped-var": "error",
         camelcase: "error",
-        "capitalized-comments": [
-          "error",
-          "never",
-        ],
+        "capitalized-comments": ["error", "never"],
         "class-methods-use-this": "error",
-        complexity: [
-          "error",
-          maxComplexity,
-        ],
+        complexity: ["error", maxComplexity],
         "consistent-return": "error",
         "consistent-this": "error",
-        curly: [
-          "error",
-          "all",
-        ],
+        curly: ["error", "all"],
         // typescript??
         "default-case": "error",
         "default-case-last": "error",
@@ -60,10 +48,7 @@ if (hasPkg("@eslint/js")) {
         eqeqeq: "error",
         "func-name-matching": "error",
         "func-names": "error",
-        "func-style": [
-          "error",
-          "declaration",
-        ],
+        "func-style": ["error", "declaration"],
         "grouped-accessor-pairs": "error",
         // dont use for-in
         "guard-for-in": "error",
@@ -154,16 +139,10 @@ if (hasPkg("@eslint/js")) {
         "no-useless-rename": "error",
         "no-useless-return": "error",
         "no-var": "error",
-        "no-void": [
-          "error",
-          { allowAsStatement: true },
-        ],
+        "no-void": ["error", { allowAsStatement: true }],
         "no-warning-comments": "error",
         "object-shorthand": "error",
-        "one-var": [
-          "error",
-          "never",
-        ],
+        "one-var": ["error", "never"],
         "one-var-declaration-per-line": "error",
         "operator-assignment": "error",
         "prefer-arrow-callback": "error",
@@ -179,20 +158,11 @@ if (hasPkg("@eslint/js")) {
         "prefer-rest-params": "error",
         "prefer-spread": "error",
         "prefer-template": "error",
-        "quote-props": [
-          "error",
-          "as-needed",
-        ],
-        radix: [
-          "error",
-          "as-needed",
-        ],
+        "quote-props": ["error", "as-needed"],
+        radix: ["error", "as-needed"],
         "require-await": "error",
         "require-unicode-regexp": "error",
-        "sort-imports": [
-          "error",
-          { ignoreDeclarationSort: true },
-        ],
+        "sort-imports": ["error", { ignoreDeclarationSort: true }],
         "sort-keys": 0,
         "sort-vars": "error",
         "spaced-comment": "error",
@@ -246,10 +216,7 @@ if (hasPkg("eslint-plugin-unicorn")) {
       },
     },
     {
-      files: [
-        "*rc.?(m)js?(x)",
-        "*.config.?(m)js?(x)",
-      ],
+      files: ["*rc.?(m)js?(x)", "*.config.?(m)js?(x)"],
       plugins: {
         unicorn: unicornPlugin,
       },
@@ -294,19 +261,13 @@ if (hasPkg("eslint-plugin-import")) {
         "import/no-self-import": "error",
         "import/no-useless-path-segments": "error",
         "import/no-webpack-loader-syntax": "error",
-        "import/consistent-type-specifier-style": [
-          "error",
-          "prefer-inline",
-        ],
+        "import/consistent-type-specifier-style": ["error", "prefer-inline"],
         "import/dynamic-import-chunkname": "off",
         "import/exports-last": "off",
         "import/extensions": "error",
         "import/first": "error",
         "import/group-exports": "error",
-        "import/max-dependencies": [
-          "error",
-          { max: 20 },
-        ],
+        "import/max-dependencies": ["error", { max: 20 }],
         "import/newline-after-import": "error",
         "import/no-anonymous-default-export": "error",
         "import/no-default-export": "error",
@@ -320,13 +281,7 @@ if (hasPkg("eslint-plugin-import")) {
         "import/order": [
           "error",
           {
-            groups: [
-              "builtin",
-              "external",
-              "parent",
-              "sibling",
-              "index",
-            ],
+            groups: ["builtin", "external", "parent", "sibling", "index"],
             pathGroups: [
               {
                 pattern: "~/**",
@@ -375,10 +330,7 @@ if (hasPkg("eslint-plugin-import")) {
       ],
       rules: {
         "import/no-default-export": "off",
-        "import/prefer-default-export": [
-          "error",
-          { target: "any" },
-        ],
+        "import/prefer-default-export": ["error", { target: "any" }],
       },
     },
     {

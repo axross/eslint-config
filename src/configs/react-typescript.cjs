@@ -4,7 +4,8 @@ const { baseNamingConvention } = require("../constants.cjs");
 const config = [];
 
 if (
-  hasPkg("@typescript-eslint/parser") && hasPkg("@typescript-eslint/eslint-plugin")
+  hasPkg("@typescript-eslint/parser") &&
+  hasPkg("@typescript-eslint/eslint-plugin")
 ) {
   const typescriptPlugin = require("@typescript-eslint/eslint-plugin");
   const typescriptParser = require("@typescript-eslint/parser");

@@ -1,10 +1,14 @@
 const hasPkg = require("has-pkg");
-const { ignoredMagicNumbers, baseNamingConvention } = require("../constants.cjs");
+const {
+  ignoredMagicNumbers,
+  baseNamingConvention,
+} = require("../constants.cjs");
 
 const config = [];
 
 if (
-  hasPkg("@typescript-eslint/parser") && hasPkg("@typescript-eslint/eslint-plugin")
+  hasPkg("@typescript-eslint/parser") &&
+  hasPkg("@typescript-eslint/eslint-plugin")
 ) {
   const typescriptPlugin = require("@typescript-eslint/eslint-plugin");
   const typescriptParser = require("@typescript-eslint/parser");
@@ -56,7 +60,7 @@ if (
       "@typescript-eslint/member-delimiter-style": "error",
       "@typescript-eslint/member-ordering": "error",
       "@typescript-eslint/method-signature-style": "error",
-      "camelcase": "off",
+      camelcase: "off",
       "@typescript-eslint/naming-convention": [
         "error",
         ...baseNamingConvention,
