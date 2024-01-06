@@ -1,3 +1,10 @@
+# [2.9.0](https://github.com/axross/eslint-config/compare/v2.8.0...v2.9.0) (2024-01-06)
+
+
+### Features
+
+* config separation ([#14](https://github.com/axross/eslint-config/issues/14)) ([c92ccef](https://github.com/axross/eslint-config/commit/c92ccef1e96db1b24844bb487bf55e70aa9fa11e))
+
 # [2.8.0](https://github.com/axross/eslint-config/compare/v2.7.0...v2.8.0) (2023-11-28)
 
 
