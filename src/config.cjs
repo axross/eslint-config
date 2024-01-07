@@ -1,8 +1,12 @@
 const hasPkg = require("has-pkg");
 
 const config = [
+  {
+    ignores: ["*.d.ts"],
+  },
   ...require("./configs/javascript.cjs"),
   ...require("./configs/react.cjs"),
+  ...require("./configs/next.cjs"),
   ...require("./configs/storybook.cjs"),
   ...require("./configs/testing-library.cjs"),
   ...require("./configs/tool-config.cjs"),

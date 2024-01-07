@@ -307,27 +307,13 @@ if (hasPkg("eslint-plugin-import")) {
       rules: { "import/no-commonjs": "off" },
     },
     {
-      files: ["**/*.?(m|c)ts?(x)"],
-      settings: { "import/resolver": { typescript: true } },
-      plugins: {
-        import: importPlugin,
-      },
-      rules: {
-        ...importPlugin.configs.typescript.rules,
-      },
-    },
-    {
-      files: ["**/*.stories.?(m|c)ts?(x)"],
-      plugins: {
-        import: importPlugin,
-      },
-      rules: { "import/prefer-default-export": "off" },
-    },
-    {
       files: [
         "**/app/**/page.?(m|c)@(j|t)sx",
         "**/app/**/layout.?(m|c)@(j|t)sx",
       ],
+      plugins: {
+        import: importPlugin,
+      },
       rules: {
         "import/no-default-export": "off",
         "import/prefer-default-export": ["error", { target: "any" }],
@@ -335,6 +321,9 @@ if (hasPkg("eslint-plugin-import")) {
     },
     {
       files: ["**/*.stories.?(m|c)@(j|t)s?(x)"],
+      plugins: {
+        import: importPlugin,
+      },
       rules: {
         "import/group-exports": "off",
         "import/no-default-export": "off",

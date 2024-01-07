@@ -13,30 +13,19 @@ if (
   const typescriptPlugin = require("@typescript-eslint/eslint-plugin");
   const typescriptParser = require("@typescript-eslint/parser");
 
+  const languageOptions = {
+    parser: typescriptParser,
+    parserOptions: {
+      project: "./tsconfig.json",
+    },
+  };
+
   config.push({
     files: ["**/*.?(m|c)ts?(x)"],
     plugins: {
       "@typescript-eslint": typescriptPlugin,
     },
-    languageOptions: {
-      parser: typescriptParser,
-      parserOptions: {
-        project: "./tsconfig.json",
-      },
-    },
-    // parser: "@typescript-eslint/parser",
-    // parserOptions: {
-    //   ecmaVersion: "latest",
-    //   ecmaFeatures: { jsx: true },
-    //   project: true,
-    // },
-    // settings: {
-    //   "import/resolver": {
-    //     typescript: true,
-    //     node: true,
-    //   },
-    // },
-    // plugins: ["@typescript-eslint"],
+    languageOptions,
     rules: {
       ...typescriptPlugin.configs.recommended.rules,
       ...typescriptPlugin.configs["recommended-requiring-type-checking"].rules,
@@ -140,6 +129,32 @@ if (
       "@typescript-eslint/return-await": "error",
     },
   });
+
+  if (hasPkg("eslint-plugin-import")) {
+    const importPlugin = require("eslint-plugin-import");
+
+    config.push(
+      {
+        files: ["**/*.?(m|c)ts?(x)"],
+        settings: { "import/resolver": { typescript: true } },
+        plugins: {
+          import: importPlugin,
+        },
+        languageOptions,
+        rules: {
+          ...importPlugin.configs.typescript.rules,
+        },
+      },
+      {
+        files: ["**/*.stories.?(m|c)ts?(x)"],
+        plugins: {
+          import: importPlugin,
+        },
+        languageOptions,
+        rules: { "import/prefer-default-export": "off" },
+      },
+    );
+  }
 }
 
 module.exports = config;
