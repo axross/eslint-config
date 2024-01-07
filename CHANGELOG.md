@@ -1,3 +1,10 @@
+# [2.10.0](https://github.com/axross/eslint-config/compare/v2.9.0...v2.10.0) (2024-01-07)
+
+
+### Features
+
+* eslint-plugin-next support ([#15](https://github.com/axross/eslint-config/issues/15)) ([1e80c5d](https://github.com/axross/eslint-config/commit/1e80c5d3c5c55de682dfc2227fc839635a9cf0b9))
+
 # [2.9.0](https://github.com/axross/eslint-config/compare/v2.8.0...v2.9.0) (2024-01-06)
 
 
