@@ -20,9 +20,7 @@ npm i -D eslint @eslint/js @axross/eslint-config
 And extends your ESLint config (`eslint.config.js`):
 
 ```js
-module.exports = [
-  ...require("@axross/eslint-config"),
-];
+module.exports = [...require("@axross/eslint-config")];
 ```
 
 ## Plugin Support
