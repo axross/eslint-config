@@ -48,7 +48,7 @@ if (hasPkg("@eslint/js")) {
         eqeqeq: "error",
         "func-name-matching": "error",
         "func-names": "error",
-        "func-style": ["error", "declaration"],
+        "func-style": ["error", "declaration", { allowArrowFunctions: true }],
         "grouped-accessor-pairs": "error",
         // dont use for-in
         "guard-for-in": "error",
