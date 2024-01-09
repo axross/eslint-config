@@ -1,3 +1,10 @@
+# [2.11.0](https://github.com/axross/eslint-config/compare/v2.10.0...v2.11.0) (2024-01-09)
+
+
+### Features
+
+* allow arrow functions ([#16](https://github.com/axross/eslint-config/issues/16)) ([063ae0d](https://github.com/axross/eslint-config/commit/063ae0df60517b27eea2c050332638efdd9d110f))
+
 # [2.10.0](https://github.com/axross/eslint-config/compare/v2.9.0...v2.10.0) (2024-01-07)
 
 
