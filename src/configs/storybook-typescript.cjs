@@ -14,7 +14,7 @@ if (
   const typescriptParser = require("@typescript-eslint/parser");
 
   config.push({
-    files: ["*.?(m|c)@(j|t)sx", "*.stories.?(m|c)@(j|t)s?(x)"],
+    files: ["*.stories.?(m|c)@(j|t)s?(x)"],
     plugins: {
       "@typescript-eslint": typescriptPlugin,
     },
