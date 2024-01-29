@@ -1,3 +1,10 @@
+# [2.12.0](https://github.com/axross/eslint-config/compare/v2.11.0...v2.12.0) (2024-01-29)
+
+
+### Features
+
+* modify configs for storybook ([#17](https://github.com/axross/eslint-config/issues/17)) ([c5d2f8b](https://github.com/axross/eslint-config/commit/c5d2f8b9d0141735f70b6ed63365074bdb9b3137))
+
 # [2.11.0](https://github.com/axross/eslint-config/compare/v2.10.0...v2.11.0) (2024-01-09)
 
 
