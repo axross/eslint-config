@@ -14,7 +14,7 @@ if (
   const typescriptParser = require("@typescript-eslint/parser");
 
   config.push({
-    files: ["*.stories.?(m|c)@(j|t)s?(x)"],
+    files: ["**/*.stories.?(m|c)@(j|t)s?(x)"],
     plugins: {
       "@typescript-eslint": typescriptPlugin,
     },
@@ -29,20 +29,10 @@ if (
         "error",
         ...baseNamingConvention,
         {
-          selector: "variable",
+          selector: "variableLike",
           format: ["camelCase", "PascalCase"],
           leadingUnderscore: "forbid",
           trailingUnderscore: "forbid",
-        },
-        {
-          selector: "function",
-          format: ["camelCase", "PascalCase"],
-          leadingUnderscore: "forbid",
-          trailingUnderscore: "forbid",
-        },
-        {
-          selector: "objectLiteralProperty",
-          format: ["camelCase", "PascalCase"],
         },
         {
           selector: "objectLiteralProperty",

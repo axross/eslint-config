@@ -26,20 +26,10 @@ if (
         "error",
         ...baseNamingConvention,
         {
-          selector: "variable",
+          selector: "variableLike",
           format: ["camelCase", "PascalCase"],
           leadingUnderscore: "forbid",
           trailingUnderscore: "forbid",
-        },
-        {
-          selector: "function",
-          format: ["camelCase", "PascalCase"],
-          leadingUnderscore: "forbid",
-          trailingUnderscore: "forbid",
-        },
-        {
-          selector: "objectLiteralProperty",
-          format: ["camelCase", "PascalCase"],
         },
         {
           selector: "objectLiteralProperty",
