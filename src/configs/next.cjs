@@ -23,4 +23,26 @@ if (hasPkg("eslint-plugin-next")) {
   });
 }
 
+if (hasPkg("eslint-plugin-unicorn")) {
+  const unicornPlugin = require("eslint-plugin-unicorn");
+
+  config.push({
+    files: ["**/app/**/route.?(m|c)ts?(x)"],
+    plugins: {
+      unicorn: unicornPlugin,
+    },
+    rules: {
+      "unicorn/prevent-abbreviations": [
+        "error",
+        {
+          replacements: {
+            params: false,
+            searchParams: false,
+          },
+        },
+      ],
+    },
+  });
+}
+
 module.exports = config;
