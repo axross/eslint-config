@@ -1,3 +1,10 @@
+# [2.13.0](https://github.com/axross/eslint-config/compare/v2.12.0...v2.13.0) (2024-01-31)
+
+
+### Features
+
+* add optimization for nextjs apps ([#18](https://github.com/axross/eslint-config/issues/18)) ([17861b0](https://github.com/axross/eslint-config/commit/17861b0d77f644777e1e4d90c63c47b9d2fcaa19))
+
 # [2.12.0](https://github.com/axross/eslint-config/compare/v2.11.0...v2.12.0) (2024-01-29)
 
 
