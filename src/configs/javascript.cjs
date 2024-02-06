@@ -53,7 +53,7 @@ if (hasPkg("@eslint/js")) {
         // dont use for-in
         "guard-for-in": "error",
         "id-denylist": "error",
-        "id-length": "error",
+        "id-length": ["error", { exceptions: ["t"] }],
         "id-match": "error",
         "init-declarations": "error",
         "logical-assignment-operators": "error",
