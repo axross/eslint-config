@@ -1,3 +1,10 @@
+# [2.14.0](https://github.com/axross/eslint-config/compare/v2.13.0...v2.14.0) (2024-02-06)
+
+
+### Features
+
+* allow t function ([#19](https://github.com/axross/eslint-config/issues/19)) ([99aeb12](https://github.com/axross/eslint-config/commit/99aeb12f4e054c896e10b108b7c2ee02cf92aa93))
+
 # [2.13.0](https://github.com/axross/eslint-config/compare/v2.12.0...v2.13.0) (2024-01-31)
 
 
