@@ -33,7 +33,6 @@ If you have installed one of the following plugins, this ESLint config will auto
 
 - [`eslint-config-prettier`](https://github.com/prettier/eslint-config-prettier)
 - [`eslint-plugin-compat`](https://github.com/amilajack/eslint-plugin-compat)
-- [`typescript-eslint`](https://typescript-eslint.io/)
 - [`eslint-plugin-import`](https://github.com/import-js/eslint-plugin-import)
   - When you're using TypeScript, you need to install [`typescript-eslint`](https://typescript-eslint.io/) and [`eslint-import-resolver-typescript`](https://github.com/import-js/eslint-import-resolver-typescript) as well
 - [`eslint-plugin-jest`](https://github.com/jest-community/eslint-plugin-jest)
@@ -41,6 +40,7 @@ If you have installed one of the following plugins, this ESLint config will auto
 - [`eslint-plugin-jest-formatting`](https://github.com/dangreenisrael/eslint-plugin-jest-formatting)
 - [`eslint-plugin-jsx-a11y`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y)
 - [`eslint-plugin-next`](https://github.com/vercel/next.js/tree/canary/packages/eslint-plugin-next) (normally comes with [`next`](https://nextjs.org/))
+- [`eslint-plugin-perfectionist`](https://perfectionist.dev/)
 - [`eslint-plugin-react`](https://github.com/jsx-eslint/eslint-plugin-react)
 - [`eslint-plugin-react-hooks`](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks)
 - [`@react-native/eslint-plugin`](https://github.com/facebook/react-native/tree/main/packages/eslint-plugin-react-native)
@@ -48,6 +48,7 @@ If you have installed one of the following plugins, this ESLint config will auto
 - [`eslint-plugin-tailwindcss`](https://github.com/francoismassart/eslint-plugin-tailwindcss)
 - [`eslint-plugin-testing-library`](https://github.com/testing-library/eslint-plugin-testing-library)
 - [`eslint-plugin-unicorn`](https://github.com/sindresorhus/eslint-plugin-unicorn)
+- [`typescript-eslint`](https://typescript-eslint.io/)
 
 ## License
 

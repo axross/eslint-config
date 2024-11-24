@@ -271,6 +271,14 @@ function getConfigs({ tsconfigRootDir } = {}) {
     );
   }
 
+  if (hasPkg("eslint-plugin-perfectionist")) {
+    config.push({
+      rules: {
+        "@typescript-eslint/sort-type-constituents": "off",
+      },
+    });
+  }
+
   return config;
 }
 
