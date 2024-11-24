@@ -3,158 +3,291 @@ const {
   ignoredMagicNumbers,
   baseNamingConvention,
 } = require("../constants.cjs");
+const getLanguageOptions = require("../utils/language-options.cjs");
+const fileMatch = require("../utils/file-match.cjs");
 
-const config = [];
+function getConfig(options = {}) {
+  /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
+  const config = [];
 
-if (
-  hasPkg("@typescript-eslint/parser") &&
-  hasPkg("@typescript-eslint/eslint-plugin")
-) {
-  const typescriptPlugin = require("@typescript-eslint/eslint-plugin");
-  const typescriptParser = require("@typescript-eslint/parser");
-
-  const languageOptions = {
-    parser: typescriptParser,
-    parserOptions: {
-      project: "./tsconfig.json",
-    },
-  };
-
-  config.push({
-    files: ["**/*.?(m|c)ts?(x)"],
-    plugins: {
-      "@typescript-eslint": typescriptPlugin,
-    },
-    languageOptions,
-    rules: {
-      ...typescriptPlugin.configs.recommended.rules,
-      ...typescriptPlugin.configs["recommended-requiring-type-checking"].rules,
-      ...typescriptPlugin.configs.strict.rules,
-      // extending @typescript-eslint v5.59.8
-      // [supported rules](https://typescript-eslint.io/rules/#supported-rules)
-      "@typescript-eslint/consistent-type-exports": "error",
-      "@typescript-eslint/consistent-type-imports": [
-        "error",
-        {
-          prefer: "type-imports",
-          fixStyle: "inline-type-imports",
-        },
-      ],
-      "@typescript-eslint/explicit-function-return-type": [
-        "error",
-        { allowExpressions: true },
-      ],
-      "@typescript-eslint/explicit-member-accessibility": "error",
-      "@typescript-eslint/explicit-module-boundary-types": "error",
-      "@typescript-eslint/member-delimiter-style": "error",
-      "@typescript-eslint/member-ordering": "error",
-      "@typescript-eslint/method-signature-style": "error",
-      camelcase: "off",
-      "@typescript-eslint/naming-convention": [
-        "error",
-        ...baseNamingConvention,
-      ],
-      "@typescript-eslint/no-confusing-void-expression": "error",
-      "@typescript-eslint/no-duplicate-type-constituents": "error",
-      "@typescript-eslint/no-import-type-side-effects": "off",
-      "@typescript-eslint/no-misused-promises": [
-        "error",
-        {
-          checksConditionals: true,
-          checksVoidReturn: true,
-          checksSpreads: true,
-        },
-      ],
-      "@typescript-eslint/no-redundant-type-constituents": "error",
-      "@typescript-eslint/no-require-imports": "error",
-      "@typescript-eslint/no-type-alias": [
-        "error",
-        {
-          allowAliases: "in-unions-and-intersections",
-          allowCallbacks: "always",
-          allowConditionalTypes: "always",
-          allowLiterals: "in-unions-and-intersections",
-          allowMappedTypes: "in-unions-and-intersections",
-          allowTupleTypes: "always",
-          allowGenerics: "always",
-        },
-      ],
-      "@typescript-eslint/no-unnecessary-qualifier": "error",
-      "@typescript-eslint/no-useless-empty-export": "error",
-      "@typescript-eslint/parameter-properties": "error",
-      "@typescript-eslint/prefer-enum-initializers": "error",
-      "@typescript-eslint/prefer-readonly": "error",
-      "@typescript-eslint/prefer-readonly-parameter-types": "off",
-      "@typescript-eslint/prefer-regexp-exec": "error",
-      "@typescript-eslint/promise-function-async": "off",
-      "@typescript-eslint/require-array-sort-compare": "error",
-      "@typescript-eslint/sort-type-constituents": "error",
-      "@typescript-eslint/strict-boolean-expressions": "error",
-      "@typescript-eslint/switch-exhaustiveness-check": "error",
-      "@typescript-eslint/type-annotation-spacing": "error",
-      "@typescript-eslint/typedef": "error",
-
-      // [extension rules](https://typescript-eslint.io/rules/#extension-rules)
-      "default-param-last": "off",
-      "@typescript-eslint/default-param-last": "error",
-      "init-declarations": "off",
-      "@typescript-eslint/init-declarations": "error",
-      "no-dupe-class-members": "off",
-      "@typescript-eslint/no-dupe-class-members": "error",
-      "no-invalid-this": "off",
-      "@typescript-eslint/no-invalid-this": "error",
-      "no-loop-func": "off",
-      "@typescript-eslint/no-loop-func": "error",
-      "no-magic-numbers": "off",
-      "@typescript-eslint/no-magic-numbers": [
-        "error",
-        {
-          ignore: ignoredMagicNumbers,
-          ignoreArrayIndexes: true,
-          enforceConst: true,
-          ignoreEnums: true,
-        },
-      ],
-      "no-redeclare": "off",
-      "@typescript-eslint/no-redeclare": "error",
-      "no-restricted-imports": "off",
-      "@typescript-eslint/no-restricted-imports": "error",
-      "no-shadow": "off",
-      "@typescript-eslint/no-shadow": "error",
-      "no-unused-expressions": "off",
-      "@typescript-eslint/no-unused-expressions": "error",
-      "no-use-before-define": "off",
-      "@typescript-eslint/no-use-before-define": "error",
-      "no-return-await": "off",
-      "@typescript-eslint/return-await": "error",
-    },
-  });
-
-  if (hasPkg("eslint-plugin-import")) {
-    const importPlugin = require("eslint-plugin-import");
+  if (hasPkg("typescript-eslint")) {
+    const typescriptPlugin = require("typescript-eslint");
 
     config.push(
       {
-        files: ["**/*.?(m|c)ts?(x)"],
-        settings: { "import/resolver": { typescript: true } },
+        files: [fileMatch.allTs],
         plugins: {
-          import: importPlugin,
+          "@typescript-eslint": typescriptPlugin,
         },
-        languageOptions,
+        languageOptions: getLanguageOptions(options),
         rules: {
-          ...importPlugin.configs.typescript.rules,
+          ...typescriptPlugin.configs.strictTypeChecked.rules,
+          ...typescriptPlugin.configs.stylisticTypeChecked.rules,
+          // extending typescript-eslint v8.15.0
+          // [supported rules](https://typescript-eslint.io/rules/#supported-rules)
+          "@typescript-eslint/class-methods-use-this": "error",
+          "@typescript-eslint/consistent-type-exports": "error",
+          "@typescript-eslint/consistent-type-imports": [
+            "error",
+            {
+              prefer: "type-imports",
+              fixStyle: "inline-type-imports",
+            },
+          ],
+          "@typescript-eslint/eslint/default-param-last": "error",
+          "@typescript-eslint/dot-notation": "error",
+          "@typescript-eslint/explicit-function-return-type": [
+            "error",
+            { allowExpressions: true },
+          ],
+          "@typescript-eslint/explicit-member-accessibility": "error",
+          "@typescript-eslint/explicit-module-boundary-types": "error",
+          "@typescript-eslint/init-declarations": "error",
+          "@typescript-eslint/max-params": "error",
+          // "@typescript-eslint/member-delimiter-style": "error",
+          "@typescript-eslint/member-ordering": "error",
+          "@typescript-eslint/method-signature-style": "error",
+          "@typescript-eslint/naming-convention": [
+            "error",
+            ...baseNamingConvention,
+          ],
+          "@typescript-eslint/no-import-type-side-effects": "off",
+          "@typescript-eslint/no-loop-func": "error",
+          "@typescript-eslint/no-magic-numbers": [
+            "error",
+            {
+              ignore: ignoredMagicNumbers,
+              ignoreArrayIndexes: true,
+              enforceConst: true,
+              ignoreEnums: true,
+            },
+          ],
+          "@typescript-eslint/no-misused-promises": [
+            "error",
+            {
+              checksConditionals: true,
+              checksVoidReturn: true,
+              checksSpreads: true,
+            },
+          ],
+          "@typescript-eslint/no-restricted-imports": "error",
+          "@typescript-eslint/no-restricted-types": "error",
+          "@typescript-eslint/no-shadow": "error",
+          "@typescript-eslint/no-type-alias": [
+            "error",
+            {
+              allowAliases: "in-unions-and-intersections",
+              allowCallbacks: "always",
+              allowConditionalTypes: "always",
+              allowLiterals: "in-unions-and-intersections",
+              allowMappedTypes: "in-unions-and-intersections",
+              allowTupleTypes: "always",
+              allowGenerics: "always",
+            },
+          ],
+          "@typescript-eslint/no-unnecessary-parameter-property-assignment":
+            "error",
+          "@typescript-eslint/no-unnecessary-qualifier": "error",
+          "@typescript-eslint/no-unsafe-type-assertion": "error",
+          "@typescript-eslint/no-use-before-define": "error",
+          "@typescript-eslint/no-useless-empty-export": "error",
+          "@typescript-eslint/parameter-properties": "error",
+          "@typescript-eslint/prefer-destructuring": "error",
+          "@typescript-eslint/prefer-enum-initializers": "error",
+          "@typescript-eslint/prefer-readonly": "error",
+          "@typescript-eslint/prefer-readonly-parameter-types": "off",
+          "@typescript-eslint/promise-function-async": "off",
+          "@typescript-eslint/require-array-sort-compare": "error",
+          "@typescript-eslint/sort-type-constituents": "error",
+          "@typescript-eslint/strict-boolean-expressions": "error",
+          "@typescript-eslint/switch-exhaustiveness-check": "error",
+          "@typescript-eslint/type-annotation-spacing": "error",
+          "@typescript-eslint/typedef": "error",
         },
       },
       {
-        files: ["**/*.stories.?(m|c)ts?(x)"],
+        files: [fileMatch.allTsx],
         plugins: {
-          import: importPlugin,
+          "@typescript-eslint": typescriptPlugin,
         },
-        languageOptions,
-        rules: { "import/prefer-default-export": "off" },
+        languageOptions: getLanguageOptions(options),
+        rules: {
+          "@typescript-eslint/naming-convention": [
+            "error",
+            ...baseNamingConvention,
+            {
+              selector: "variableLike",
+              format: ["camelCase", "PascalCase"],
+              leadingUnderscore: "forbid",
+              trailingUnderscore: "forbid",
+            },
+            {
+              selector: "objectLiteralProperty",
+              types: ["number", "string"],
+              format: null,
+              filter: {
+                match: true,
+                regex: "^--[a-z]+(?:-[a-z]+)*$",
+              },
+              custom: {
+                match: true,
+                regex: "^--[a-z]+(?:-[a-z]+)*$",
+              },
+            },
+            {
+              selector: "objectLiteralProperty",
+              types: ["string"],
+              format: null,
+              filter: {
+                match: true,
+                regex: "^(data|aria)-[a-z]+(?:-[a-z]+)*$",
+              },
+              custom: {
+                match: true,
+                regex: "^(data|aria)-[a-z]+(?:-[a-z]+)*$",
+              },
+            },
+          ],
+        },
       },
+      {
+        files: [
+          "**/app/**/layout.?(m|c)ts?(x)",
+          "**/app/**/template.?(m|c)ts?(x)",
+          "**/app/**/page.?(m|c)ts?(x)",
+        ],
+        plugins: {
+          "@typescript-eslint": typescriptPlugin,
+        },
+        languageOptions: getLanguageOptions(options),
+        rules: {
+          "@typescript-eslint/naming-convention": [
+            "error",
+            ...baseNamingConvention,
+            {
+              selector: "variableLike",
+              format: ["camelCase", "PascalCase"],
+              leadingUnderscore: "forbid",
+              trailingUnderscore: "forbid",
+            },
+            {
+              selector: "objectLiteralProperty",
+              types: ["number", "string"],
+              format: null,
+              filter: {
+                match: true,
+                regex: "^--[a-z]+(?:-[a-z]+)*$",
+              },
+              custom: {
+                match: true,
+                regex: "^--[a-z]+(?:-[a-z]+)*$",
+              },
+            },
+            {
+              selector: "objectLiteralProperty",
+              types: ["string"],
+              format: null,
+              filter: {
+                match: true,
+                regex: "^(data|aria)-[a-z]+(?:-[a-z]+)*$",
+              },
+              custom: {
+                match: true,
+                regex: "^(data|aria)-[a-z]+(?:-[a-z]+)*$",
+              },
+            },
+          ],
+        },
+      },
+      {
+        files: ["**/app/**/route.?(m|c)ts?(x)"],
+        plugins: {
+          "@typescript-eslint": typescriptPlugin,
+        },
+        languageOptions: getLanguageOptions(options),
+        rules: {
+          "@typescript-eslint/naming-convention": [
+            "error",
+            ...baseNamingConvention,
+            {
+              selector: "function",
+              format: null,
+              leadingUnderscore: "forbid",
+              trailingUnderscore: "forbid",
+              filter: {
+                match: true,
+                regex: "^(GET|POST|PUT|PATCH|DELETE|OPTIONS)$",
+              },
+            },
+          ],
+        },
+      },
+      {
+        files: ["**/*.stories.?(m|c)@(j|t)s?(x)"],
+        languageOptions: getLanguageOptions(options),
+        plugins: {
+          "@typescript-eslint": typescriptPlugin,
+        },
+        rules: {
+          "@typescript-eslint/naming-convention": [
+            "error",
+            ...baseNamingConvention,
+            {
+              selector: "variableLike",
+              format: ["camelCase", "PascalCase"],
+              leadingUnderscore: "forbid",
+              trailingUnderscore: "forbid",
+            },
+            {
+              selector: "objectLiteralProperty",
+              types: ["number", "string"],
+              format: null,
+              filter: {
+                match: true,
+                regex: "^--[a-z]+(?:-[a-z]+)*$",
+              },
+              custom: {
+                match: true,
+                regex: "^--[a-z]+(?:-[a-z]+)*$",
+              },
+            },
+            {
+              selector: "objectLiteralProperty",
+              types: ["string"],
+              format: null,
+              filter: {
+                match: true,
+                regex: "^(data|aria)-[a-z]+(?:-[a-z]+)*$",
+              },
+              custom: {
+                match: true,
+                regex: "^(data|aria)-[a-z]+(?:-[a-z]+)*$",
+              },
+            },
+          ],
+          "@typescript-eslint/no-magic-numbers": [
+            "error",
+            {
+              ignore: ignoredMagicNumbers,
+              ignoreArrayIndexes: true,
+              enforceConst: true,
+              ignoreEnums: true,
+            },
+          ],
+        },
+      },
+      {
+        files: ["**/*.@(spec|test).?(m|c)ts?(x)"],
+        languageOptions: getLanguageOptions(options),
+        plugins: {
+          "@typescript-eslint": typescriptPlugin,
+        },
+        rules: { "@typescript-eslint/unbound-method": "off" },
+      }
     );
   }
+
+  return config;
 }
 
-module.exports = config;
+module.exports = getConfig;

@@ -7,52 +7,35 @@
   "main": "src/config.cjs",
   "scripts": {
     "format": "prettier --write .",
-    "test": "eslint . --report-unused-disable-directives",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "test": "eslint . --report-unused-disable-directives"
   },
   "dependencies": {
     "has-pkg": "^0.0.1"
   },
   "peerDependencies": {
-    "@eslint/js": "^8.53.0",
-    "eslint": "^8.53.0"
+    "@eslint/js": "^9.15.0",
+    "eslint": "^9.15.0"
   },
   "devDependencies": {
-    "@axross/prettier-config": "^1.2.0",
-    "@eslint/js": "^8.55.0",
-    "@storybook/addon-essentials": "^7.5.3",
-    "@storybook/addon-interactions": "^7.5.3",
-    "@storybook/addon-links": "^7.5.3",
-    "@storybook/addon-onboarding": "^1.0.8",
-    "@storybook/blocks": "^7.5.3",
-    "@storybook/nextjs": "^7.5.3",
-    "@storybook/react": "^7.5.3",
-    "@storybook/testing-library": "^0.2.2",
-    "@types/react": "^18.2.39",
-    "@typescript-eslint/eslint-plugin": "^6.12.0",
-    "@typescript-eslint/parser": "^6.12.0",
-    "eslint": "^8.55.0",
+    "@axross/prettier-config": "^1.4.0",
+    "@eslint/js": "^9.15.0",
+    "@react-native/eslint-plugin": "^0.76.3",
+    "@types/node": "^22.9.3",
+    "eslint": "^9.15.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-import-resolver-typescript": "^3.6.1",
-    "eslint-plugin-compat": "^4.2.0",
-    "eslint-plugin-import": "^2.29.0",
-    "eslint-plugin-jest": "^27.6.0",
-    "eslint-plugin-jest-dom": "^5.1.0",
-    "eslint-plugin-jest-formatting": "^3.1.0",
-    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-import-resolver-typescript": "^3.6.3",
+    "eslint-plugin-compat": "^6.0.1",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.0",
     "eslint-plugin-next": "^0.0.0",
     "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-storybook": "^0.6.15",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-storybook": "^0.11.1",
     "eslint-plugin-tailwindcss": "^3.13.0",
-    "eslint-plugin-testing-library": "^6.2.0",
-    "eslint-plugin-unicorn": "^49.0.0",
-    "next": "^14.0.3",
-    "prettier": "^3.0.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "storybook": "^7.5.3",
-    "typescript": "^5.3.2"
+    "eslint-plugin-testing-library": "^7.0.0",
+    "eslint-plugin-unicorn": "^56.0.1",
+    "prettier": "^3.3.3",
+    "typescript": "~5.6.3",
+    "typescript-eslint": "^8.15.0"
   }
 }

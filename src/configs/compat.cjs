@@ -1,28 +1,22 @@
 const hasPkg = require("has-pkg");
+const { fileMatch } = require("../utils/file-match.cjs");
 const getLanguageOptions = require("../utils/language-options.cjs");
 
 function getConfig(options = {}) {
   /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
   const config = [];
 
-  if (hasPkg("next")) {
-    config.push({
-      ignores: [".next/*"],
-    });
-  }
-
-  if (hasPkg("eslint-plugin-next")) {
-    const nextPlugin = require("eslint-plugin-next");
+  if (hasPkg("eslint-plugin-compat")) {
+    const compatPlugin = require("eslint-plugin-compat");
 
     config.push({
-      files: ["**/*.?(m|c)@(j|t)s?(x)"],
+      files: [fileMatch.allJsTs],
       languageOptions: getLanguageOptions(options),
       plugins: {
-        "@next/next": nextPlugin,
+        compat: compatPlugin,
       },
       rules: {
-        ...nextPlugin.configs.recommended.rules,
-        ...nextPlugin.configs["core-web-vitals"].rules,
+        ...compatPlugin.configs.recommended.rules,
       },
     });
   }

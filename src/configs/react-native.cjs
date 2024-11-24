@@ -5,24 +5,23 @@ function getConfig(options = {}) {
   /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
   const config = [];
 
-  if (hasPkg("next")) {
+  if (hasPkg("react-native")) {
     config.push({
-      ignores: [".next/*"],
+      ignores: ["android/*", "ios/*", ".expo/*"],
     });
   }
 
-  if (hasPkg("eslint-plugin-next")) {
-    const nextPlugin = require("eslint-plugin-next");
+  if (hasPkg("@react-native/eslint-plugin")) {
+    const reactNativePlugin = require("@react-native/eslint-plugin");
 
     config.push({
       files: ["**/*.?(m|c)@(j|t)s?(x)"],
       languageOptions: getLanguageOptions(options),
       plugins: {
-        "@next/next": nextPlugin,
+        "@react-native": reactNativePlugin,
       },
       rules: {
-        ...nextPlugin.configs.recommended.rules,
-        ...nextPlugin.configs["core-web-vitals"].rules,
+        "@react-native/platform-colors": "error",
       },
     });
   }
