@@ -1,3 +1,10 @@
+# [2.15.0](https://github.com/axross/eslint-config/compare/v2.14.0...v2.15.0) (2024-11-24)
+
+
+### Features
+
+* add the new rules in the latest eslint plugins ([c6c609e](https://github.com/axross/eslint-config/commit/c6c609edea3087b6bd5a5580b91085911570e24a))
+
 # [2.14.0](https://github.com/axross/eslint-config/compare/v2.13.0...v2.14.0) (2024-02-06)
 
 
