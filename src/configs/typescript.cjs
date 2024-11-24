@@ -3,10 +3,9 @@ const {
   ignoredMagicNumbers,
   baseNamingConvention,
 } = require("../constants.cjs");
-const getLanguageOptions = require("../utils/language-options.cjs");
 const fileMatch = require("../utils/file-match.cjs");
 
-function getConfig(options = {}) {
+function getConfigs({ tsconfigRootDir } = {}) {
   /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
   const config = [];
 
@@ -15,11 +14,28 @@ function getConfig(options = {}) {
 
     config.push(
       {
-        files: [fileMatch.allTs],
         plugins: {
-          "@typescript-eslint": typescriptPlugin,
+          "@typescript-eslint": typescriptPlugin.plugin,
         },
-        languageOptions: getLanguageOptions(options),
+      },
+      {
+        files: [fileMatch.allTs],
+        languageOptions: {
+          parser: typescriptPlugin.parser,
+          parserOptions: {
+            projectService: {
+              allowDefaultProject: [
+                "*.config.{js,mjs,cjs,jsx,mjsx,cjsx,ts,mts,cts,tsx,mtsx,ctsx}",
+              ],
+            },
+            tsconfigRootDir,
+          },
+          ecmaVersion: "latest",
+          sourceType: "module",
+        },
+      },
+      {
+        files: [fileMatch.allTs],
         rules: {
           ...typescriptPlugin.configs.strictTypeChecked.rules,
           ...typescriptPlugin.configs.stylisticTypeChecked.rules,
@@ -34,7 +50,7 @@ function getConfig(options = {}) {
               fixStyle: "inline-type-imports",
             },
           ],
-          "@typescript-eslint/eslint/default-param-last": "error",
+          "@typescript-eslint/default-param-last": "error",
           "@typescript-eslint/dot-notation": "error",
           "@typescript-eslint/explicit-function-return-type": [
             "error",
@@ -73,23 +89,11 @@ function getConfig(options = {}) {
           "@typescript-eslint/no-restricted-imports": "error",
           "@typescript-eslint/no-restricted-types": "error",
           "@typescript-eslint/no-shadow": "error",
-          "@typescript-eslint/no-type-alias": [
-            "error",
-            {
-              allowAliases: "in-unions-and-intersections",
-              allowCallbacks: "always",
-              allowConditionalTypes: "always",
-              allowLiterals: "in-unions-and-intersections",
-              allowMappedTypes: "in-unions-and-intersections",
-              allowTupleTypes: "always",
-              allowGenerics: "always",
-            },
-          ],
           "@typescript-eslint/no-unnecessary-parameter-property-assignment":
             "error",
           "@typescript-eslint/no-unnecessary-qualifier": "error",
           "@typescript-eslint/no-unsafe-type-assertion": "error",
-          "@typescript-eslint/no-use-before-define": "error",
+          "@typescript-eslint/no-use-before-define": "off",
           "@typescript-eslint/no-useless-empty-export": "error",
           "@typescript-eslint/parameter-properties": "error",
           "@typescript-eslint/prefer-destructuring": "error",
@@ -107,10 +111,6 @@ function getConfig(options = {}) {
       },
       {
         files: [fileMatch.allTsx],
-        plugins: {
-          "@typescript-eslint": typescriptPlugin,
-        },
-        languageOptions: getLanguageOptions(options),
         rules: {
           "@typescript-eslint/naming-convention": [
             "error",
@@ -156,10 +156,6 @@ function getConfig(options = {}) {
           "**/app/**/template.?(m|c)ts?(x)",
           "**/app/**/page.?(m|c)ts?(x)",
         ],
-        plugins: {
-          "@typescript-eslint": typescriptPlugin,
-        },
-        languageOptions: getLanguageOptions(options),
         rules: {
           "@typescript-eslint/naming-convention": [
             "error",
@@ -201,10 +197,6 @@ function getConfig(options = {}) {
       },
       {
         files: ["**/app/**/route.?(m|c)ts?(x)"],
-        plugins: {
-          "@typescript-eslint": typescriptPlugin,
-        },
-        languageOptions: getLanguageOptions(options),
         rules: {
           "@typescript-eslint/naming-convention": [
             "error",
@@ -224,10 +216,6 @@ function getConfig(options = {}) {
       },
       {
         files: ["**/*.stories.?(m|c)@(j|t)s?(x)"],
-        languageOptions: getLanguageOptions(options),
-        plugins: {
-          "@typescript-eslint": typescriptPlugin,
-        },
         rules: {
           "@typescript-eslint/naming-convention": [
             "error",
@@ -278,10 +266,6 @@ function getConfig(options = {}) {
       },
       {
         files: ["**/*.@(spec|test).?(m|c)ts?(x)"],
-        languageOptions: getLanguageOptions(options),
-        plugins: {
-          "@typescript-eslint": typescriptPlugin,
-        },
         rules: { "@typescript-eslint/unbound-method": "off" },
       }
     );
@@ -290,4 +274,4 @@ function getConfig(options = {}) {
   return config;
 }
 
-module.exports = getConfig;
+module.exports = getConfigs;

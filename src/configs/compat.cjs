@@ -1,8 +1,7 @@
 const hasPkg = require("has-pkg");
 const { fileMatch } = require("../utils/file-match.cjs");
-const getLanguageOptions = require("../utils/language-options.cjs");
 
-function getConfig(options = {}) {
+function getConfig() {
   /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
   const config = [];
 
@@ -11,7 +10,6 @@ function getConfig(options = {}) {
 
     config.push({
       files: [fileMatch.allJsTs],
-      languageOptions: getLanguageOptions(options),
       plugins: {
         compat: compatPlugin,
       },

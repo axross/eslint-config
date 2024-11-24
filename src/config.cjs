@@ -1,6 +1,9 @@
+const process = require("node:process");
 const hasPkg = require("has-pkg");
 
-function getConfig(options = {}) {
+const fallbackOptions = { tsconfigRootDir: process.cwd() };
+
+function getConfigs(options = fallbackOptions) {
   const config = [
     { ignores: ["*.d.ts"] },
     ...require("./configs/core.cjs")(options),
@@ -26,4 +29,4 @@ function getConfig(options = {}) {
   return config;
 }
 
-module.exports = getConfig;
+module.exports = getConfigs;

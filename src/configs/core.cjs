@@ -1,9 +1,8 @@
 const hasPkg = require("has-pkg");
 const { ignoredMagicNumbers, maxComplexity } = require("../constants.cjs");
 const fileMatch = require("../utils/file-match.cjs");
-const getLanguageOptions = require("../utils/language-options.cjs");
 
-function getConfig(options = {}) {
+function getConfigs() {
   /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
   const config = [];
 
@@ -13,10 +12,9 @@ function getConfig(options = {}) {
     config.push(
       {
         files: [fileMatch.allJsTs],
-        languageOptions: getLanguageOptions(options),
         rules: {
           ...eslintJs.configs.all.rules,
-          "arrow-body-style": ["error", "always"],
+          "arrow-body-style": "error",
           "capitalized-comments": ["error", "never"],
           complexity: ["error", maxComplexity],
           curly: ["error", "all"],
@@ -27,7 +25,8 @@ function getConfig(options = {}) {
           "max-lines-per-function": "off",
           "max-statements": "off",
           "multiline-comment-style": "off",
-          "no-continue": 0,
+          "no-console": "warn",
+          "no-continue": "off",
           "no-magic-numbers": [
             "error",
             {
@@ -37,6 +36,7 @@ function getConfig(options = {}) {
             },
           ],
           "no-undefined": "off",
+          "no-use-before-define": "off",
           "no-void": ["error", { allowAsStatement: true }],
           "one-var": ["error", "never"],
           "prefer-destructuring": [
@@ -53,14 +53,22 @@ function getConfig(options = {}) {
       },
       {
         files: [fileMatch.allJsxTsx],
-        languageOptions: getLanguageOptions(options),
         rules: {
           "no-ternary": "off",
         },
       },
       {
+        files: ["**/*.?(c)js?(x)"],
+        languageOptions: {
+          globals: {
+            require: "readonly",
+            module: "readonly",
+            console: "readonly",
+          },
+        },
+      },
+      {
         files: ["**/*rc.?(m|c)@(j|t)s?(x)", "**/*.config.?(m|c)@(j|t)s?(x)"],
-        languageOptions: getLanguageOptions(options),
         rules: {
           "no-magic-numbers": "off",
           "no-ternary": "off",
@@ -80,7 +88,6 @@ function getConfig(options = {}) {
     if (hasPkg("eslint-plugin-import")) {
       config.push({
         files: [fileMatch.allJsTs],
-        languageOptions: getLanguageOptions(options),
         rules: {
           // disabled in favor of import/no-duplicates
           "no-duplicate-imports": "off",
@@ -91,7 +98,6 @@ function getConfig(options = {}) {
     if (hasPkg("typescript-eslint")) {
       config.push({
         files: [fileMatch.allTs],
-        languageOptions: getLanguageOptions(options),
         rules: {
           // disabled in favor of @typescript-eslint/class-methods-use-this
           camelcase: "off",
@@ -114,4 +120,4 @@ function getConfig(options = {}) {
   return config;
 }
 
-module.exports = getConfig;
+module.exports = getConfigs;

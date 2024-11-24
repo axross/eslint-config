@@ -1,8 +1,7 @@
 const hasPkg = require("has-pkg");
 const fileMatch = require("../utils/file-match.cjs");
-const getLanguageOptions = require("../utils/language-options.cjs");
 
-function getConfig(options = {}) {
+function getConfigs() {
   /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
   const config = [];
 
@@ -11,11 +10,12 @@ function getConfig(options = {}) {
 
     config.push(
       {
-        files: [fileMatch.allJsTs],
-        languageOptions: getLanguageOptions(options),
         plugins: {
           unicorn: unicornPlugin,
         },
+      },
+      {
+        files: [fileMatch.allJsTs],
         rules: {
           ...unicornPlugin.configs.all.rules,
           "unicorn/expiring-todo-comments": [
@@ -37,10 +37,6 @@ function getConfig(options = {}) {
       },
       {
         files: ["**/*.?(m|c)@(j|t)sx"],
-        languageOptions: getLanguageOptions(options),
-        plugins: {
-          unicorn: unicornPlugin,
-        },
         rules: {
           "unicorn/prevent-abbreviations": [
             "error",
@@ -58,10 +54,6 @@ function getConfig(options = {}) {
       },
       {
         files: ["use*.?(m|c)@(j|t)s?(x)"],
-        languageOptions: getLanguageOptions(options),
-        plugins: {
-          unicorn: unicornPlugin,
-        },
         rules: {
           "unicorn/prevent-abbreviations": [
             "error",
@@ -79,10 +71,6 @@ function getConfig(options = {}) {
       },
       {
         files: ["**/app/**/route.?(m|c)ts?(x)"],
-        languageOptions: getLanguageOptions(options),
-        plugins: {
-          unicorn: unicornPlugin,
-        },
         rules: {
           "unicorn/prevent-abbreviations": [
             "error",
@@ -97,17 +85,14 @@ function getConfig(options = {}) {
       },
       {
         files: ["*rc.?(m)js?(x)", "*.config.?(m)js?(x)"],
-        plugins: {
-          unicorn: unicornPlugin,
-        },
         rules: {
           "unicorn/prefer-module": "off",
         },
-      },
+      }
     );
   }
 
   return config;
 }
 
-module.exports = getConfig;
+module.exports = getConfigs;

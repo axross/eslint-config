@@ -31,7 +31,7 @@ If you have installed one of the following plugins, this ESLint config will auto
 - [`eslint-plugin-compat`](https://github.com/amilajack/eslint-plugin-compat)
 - [`typescript-eslint`](https://typescript-eslint.io/)
 - [`eslint-plugin-import`](https://github.com/import-js/eslint-plugin-import)
-  - When you're using TypeScript, you need to install [`eslint-import-resolver-typescript`](https://github.com/import-js/eslint-import-resolver-typescript) as well
+  - When you're using TypeScript, you need to install [`typescript-eslint`](https://typescript-eslint.io/) and [`eslint-import-resolver-typescript`](https://github.com/import-js/eslint-import-resolver-typescript) as well
 - [`eslint-plugin-jest`](https://github.com/jest-community/eslint-plugin-jest)
 - [`eslint-plugin-jest-dom`](https://github.com/testing-library/eslint-plugin-jest-dom)
 - [`eslint-plugin-jest-formatting`](https://github.com/dangreenisrael/eslint-plugin-jest-formatting)

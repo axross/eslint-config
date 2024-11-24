@@ -1,7 +1,6 @@
 const hasPkg = require("has-pkg");
-const getLanguageOptions = require("../utils/language-options.cjs");
 
-function getConfig(options = {}) {
+function getConfigs() {
   /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
   const config = [];
 
@@ -10,12 +9,13 @@ function getConfig(options = {}) {
 
     config.push(
       {
-        files: ["**/*.?(m|c)@(j|t)sx"],
-        languageOptions: getLanguageOptions(options),
-        settings: { react: { version: "detect" } },
         plugins: {
           react: reactPlugin,
         },
+      },
+      {
+        files: ["**/*.?(m|c)@(j|t)sx"],
+        settings: { react: { version: "detect" } },
         rules: {
           ...reactPlugin.configs.recommended.rules,
           ...reactPlugin.configs["jsx-runtime"].rules,
@@ -174,27 +174,31 @@ function getConfig(options = {}) {
       {
         files: ["**/*.tsx"],
         rules: { "react/require-default-props": "off" },
-      },
+      }
     );
   }
 
   if (hasPkg("eslint-plugin-jsx-a11y")) {
     const jsxA11yPlugin = require("eslint-plugin-jsx-a11y");
 
-    config.push({
-      files: ["**/*.?(m|c)@(j|t)sx"],
-      languageOptions: getLanguageOptions(options),
-      plugins: {
-        "jsx-a11y": jsxA11yPlugin,
+    config.push(
+      {
+        plugins: {
+          "jsx-a11y": jsxA11yPlugin,
+        },
       },
-      rules: {
-        ...jsxA11yPlugin.configs.recommended.rules,
+      {
+        files: ["**/*.?(m|c)@(j|t)sx"],
 
-        // extending eslint-plugin-jsx-a11y v6.6.0 rules
-        "jsx-a11y/no-aria-hidden-on-focusable": "error",
-        "jsx-a11y/prefer-tag-over-role": "warn",
-      },
-    });
+        rules: {
+          ...jsxA11yPlugin.configs.recommended.rules,
+
+          // extending eslint-plugin-jsx-a11y v6.6.0 rules
+          "jsx-a11y/no-aria-hidden-on-focusable": "error",
+          "jsx-a11y/prefer-tag-over-role": "warn",
+        },
+      }
+    );
   }
 
   if (hasPkg("eslint-plugin-react-hooks")) {
@@ -202,29 +206,26 @@ function getConfig(options = {}) {
 
     config.push(
       {
-        files: ["*.?(m|c)@(j|t)sx", "use*.@(js|ts)"],
-        languageOptions: getLanguageOptions(options),
         plugins: {
           "react-hooks": reactHooksPlugin,
         },
+      },
+      {
+        files: ["*.?(m|c)@(j|t)sx", "use*.@(js|ts)"],
         rules: {
           ...reactHooksPlugin.configs.recommended.rules,
         },
       },
       {
         files: ["**/*.stories.?(m|c)@(j|t)s?(x)"],
-        languageOptions: getLanguageOptions(options),
-        plugins: {
-          "react-hooks": reactHooksPlugin,
-        },
         rules: {
           "react-hooks/rules-of-hooks": "off",
         },
-      },
+      }
     );
   }
 
   return config;
 }
 
-module.exports = getConfig;
+module.exports = getConfigs;

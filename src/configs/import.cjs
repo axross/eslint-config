@@ -1,65 +1,76 @@
 const hasPkg = require("has-pkg");
 const fileMatch = require("../utils/file-match.cjs");
-const getLanguageOptions = require("../utils/language-options.cjs");
 
-function getConfig(options = {}) {
+function getConfigs() {
   /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
   const config = [];
 
-  if (hasPkg("eslint-plugin-import")) {
-    const importPlugin = require("eslint-plugin-import");
+  if (hasPkg("eslint-plugin-import-x")) {
+    const importXPlugin = require("eslint-plugin-import-x");
 
     config.push(
+      importXPlugin.flatConfigs.recommended,
+      {
+        files: [fileMatch.allTs],
+        ...importXPlugin.flatConfigs.typescript,
+      },
       {
         files: [fileMatch.allJsTs],
-        languageOptions: getLanguageOptions(options),
-        plugins: {
-          import: importPlugin,
-        },
         rules: {
-          ...importPlugin.configs.recommended.rules,
-          // extending eslint-plugin-import v2.25.2 recommended rules
-          "import/no-deprecated": "error",
-          "import/no-empty-named-blocks": "error",
-          "import/no-extraneous-dependencies": "error",
-          "import/no-mutable-exports": "error",
-          "import/no-named-as-default": "error",
-          "import/no-named-as-default-member": "error",
-          "import/no-unused-modules": "error",
-          "import/no-amd": "error",
-          "import/no-commonjs": "error",
-          "import/no-import-module-exports": "error",
-          "import/no-nodejs-modules": "off",
-          "import/unambiguous": "off",
-          "import/no-absolute-path": "error",
-          "import/no-cycle": "error",
-          "import/no-dynamic-require": "error",
-          "import/no-internal-modules": "off",
-          "import/no-relative-packages": "off",
-          "import/no-relative-parent-imports": "off",
-          "import/no-restricted-paths": "off",
-          "import/no-self-import": "error",
-          "import/no-useless-path-segments": "error",
-          "import/no-webpack-loader-syntax": "error",
-          "import/consistent-type-specifier-style": ["error", "prefer-inline"],
-          "import/dynamic-import-chunkname": "off",
-          "import/exports-last": "off",
-          "import/extensions": "error",
-          "import/first": "error",
-          "import/group-exports": "error",
-          "import/max-dependencies": ["error", { max: 20 }],
-          "import/newline-after-import": "error",
-          "import/no-anonymous-default-export": "error",
-          "import/no-default-export": "error",
-          "import/no-duplicates": "error",
-          "import/no-named-default": "off",
-          "import/no-namespace": "error",
-          "import/no-unassigned-import": [
+          "import-x/no-deprecated": "error",
+          "import-x/no-empty-named-blocks": "error",
+          "import-x/no-extraneous-dependencies": "error",
+          "import-x/no-mutable-exports": "error",
+          "import-x/no-named-as-default": "error",
+          "import-x/no-named-as-default-member": "error",
+          "import-x/no-unused-modules": "error",
+          "import-x/no-amd": "error",
+          "import-x/no-commonjs": "error",
+          "import-x/no-import-module-exports": "error",
+          "import-x/no-nodejs-modules": "off",
+          "import-x/unambiguous": "off",
+          "import-x/no-absolute-path": "error",
+          "import-x/no-cycle": "error",
+          "import-x/no-dynamic-require": "error",
+          "import-x/no-internal-modules": "off",
+          "import-x/no-relative-packages": "off",
+          "import-x/no-relative-parent-imports": "off",
+          "import-x/no-restricted-paths": "off",
+          "import-x/no-self-import": "error",
+          "import-x/no-useless-path-segments": "error",
+          "import-x/no-webpack-loader-syntax": "error",
+          "import-x/consistent-type-specifier-style": [
+            "error",
+            "prefer-inline",
+          ],
+          "import-x/dynamic-import-chunkname": "off",
+          "import-x/exports-last": "off",
+          "import-x/extensions": "error",
+          "import-x/first": "error",
+          "import-x/group-exports": "error",
+          "import-x/max-dependencies": ["error", { max: 20 }],
+          "import-x/newline-after-import": "error",
+          "import-x/no-anonymous-default-export": "error",
+          "import-x/no-default-export": "error",
+          "import-x/no-duplicates": "error",
+          "import-x/no-named-default": "off",
+          "import-x/no-named-export": "off",
+          "import-x/no-namespace": [
+            "error",
+            {
+              ignore: [
+                "@amplitude/analytics-react-native",
+                "expo-*",
+                "valibot",
+                "uuid",
+              ],
+            },
+          ],
+          "import-x/no-unassigned-import": [
             "error",
             { allow: ["**/*.css", "server-only"] },
           ],
-          "import/prefer-default-export": "off",
-          "import/order": [
+          "import-x/order": [
             "error",
             {
               groups: ["builtin", "external", "parent", "sibling", "index"],
@@ -74,65 +85,44 @@ function getConfig(options = {}) {
               alphabetize: { order: "asc" },
             },
           ],
+          "import-x/prefer-default-export": "off",
+        },
+      },
+      {
+        files: [fileMatch.allTs],
+        ...importXPlugin.flatConfigs.typescript,
+        rules: {
+          "import-x/namespace": "off",
         },
       },
       {
         files: ["**/*.@(js|cjs)"],
-        plugins: {
-          import: importPlugin,
-        },
-        rules: { "import/no-commonjs": "off" },
+        rules: { "import-x/no-commonjs": "off" },
       },
       {
         files: [
           "**/app/**/page.?(m|c)@(j|t)sx",
           "**/app/**/layout.?(m|c)@(j|t)sx",
         ],
-        plugins: {
-          import: importPlugin,
-        },
         rules: {
-          "import/no-default-export": "off",
-          "import/prefer-default-export": ["error", { target: "any" }],
+          "import-x/no-default-export": "off",
+          "import-x/prefer-default-export": ["error", { target: "any" }],
         },
       },
       {
         files: ["**/*.stories.?(m|c)@(j|t)s?(x)"],
-        plugins: {
-          import: importPlugin,
-        },
         rules: {
-          "import/group-exports": "off",
-          "import/no-default-export": "off",
+          "import-x/group-exports": "off",
+          "import-x/no-default-export": "off",
         },
-      },
+      }
     );
 
     if (hasPkg("prettier") && hasPkg("eslint-config-prettier")) {
       config.push({
         files: [fileMatch.allJsTs],
-        languageOptions: getLanguageOptions(options),
-        plugins: {
-          import: importPlugin,
-        },
         rules: {
-          "import/order": "off",
-        },
-      });
-    }
-
-    if (hasPkg("typescript-eslint")) {
-      config.push({
-        files: [fileMatch.allTs],
-        languageOptions: getLanguageOptions(options),
-        plugins: {
-          import: importPlugin,
-        },
-        settings: {
-          ...importPlugin.flatConfigs.typescript.settings,
-        },
-        rules: {
-          "import/named": "off",
+          "import-x/order": "off",
         },
       });
     }
@@ -141,4 +131,4 @@ function getConfig(options = {}) {
   return config;
 }
 
-module.exports = getConfig;
+module.exports = getConfigs;

@@ -1,7 +1,6 @@
 const hasPkg = require("has-pkg");
-const getLanguageOptions = require("../utils/language-options.cjs");
 
-function getConfig(options = {}) {
+function getConfig() {
   /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
   const config = [];
 
@@ -14,16 +13,19 @@ function getConfig(options = {}) {
   if (hasPkg("@react-native/eslint-plugin")) {
     const reactNativePlugin = require("@react-native/eslint-plugin");
 
-    config.push({
-      files: ["**/*.?(m|c)@(j|t)s?(x)"],
-      languageOptions: getLanguageOptions(options),
-      plugins: {
-        "@react-native": reactNativePlugin,
+    config.push(
+      {
+        plugins: {
+          "@react-native": reactNativePlugin,
+        },
       },
-      rules: {
-        "@react-native/platform-colors": "error",
-      },
-    });
+      {
+        files: ["**/*.?(m|c)@(j|t)s?(x)"],
+        rules: {
+          "@react-native/platform-colors": "error",
+        },
+      }
+    );
   }
 
   return config;
