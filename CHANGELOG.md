@@ -1,3 +1,10 @@
+# [2.16.0](https://github.com/axross/eslint-config/compare/v2.15.0...v2.16.0) (2024-11-24)
+
+
+### Features
+
+* add eslint-plugin-perfectionist support ([f2c5ebb](https://github.com/axross/eslint-config/commit/f2c5ebb6c2a6c6350e2b0ac3197d94d012ab3e95))
+
 # [2.15.0](https://github.com/axross/eslint-config/compare/v2.14.0...v2.15.0) (2024-11-24)
 
 
