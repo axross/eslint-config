@@ -6,7 +6,7 @@ A hand-crafted configuration set for [ESLint](https://eslint.org/).
 
 ## Prerequisites
 
-- Later or equal than [ESLint v8.21.0](https://eslint.org/blog/2022/08/eslint-v8.21.0-released/)
+- Later or equal than [ESLint v9.15.0](https://eslint.org/blog/2024/11/eslint-v9.15.0-released/)
 - Flat config
 
 ## Installation
@@ -20,7 +20,11 @@ npm i -D eslint @eslint/js @axross/eslint-config
 And extends your ESLint config (`eslint.config.js`):
 
 ```js
-module.exports = [...require("@axross/eslint-config")];
+/* global __dirname:readonly */
+
+module.exports = [
+  ...require("./src/config.cjs")({ tsconfigRootDir: __dirname }),
+];
 ```
 
 ## Plugin Support

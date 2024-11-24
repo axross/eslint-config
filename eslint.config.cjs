@@ -1,4 +1,5 @@
-const getAxConfigs = require("./src/config.cjs");
+/* global __dirname:readonly */
 
-// eslint-disable-next-line no-undef
-module.exports = [...getAxConfigs({ tsconfigRootDir: __dirname })];
+module.exports = [
+  ...require("./src/config.cjs")({ tsconfigRootDir: __dirname }),
+];
