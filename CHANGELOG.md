@@ -1,3 +1,10 @@
+# [2.17.0](https://github.com/axross/eslint-config/compare/v2.16.0...v2.17.0) (2024-11-25)
+
+
+### Features
+
+* tweak some perfectionist configs ([a1620bf](https://github.com/axross/eslint-config/commit/a1620bfd03425397abbfd87ec54df31f678431bd))
+
 # [2.16.0](https://github.com/axross/eslint-config/compare/v2.15.0...v2.16.0) (2024-11-24)
 
 
