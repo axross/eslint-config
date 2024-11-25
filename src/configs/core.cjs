@@ -11,6 +11,13 @@ function getConfigs() {
 
     config.push(
       {
+        languageOptions: {
+          globals: {
+            console: "readonly",
+          },
+        },
+      },
+      {
         files: [fileMatch.allJsTs],
         rules: {
           ...eslintJs.configs.all.rules,
@@ -19,7 +26,7 @@ function getConfigs() {
           complexity: ["error", maxComplexity],
           curly: ["error", "all"],
           "func-style": ["error", "declaration", { allowArrowFunctions: true }],
-          "id-length": ["error", { exceptions: ["t"] }],
+          "id-length": ["error", { exceptions: ["i", "v"] }],
           "max-classes-per-file": "off",
           "max-lines": "off",
           "max-lines-per-function": "off",
@@ -63,7 +70,6 @@ function getConfigs() {
           globals: {
             require: "readonly",
             module: "readonly",
-            console: "readonly",
           },
         },
       },

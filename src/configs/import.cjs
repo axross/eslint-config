@@ -41,7 +41,7 @@ function getConfigs() {
           "import-x/no-webpack-loader-syntax": "error",
           "import-x/consistent-type-specifier-style": [
             "error",
-            "prefer-inline",
+            "prefer-top-level",
           ],
           "import-x/dynamic-import-chunkname": "off",
           "import-x/exports-last": "off",

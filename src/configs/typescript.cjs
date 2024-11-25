@@ -60,7 +60,7 @@ function getConfigs({ tsconfigRootDir } = {}) {
           "@typescript-eslint/explicit-module-boundary-types": "error",
           "@typescript-eslint/init-declarations": "error",
           "@typescript-eslint/max-params": "error",
-          // "@typescript-eslint/member-delimiter-style": "error",
+          "@typescript-eslint/member-delimiter-style": "error",
           "@typescript-eslint/member-ordering": "error",
           "@typescript-eslint/method-signature-style": "error",
           "@typescript-eslint/naming-convention": [
@@ -274,6 +274,7 @@ function getConfigs({ tsconfigRootDir } = {}) {
   if (hasPkg("eslint-plugin-perfectionist")) {
     config.push({
       rules: {
+        "@typescript-eslint/member-ordering": "off",
         "@typescript-eslint/sort-type-constituents": "off",
       },
     });
