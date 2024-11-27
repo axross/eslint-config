@@ -1,3 +1,10 @@
+# [2.18.0](https://github.com/axross/eslint-config/compare/v2.17.0...v2.18.0) (2024-11-27)
+
+
+### Features
+
+* set globals appropriately ([09b84ad](https://github.com/axross/eslint-config/commit/09b84adbbd389ee66cb61b84c8656e33cc476f43))
+
 # [2.17.0](https://github.com/axross/eslint-config/compare/v2.16.0...v2.17.0) (2024-11-25)
 
 
