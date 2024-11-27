@@ -24,7 +24,7 @@ function getConfigs() {
           "import-x/no-empty-named-blocks": "error",
           "import-x/no-extraneous-dependencies": "error",
           "import-x/no-mutable-exports": "error",
-          "import-x/no-named-as-default": "error",
+          "import-x/no-named-as-default": "off",
           "import-x/no-named-as-default-member": "error",
           "import-x/no-unused-modules": "error",
           "import-x/no-amd": "error",
