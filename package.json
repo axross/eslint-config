@@ -10,6 +10,7 @@
     "test": "eslint . --report-unused-disable-directives"
   },
   "dependencies": {
+    "globals": "^15.12.0",
     "has-pkg": "^0.0.1"
   },
   "peerDependencies": {

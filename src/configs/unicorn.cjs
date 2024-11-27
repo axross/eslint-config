@@ -1,5 +1,4 @@
 const hasPkg = require("has-pkg");
-const fileMatch = require("../utils/file-match.cjs");
 
 function getConfigs() {
   /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
@@ -9,15 +8,9 @@ function getConfigs() {
     const unicornPlugin = require("eslint-plugin-unicorn");
 
     config.push(
+      unicornPlugin.configs["flat/all"],
       {
-        plugins: {
-          unicorn: unicornPlugin,
-        },
-      },
-      {
-        files: [fileMatch.allJsTs],
         rules: {
-          ...unicornPlugin.configs.all.rules,
           "unicorn/expiring-todo-comments": [
             "error",
             { allowWarningComments: true },

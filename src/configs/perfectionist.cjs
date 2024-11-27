@@ -35,6 +35,24 @@ function getConfig() {
           "error",
           { groupKind: "types-first" },
         ],
+        "perfectionist/sort-imports": [
+          "error",
+          {
+            newlinesBetween: "never",
+            groups: [
+              "side-effect",
+              "builtin",
+              ["external", "external-type"],
+              ["internal", "internal-type"],
+              ["parent", "parent-type"],
+              ["sibling", "sibling-type"],
+              "index",
+              "index-type",
+              "style",
+              "unknown",
+            ],
+          },
+        ],
         "perfectionist/sort-modules": [
           "error",
           {

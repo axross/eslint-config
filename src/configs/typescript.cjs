@@ -4,6 +4,7 @@ const {
   baseNamingConvention,
 } = require("../constants.cjs");
 const fileMatch = require("../utils/file-match.cjs");
+const languageOptionsGlobals = require("../utils/globals.cjs");
 
 function getConfigs({ tsconfigRootDir } = {}) {
   /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
@@ -32,6 +33,7 @@ function getConfigs({ tsconfigRootDir } = {}) {
           },
           ecmaVersion: "latest",
           sourceType: "module",
+          globals: languageOptionsGlobals,
         },
       },
       {

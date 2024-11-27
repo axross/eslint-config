@@ -9,14 +9,17 @@ function getConfigs() {
     const importXPlugin = require("eslint-plugin-import-x");
 
     config.push(
-      importXPlugin.flatConfigs.recommended,
       {
-        files: [fileMatch.allTs],
-        ...importXPlugin.flatConfigs.typescript,
+        name: importXPlugin.flatConfigs.recommended.name,
+        plugins: importXPlugin.flatConfigs.recommended.plugins,
       },
+      importXPlugin.flatConfigs.typescript,
       {
         files: [fileMatch.allJsTs],
         rules: {
+          // i avoid using the config itself because this config includes their
+          // own languageOptions, which overwrites the globals
+          ...importXPlugin.flatConfigs.recommended.rules,
           "import-x/no-deprecated": "error",
           "import-x/no-empty-named-blocks": "error",
           "import-x/no-extraneous-dependencies": "error",
@@ -90,7 +93,6 @@ function getConfigs() {
       },
       {
         files: [fileMatch.allTs],
-        ...importXPlugin.flatConfigs.typescript,
         rules: {
           "import-x/namespace": "off",
         },
