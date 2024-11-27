@@ -1,3 +1,10 @@
+# [2.19.0](https://github.com/axross/eslint-config/compare/v2.18.0...v2.19.0) (2024-11-27)
+
+
+### Features
+
+* optimize configs for typescript ([fefb51b](https://github.com/axross/eslint-config/commit/fefb51becc3a532791e8deeb048c7c733c54c14b))
+
 # [2.18.0](https://github.com/axross/eslint-config/compare/v2.17.0...v2.18.0) (2024-11-27)
 
 
