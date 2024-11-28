@@ -1,3 +1,10 @@
+# [2.20.0](https://github.com/axross/eslint-config/compare/v2.19.0...v2.20.0) (2024-11-28)
+
+
+### Features
+
+* @stylistic/eslint-plugin support ([9e22cc0](https://github.com/axross/eslint-config/commit/9e22cc070870e1d0bc262427473335f91147e4b6))
+
 # [2.19.0](https://github.com/axross/eslint-config/compare/v2.18.0...v2.19.0) (2024-11-27)
 
 
