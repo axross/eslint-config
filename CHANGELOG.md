@@ -1,3 +1,10 @@
+## [2.20.1](https://github.com/axross/eslint-config/compare/v2.20.0...v2.20.1) (2024-11-28)
+
+
+### Bug Fixes
+
+* wrong import ([b38f649](https://github.com/axross/eslint-config/commit/b38f6495c9f2e9e93b82e1ad3aa0d0d406d7a17c))
+
 # [2.20.0](https://github.com/axross/eslint-config/compare/v2.19.0...v2.20.0) (2024-11-28)
 
 
