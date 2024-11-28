@@ -10,6 +10,7 @@ function getConfigs(options = fallbackOptions) {
     ...require("./configs/eslint.cjs")(options),
     ...require("./configs/unicorn.cjs")(options),
     ...require("./configs/perfectionist.cjs")(options),
+    ...require("./configs/stylistic.cjs")(options),
     ...require("./configs/import.cjs")(options),
     ...require("./configs/typescript.cjs")(options),
     ...require("./configs/react.cjs")(options),

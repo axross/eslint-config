@@ -11,11 +11,11 @@ function getConfigs() {
       unicornPlugin.configs["flat/all"],
       {
         rules: {
+          "unicorn/no-null": "off",
           "unicorn/expiring-todo-comments": [
             "error",
             { allowWarningComments: true },
           ],
-          "unicorn/no-null": "off",
           "unicorn/prevent-abbreviations": [
             "error",
             {
@@ -26,6 +26,7 @@ function getConfigs() {
               },
             },
           ],
+          "unicorn/no-keyword-prefix": "off",
         },
       },
       {
@@ -35,10 +36,10 @@ function getConfigs() {
             "error",
             {
               replacements: {
-                ref: false,
-                refs: false,
                 prop: false,
                 props: false,
+                ref: false,
+                refs: false,
                 searchParams: false,
               },
             },
@@ -52,10 +53,10 @@ function getConfigs() {
             "error",
             {
               replacements: {
-                ref: false,
-                refs: false,
                 prop: false,
                 props: false,
+                ref: false,
+                refs: false,
                 searchParams: false,
               },
             },
@@ -77,11 +78,12 @@ function getConfigs() {
         },
       },
       {
-        files: ["*rc.?(m)js?(x)", "*.config.?(m)js?(x)"],
-        rules: {
-          "unicorn/prefer-module": "off",
-        },
-      }
+        rules: { "unicorn/prefer-module": "off" },
+        files: [
+          "*rc.?(m)js?(x)",
+          "*.config.?(m)js?(x)",
+        ],
+      },
     );
   }
 

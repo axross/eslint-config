@@ -1,4 +1,11 @@
 {
   "editor.formatOnSave": true,
-  "eslint.experimental.useFlatConfig": true
+  "[javascript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    },
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.tabSize": 2
+  },
 }

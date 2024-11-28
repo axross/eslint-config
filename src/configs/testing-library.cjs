@@ -25,13 +25,15 @@ function getConfig() {
           "testing-library/consistent-data-testid": [
             "error",
             {
-              testIdPattern: "[a-z]+(-[a-z]+)*",
               testIdAttribute: ["data-testid"],
+              testIdPattern: "[a-z]+(-[a-z]+)*",
             },
           ],
           "testing-library/no-global-regexp-flag-in-query": "error",
           "testing-library/no-manual-cleanup": "error",
           "testing-library/prefer-explicit-assert": "error",
+          "testing-library/prefer-user-event": "error",
+          "testing-library/prefer-wait-for": "error",
           "testing-library/prefer-query-matchers": [
             "error",
             {
@@ -43,8 +45,6 @@ function getConfig() {
               ],
             },
           ],
-          "testing-library/prefer-user-event": "error",
-          "testing-library/prefer-wait-for": "error",
         },
       }
     );

@@ -1,5 +1,4 @@
 const hasPkg = require("has-pkg");
-const { fileMatch } = require("../utils/file-match.cjs");
 
 function getConfig() {
   /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
@@ -9,7 +8,7 @@ function getConfig() {
     const compatPlugin = require("eslint-plugin-compat");
 
     config.push({
-      files: [fileMatch.allJsTs],
+      files: ["**/*.?(m|c)@(j|t)s?(x)"],
       plugins: {
         compat: compatPlugin,
       },

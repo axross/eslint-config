@@ -1,10 +1,9 @@
 const hasPkg = require("has-pkg");
 const {
-  ignoredMagicNumbers,
   baseNamingConvention,
+  ignoredMagicNumbers,
 } = require("../constants.cjs");
-const fileMatch = require("../utils/file-match.cjs");
-const languageOptionsGlobals = require("../utils/globals.cjs");
+const languageOptionsGlobals = require("../globals.cjs");
 
 function getConfigs({ tsconfigRootDir } = {}) {
   /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
@@ -14,50 +13,32 @@ function getConfigs({ tsconfigRootDir } = {}) {
     const typescriptPlugin = require("typescript-eslint");
 
     config.push(
+      { plugins: { "@typescript-eslint": typescriptPlugin.plugin } },
       {
-        plugins: {
-          "@typescript-eslint": typescriptPlugin.plugin,
-        },
-      },
-      {
-        files: [fileMatch.allTs],
+        files: ["**/*.?(m|c)ts?(x)"],
         languageOptions: {
+          ecmaVersion: "latest",
+          globals: languageOptionsGlobals,
           parser: typescriptPlugin.parser,
+          sourceType: "module",
           parserOptions: {
-            projectService: {
-              allowDefaultProject: [
-                "*.config.{js,mjs,cjs,jsx,mjsx,cjsx,ts,mts,cts,tsx,mtsx,ctsx}",
-              ],
-            },
+            projectService: { allowDefaultProject: ["*.config.{js,mjs,cjs,jsx,mjsx,cjsx,ts,mts,cts,tsx,mtsx,ctsx}"] },
             tsconfigRootDir,
           },
-          ecmaVersion: "latest",
-          sourceType: "module",
-          globals: languageOptionsGlobals,
         },
       },
       {
-        files: [fileMatch.allTs],
+        files: ["**/*.?(m|c)ts?(x)"],
         rules: {
           ...typescriptPlugin.configs.strictTypeChecked.rules,
           ...typescriptPlugin.configs.stylisticTypeChecked.rules,
+
           // extending typescript-eslint v8.15.0
           // [supported rules](https://typescript-eslint.io/rules/#supported-rules)
           "@typescript-eslint/class-methods-use-this": "error",
           "@typescript-eslint/consistent-type-exports": "error",
-          "@typescript-eslint/consistent-type-imports": [
-            "error",
-            {
-              prefer: "type-imports",
-              fixStyle: "inline-type-imports",
-            },
-          ],
           "@typescript-eslint/default-param-last": "error",
           "@typescript-eslint/dot-notation": "error",
-          "@typescript-eslint/explicit-function-return-type": [
-            "error",
-            { allowExpressions: true },
-          ],
           "@typescript-eslint/explicit-member-accessibility": "error",
           "@typescript-eslint/explicit-module-boundary-types": "error",
           "@typescript-eslint/init-declarations": "off",
@@ -65,34 +46,11 @@ function getConfigs({ tsconfigRootDir } = {}) {
           "@typescript-eslint/member-delimiter-style": "error",
           "@typescript-eslint/member-ordering": "error",
           "@typescript-eslint/method-signature-style": "error",
-          "@typescript-eslint/naming-convention": [
-            "error",
-            ...baseNamingConvention,
-          ],
           "@typescript-eslint/no-import-type-side-effects": "off",
           "@typescript-eslint/no-loop-func": "error",
-          "@typescript-eslint/no-magic-numbers": [
-            "error",
-            {
-              ignore: ignoredMagicNumbers,
-              ignoreArrayIndexes: true,
-              enforceConst: true,
-              ignoreEnums: true,
-            },
-          ],
-          "@typescript-eslint/no-misused-promises": [
-            "error",
-            {
-              checksConditionals: true,
-              checksVoidReturn: true,
-              checksSpreads: true,
-            },
-          ],
           "@typescript-eslint/no-restricted-imports": "error",
           "@typescript-eslint/no-restricted-types": "error",
           "@typescript-eslint/no-shadow": "error",
-          "@typescript-eslint/no-unnecessary-parameter-property-assignment":
-            "error",
           "@typescript-eslint/no-unnecessary-qualifier": "error",
           "@typescript-eslint/no-unsafe-type-assertion": "error",
           "@typescript-eslint/no-use-before-define": "off",
@@ -105,49 +63,89 @@ function getConfigs({ tsconfigRootDir } = {}) {
           "@typescript-eslint/promise-function-async": "off",
           "@typescript-eslint/require-array-sort-compare": "error",
           "@typescript-eslint/sort-type-constituents": "error",
+          "@typescript-eslint/switch-exhaustiveness-check": "error",
+          "@typescript-eslint/type-annotation-spacing": "error",
+          "@typescript-eslint/typedef": "error",
+          "@typescript-eslint/consistent-type-imports": [
+            "error",
+            {
+              fixStyle: "inline-type-imports",
+              prefer: "type-imports",
+            },
+          ],
+          "@typescript-eslint/explicit-function-return-type": [
+            "error",
+            { allowExpressions: true },
+          ],
+          "@typescript-eslint/naming-convention": [
+            "error",
+            ...baseNamingConvention,
+          ],
+          "@typescript-eslint/no-magic-numbers": [
+            "error",
+            {
+              enforceConst: true,
+              ignore: ignoredMagicNumbers,
+              ignoreArrayIndexes: true,
+              ignoreEnums: true,
+            },
+          ],
+          "@typescript-eslint/no-misused-promises": [
+            "error",
+            {
+              checksConditionals: true,
+              checksSpreads: true,
+              checksVoidReturn: true,
+            },
+          ],
+          "@typescript-eslint/no-unnecessary-parameter-property-assignment":
+            "error",
           "@typescript-eslint/strict-boolean-expressions": [
             "error",
             { allowNullableString: true },
           ],
-          "@typescript-eslint/switch-exhaustiveness-check": "error",
-          "@typescript-eslint/type-annotation-spacing": "error",
-          "@typescript-eslint/typedef": "error",
         },
       },
       {
-        files: [fileMatch.allTsx],
+        files: ["**/*.?(m|c)ts?(x)"],
         rules: {
           "@typescript-eslint/naming-convention": [
             "error",
             ...baseNamingConvention,
             {
-              selector: "variableLike",
-              format: ["camelCase", "PascalCase"],
               leadingUnderscore: "forbid",
+              selector: "variableLike",
               trailingUnderscore: "forbid",
+              format: [
+                "camelCase",
+                "PascalCase",
+              ],
             },
             {
-              selector: "objectLiteralProperty",
-              types: ["number", "string"],
               format: null,
-              filter: {
-                match: true,
-                regex: "^--[a-z]+(?:-[a-z]+)*$",
-              },
+              selector: "objectLiteralProperty",
               custom: {
                 match: true,
                 regex: "^--[a-z]+(?:-[a-z]+)*$",
               },
+              filter: {
+                match: true,
+                regex: "^--[a-z]+(?:-[a-z]+)*$",
+              },
+              types: [
+                "number",
+                "string",
+              ],
             },
             {
+              format: null,
               selector: "objectLiteralProperty",
               types: ["string"],
-              format: null,
-              filter: {
+              custom: {
                 match: true,
                 regex: "^(data|aria)-[a-z]+(?:-[a-z]+)*$",
               },
-              custom: {
+              filter: {
                 match: true,
                 regex: "^(data|aria)-[a-z]+(?:-[a-z]+)*$",
               },
@@ -166,33 +164,39 @@ function getConfigs({ tsconfigRootDir } = {}) {
             "error",
             ...baseNamingConvention,
             {
-              selector: "variableLike",
-              format: ["camelCase", "PascalCase"],
               leadingUnderscore: "forbid",
+              selector: "variableLike",
               trailingUnderscore: "forbid",
+              format: [
+                "camelCase",
+                "PascalCase",
+              ],
             },
             {
-              selector: "objectLiteralProperty",
-              types: ["number", "string"],
               format: null,
-              filter: {
-                match: true,
-                regex: "^--[a-z]+(?:-[a-z]+)*$",
-              },
+              selector: "objectLiteralProperty",
               custom: {
                 match: true,
                 regex: "^--[a-z]+(?:-[a-z]+)*$",
               },
+              filter: {
+                match: true,
+                regex: "^--[a-z]+(?:-[a-z]+)*$",
+              },
+              types: [
+                "number",
+                "string",
+              ],
             },
             {
+              format: null,
               selector: "objectLiteralProperty",
               types: ["string"],
-              format: null,
-              filter: {
+              custom: {
                 match: true,
                 regex: "^(data|aria)-[a-z]+(?:-[a-z]+)*$",
               },
-              custom: {
+              filter: {
                 match: true,
                 regex: "^(data|aria)-[a-z]+(?:-[a-z]+)*$",
               },
@@ -207,9 +211,9 @@ function getConfigs({ tsconfigRootDir } = {}) {
             "error",
             ...baseNamingConvention,
             {
-              selector: "function",
               format: null,
               leadingUnderscore: "forbid",
+              selector: "function",
               trailingUnderscore: "forbid",
               filter: {
                 match: true,
@@ -226,33 +230,39 @@ function getConfigs({ tsconfigRootDir } = {}) {
             "error",
             ...baseNamingConvention,
             {
-              selector: "variableLike",
-              format: ["camelCase", "PascalCase"],
               leadingUnderscore: "forbid",
+              selector: "variableLike",
               trailingUnderscore: "forbid",
+              format: [
+                "camelCase",
+                "PascalCase",
+              ],
             },
             {
-              selector: "objectLiteralProperty",
-              types: ["number", "string"],
               format: null,
-              filter: {
-                match: true,
-                regex: "^--[a-z]+(?:-[a-z]+)*$",
-              },
+              selector: "objectLiteralProperty",
               custom: {
                 match: true,
                 regex: "^--[a-z]+(?:-[a-z]+)*$",
               },
+              filter: {
+                match: true,
+                regex: "^--[a-z]+(?:-[a-z]+)*$",
+              },
+              types: [
+                "number",
+                "string",
+              ],
             },
             {
+              format: null,
               selector: "objectLiteralProperty",
               types: ["string"],
-              format: null,
-              filter: {
+              custom: {
                 match: true,
                 regex: "^(data|aria)-[a-z]+(?:-[a-z]+)*$",
               },
-              custom: {
+              filter: {
                 match: true,
                 regex: "^(data|aria)-[a-z]+(?:-[a-z]+)*$",
               },
@@ -261,9 +271,9 @@ function getConfigs({ tsconfigRootDir } = {}) {
           "@typescript-eslint/no-magic-numbers": [
             "error",
             {
+              enforceConst: true,
               ignore: ignoredMagicNumbers,
               ignoreArrayIndexes: true,
-              enforceConst: true,
               ignoreEnums: true,
             },
           ],
@@ -272,7 +282,7 @@ function getConfigs({ tsconfigRootDir } = {}) {
       {
         files: ["**/*.@(spec|test).?(m|c)ts?(x)"],
         rules: { "@typescript-eslint/unbound-method": "off" },
-      }
+      },
     );
   }
 

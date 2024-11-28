@@ -1,22 +1,30 @@
-const ignoredMagicNumbers = [-1, 0, 1];
+const ignoredMagicNumbers = [
+  -1,
+  0,
+  1,
+];
 const indent = 2;
+const maxLineLength = 120;
 const maxComplexity = 50;
 const baseNamingConvention = [
   {
-    selector: "default",
     format: ["camelCase"],
     leadingUnderscore: "forbid",
+    selector: "default",
     trailingUnderscore: "forbid",
   },
   {
-    selector: "typeLike",
     format: ["PascalCase"],
     leadingUnderscore: "forbid",
+    selector: "typeLike",
     trailingUnderscore: "forbid",
   },
   {
     selector: "import",
-    format: ["camelCase", "PascalCase"],
+    format: [
+      "camelCase",
+      "PascalCase",
+    ],
   },
 ];
 
@@ -25,4 +33,5 @@ module.exports = {
   ignoredMagicNumbers,
   indent,
   maxComplexity,
+  maxLineLength,
 };

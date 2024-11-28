@@ -1,4 +1,4 @@
-const languageOptionsGlobals = require("../utils/globals.cjs");
+const languageOptionsGlobals = require("../globals.cjs");
 
 function getConfigs() {
   /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
