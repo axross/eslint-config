@@ -1,4 +1,5 @@
 const hasPkg = require("has-pkg");
+const { indent } = require("../constants.cjs");
 
 function getConfigs() {
   /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
@@ -29,30 +30,24 @@ function getConfigs() {
           "react/forbid-prop-types": "off",
           "react/hook-use-state": "error",
           "react/iframe-missing-sandbox": "error",
-
-          // "react/jsx-first-prop-new-line": "error",
+          "react/jsx-child-element-spacing": "error",
+          "react/jsx-closing-bracket-location": "error",
+          "react/jsx-closing-tag-location": "error",
+          "react/jsx-curly-newline": "error",
+          "react/jsx-curly-spacing": "error",
+          "react/jsx-equals-spacing": "error",
+          "react/jsx-first-prop-new-line": "error",
           "react/jsx-fragments": "error",
-
           "react/jsx-no-constructed-context-values": "error",
-
           "react/jsx-no-leaked-render": "error",
-
           "react/jsx-no-literals": "error",
           "react/jsx-no-script-url": "error",
           "react/jsx-no-useless-fragment": "error",
-
-          // "react/jsx-one-expression-per-line": [
-          //   "error",
-          //   { allow: "literal" },
-          // ],
           "react/jsx-pascal-case": "error",
-
-          // "react/jsx-props-no-multi-spaces": "error",
+          "react/jsx-props-no-multi-spaces": "error",
           "react/jsx-props-no-spreading": "off",
           "react/jsx-tag-spacing": "error",
-
           "react/jsx-wrap-multilines": "error",
-
           "react/no-access-state-in-setstate": "error",
           "react/no-adjacent-inline-elements": "error",
           "react/no-arrow-function-lifecycle": "error",
@@ -77,8 +72,7 @@ function getConfigs() {
           "react/prefer-exact-props": "error",
           "react/prefer-read-only-props": "error",
           "react/require-optimization": "error",
-
-          // "react/self-closing-comp": "error",
+          "react/self-closing-comp": "error",
           "react/sort-comp": "error",
           "react/sort-default-props": "off",
           "react/state-in-constructor": "error",
@@ -96,21 +90,14 @@ function getConfigs() {
             "error",
             "never",
           ],
-
-          // "react/jsx-child-element-spacing": "error",
-          // "react/jsx-closing-bracket-location": "error",
-          // "react/jsx-closing-tag-location": "error",
-          // "react/jsx-curly-brace-presence": [
-          //   "error",
-          //   {
-          //     props: "never",
-          //     children: "ignore",
-          //     propElementValues: "always",
-          //   },
-          // ],
-          // "react/jsx-curly-newline": "error",
-          // "react/jsx-curly-spacing": "error",
-          // "react/jsx-equals-spacing": "error",
+          "react/jsx-curly-brace-presence": [
+            "error",
+            {
+              children: "ignore",
+              propElementValues: "always",
+              props: "never",
+            },
+          ],
           "react/jsx-filename-extension": [
             "error",
             {
@@ -130,38 +117,40 @@ function getConfigs() {
               eventHandlerPropPrefix: "on",
             },
           ],
-
-          // "react/jsx-indent": [
-          //   "error",
-          //   indent,
-          //   {
-          //     checkAttributes: true,
-          //     indentLogicalExpressions: true,
-          //   },
-          // ],
-          // "react/jsx-indent-props": [
-          //   "error",
-          //   indent,
-          // ],
+          "react/jsx-indent": [
+            "error",
+            indent,
+            {
+              checkAttributes: true,
+              indentLogicalExpressions: true,
+            },
+          ],
+          "react/jsx-indent-props": [
+            "error",
+            indent,
+          ],
           "react/jsx-max-depth": [
             "error",
             { max: 10 },
           ],
-
-          // "react/jsx-max-props-per-line": [
-          //   "error",
-          //   {
-          //     maximum: 1,
-          //     when: "multiline",
-          //   },
-          // ],
-          // "react/jsx-newline": [
-          //   "error",
-          //   { prevent: false },
-          // ],
+          "react/jsx-max-props-per-line": [
+            "error",
+            {
+              maximum: 1,
+              when: "multiline",
+            },
+          ],
+          "react/jsx-newline": [
+            "error",
+            { prevent: false },
+          ],
           "react/jsx-no-bind": [
             "error",
             { allowArrowFunctions: true },
+          ],
+          "react/jsx-one-expression-per-line": [
+            "error",
+            { allow: "literal" },
           ],
           "react/jsx-sort-props": [
             "error",
@@ -202,6 +191,30 @@ function getConfigs() {
       config.push({
         files: ["**/*.?(m|c)@(j|t)sx"],
         rules: { "react/jsx-sort-props": "off" },
+      });
+    }
+
+    if (hasPkg("@stylistic/eslint-plugin") || hasPkg("eslint-config-prettier")) {
+      config.push({
+        files: ["**/*.?(m|c)@(j|t)sx"],
+        rules: { 
+          "react/jsx-child-element-spacing": "off",
+          "react/jsx-closing-bracket-location": "off",
+          "react/jsx-closing-tag-location": "off",
+          "react/jsx-curly-newline": "off",
+          "react/jsx-curly-spacing": "off",
+          "react/jsx-equals-spacing": "off",
+          "react/jsx-first-prop-new-line": "off",
+          "react/jsx-indent": "off",
+          "react/jsx-indent-props": "off",
+          "react/jsx-max-props-per-line": "off",
+          "react/jsx-newline": "off",
+          "react/jsx-one-expression-per-line": "off",
+          "react/jsx-props-no-multi-spaces": "off",
+          "react/self-closing-comp": "off",
+          "react/jsx-curly-brace-presence": 
+            "off",
+        },
       });
     }
   }

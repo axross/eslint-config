@@ -11,6 +11,7 @@ function getConfigs() {
       unicornPlugin.configs["flat/all"],
       {
         rules: {
+          "unicorn/no-keyword-prefix": "off",
           "unicorn/no-null": "off",
           "unicorn/expiring-todo-comments": [
             "error",
@@ -26,7 +27,6 @@ function getConfigs() {
               },
             },
           ],
-          "unicorn/no-keyword-prefix": "off",
         },
       },
       {

@@ -1,7 +1,7 @@
 const hasPkg = require("has-pkg");
 const {
   indent, maxLineLength,
-} = require("../constants");
+} = require("../constants.cjs");
 
 function getConfig() {
   /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
