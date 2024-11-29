@@ -13,13 +13,12 @@ function getConfigs() {
     config.push(
       eslintJs.configs.all,
       {
-        files: ["**/*.?(m|c)@(j|t)s?(x)"],
         rules: {
-          "no-void": [
-            "error",
-            { allowAsStatement: true },
-          ],
+          "no-void": ["error", { allowAsStatement: true }],
           "arrow-body-style": "error",
+          "capitalized-comments": ["error", "never"],
+          "complexity": ["error", maxComplexity],
+          "curly": ["error", "all"],
           "max-classes-per-file": "off",
           "max-lines": "off",
           "max-lines-per-function": "off",
@@ -29,20 +28,13 @@ function getConfigs() {
           "no-continue": "off",
           "no-undefined": "off",
           "no-use-before-define": "off",
+          "no-warning-comments": "warn",
+          "one-var": ["error", "never"],
+          "quote-props": ["error", "as-needed"],
+          "radix": ["error", "as-needed"],
+          "sort-imports": ["error", { ignoreDeclarationSort: true }],
           "sort-keys": "off",
           "strict": "off",
-          "capitalized-comments": [
-            "error",
-            "never",
-          ],
-          "complexity": [
-            "error",
-            maxComplexity,
-          ],
-          "curly": [
-            "error",
-            "all",
-          ],
           "func-style": [
             "error",
             "declaration",
@@ -52,6 +44,7 @@ function getConfigs() {
             "error",
             {
               exceptions: [
+                "_",
                 "i",
                 "v",
               ],
@@ -65,10 +58,6 @@ function getConfigs() {
               ignoreDefaultValues: true,
             },
           ],
-          "one-var": [
-            "error",
-            "never",
-          ],
           "prefer-destructuring": [
             "error",
             {
@@ -77,18 +66,13 @@ function getConfigs() {
             },
             { enforceForRenamedProperties: true },
           ],
-          "quote-props": [
-            "error",
-            "as-needed",
-          ],
-          "radix": [
-            "error",
-            "as-needed",
-          ],
-          "sort-imports": [
-            "error",
-            { ignoreDeclarationSort: true },
-          ],
+        },
+      },
+      {
+        files: ["**/*.?(m|c)ts?(x)"],
+        rules: {
+          "no-unused-vars": "off",
+          "no-useless-assignment": "off",
         },
       },
       {
@@ -105,20 +89,14 @@ function getConfigs() {
         },
       },
       {
-        files: [
-          "**/*rc.?(m|c)@(j|t)s?(x)",
-          "**/*.config.?(m|c)@(j|t)s?(x)",
-        ],
+        files: ["**/*rc.?(m|c)@(j|t)s?(x)", "**/*.config.?(m|c)@(j|t)s?(x)"],
         rules: {
           "no-magic-numbers": "off",
           "no-ternary": "off",
         },
       },
       {
-        files: [
-          "**/*rc.?(c)js?(x)",
-          "**/*.config.?(c)js?(x)",
-        ],
+        files: ["**/*rc.?(c)js?(x)", "**/*.config.?(c)js?(x)"],
         languageOptions: {
           globals: {
             module: "readonly",
@@ -132,8 +110,8 @@ function getConfigs() {
       config.push({
         files: ["**/*.?(m|c)@(j|t)s?(x)"],
         rules: {
-          // disabled in favor of import/no-duplicates
           "no-duplicate-imports": "off",
+          "sort-imports": "off",
         },
       });
     }

@@ -30,6 +30,7 @@ function getConfigs() {
           "react/forbid-prop-types": "off",
           "react/hook-use-state": "error",
           "react/iframe-missing-sandbox": "error",
+          "react/jsx-boolean-value": ["error", "never"],
           "react/jsx-child-element-spacing": "error",
           "react/jsx-closing-bracket-location": "error",
           "react/jsx-closing-tag-location": "error",
@@ -38,11 +39,16 @@ function getConfigs() {
           "react/jsx-equals-spacing": "error",
           "react/jsx-first-prop-new-line": "error",
           "react/jsx-fragments": "error",
+          "react/jsx-indent-props": ["error", indent],
+          "react/jsx-max-depth": ["error", { max: 10 }],
+          "react/jsx-newline": ["error", { prevent: false }],
+          "react/jsx-no-bind": ["error", { allowArrowFunctions: true }],
           "react/jsx-no-constructed-context-values": "error",
           "react/jsx-no-leaked-render": "error",
           "react/jsx-no-literals": "error",
           "react/jsx-no-script-url": "error",
           "react/jsx-no-useless-fragment": "error",
+          "react/jsx-one-expression-per-line": ["error", { allow: "literal" }],
           "react/jsx-pascal-case": "error",
           "react/jsx-props-no-multi-spaces": "error",
           "react/jsx-props-no-spreading": "off",
@@ -63,7 +69,7 @@ function getConfigs() {
           "react/no-this-in-sfc": "error",
           "react/no-typos": "error",
           "react/no-unsafe": "error",
-          "react/no-unstable-nested-components": "error",
+          "react/no-unstable-nested-components": ["error", { allowAsProps: true }],
           "react/no-unused-class-component-methods": "error",
           "react/no-unused-prop-types": "error",
           "react/no-unused-state": "error",
@@ -71,6 +77,7 @@ function getConfigs() {
           "react/prefer-es6-class": "error",
           "react/prefer-exact-props": "error",
           "react/prefer-read-only-props": "error",
+          "react/prefer-stateless-function": ["warn", { ignorePureComponents: true }],
           "react/require-optimization": "error",
           "react/self-closing-comp": "error",
           "react/sort-comp": "error",
@@ -86,10 +93,6 @@ function getConfigs() {
               unnamedComponents: "arrow-function",
             },
           ],
-          "react/jsx-boolean-value": [
-            "error",
-            "never",
-          ],
           "react/jsx-curly-brace-presence": [
             "error",
             {
@@ -102,10 +105,7 @@ function getConfigs() {
             "error",
             {
               allow: "as-needed",
-              extensions: [
-                ".jsx",
-                ".tsx",
-              ],
+              extensions: [".jsx", ".tsx"],
             },
           ],
           "react/jsx-handler-names": [
@@ -125,32 +125,12 @@ function getConfigs() {
               indentLogicalExpressions: true,
             },
           ],
-          "react/jsx-indent-props": [
-            "error",
-            indent,
-          ],
-          "react/jsx-max-depth": [
-            "error",
-            { max: 10 },
-          ],
           "react/jsx-max-props-per-line": [
             "error",
             {
               maximum: 1,
               when: "multiline",
             },
-          ],
-          "react/jsx-newline": [
-            "error",
-            { prevent: false },
-          ],
-          "react/jsx-no-bind": [
-            "error",
-            { allowArrowFunctions: true },
-          ],
-          "react/jsx-one-expression-per-line": [
-            "error",
-            { allow: "literal" },
           ],
           "react/jsx-sort-props": [
             "error",
@@ -160,10 +140,6 @@ function getConfigs() {
               reservedFirst: true,
               shorthandLast: true,
             },
-          ],
-          "react/prefer-stateless-function": [
-            "warn",
-            { ignorePureComponents: true },
           ],
           "react/require-default-props": [
             "error",
@@ -183,7 +159,10 @@ function getConfigs() {
       },
       {
         files: ["**/*.tsx"],
-        rules: { "react/require-default-props": "off" },
+        rules: {
+          "react/require-default-props": "off",
+          "react/style-prop-object": "off",
+        },
       },
     );
 
@@ -197,7 +176,7 @@ function getConfigs() {
     if (hasPkg("@stylistic/eslint-plugin") || hasPkg("eslint-config-prettier")) {
       config.push({
         files: ["**/*.?(m|c)@(j|t)sx"],
-        rules: { 
+        rules: {
           "react/jsx-child-element-spacing": "off",
           "react/jsx-closing-bracket-location": "off",
           "react/jsx-closing-tag-location": "off",
@@ -209,10 +188,11 @@ function getConfigs() {
           "react/jsx-indent-props": "off",
           "react/jsx-max-props-per-line": "off",
           "react/jsx-newline": "off",
+          "react/jsx-no-literals": "off",
           "react/jsx-one-expression-per-line": "off",
           "react/jsx-props-no-multi-spaces": "off",
           "react/self-closing-comp": "off",
-          "react/jsx-curly-brace-presence": 
+          "react/jsx-curly-brace-presence":
             "off",
         },
       });
@@ -244,11 +224,8 @@ function getConfigs() {
     config.push(
       { plugins: { "react-hooks": reactHooksPlugin } },
       {
+        files: ["*.?(m|c)@(j|t)sx", "use*.@(js|ts)"],
         rules: { ...reactHooksPlugin.configs.recommended.rules },
-        files: [
-          "*.?(m|c)@(j|t)sx",
-          "use*.@(js|ts)",
-        ],
       },
       {
         files: ["**/*.stories.?(m|c)@(j|t)s?(x)"],

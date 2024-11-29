@@ -25,10 +25,23 @@ function getConfig() {
       }),
       {
         rules: {
+          "@stylistic/curly-newline": ["error", "always"],
+          "@stylistic/function-call-argument-newline": ["error", "consistent"],
+          "@stylistic/function-call-spacing": ["error", "never"],
+          "@stylistic/function-paren-newline": ["error", "multiline"],
+          "@stylistic/generator-star-spacing": ["error", "after"],
+          "@stylistic/implicit-arrow-linebreak": ["error", "below"],
           "@stylistic/jsx-child-element-spacing": "error",
+          "@stylistic/jsx-newline": ["error", { prevent: false }],
           "@stylistic/jsx-props-no-multi-spaces": "error",
+          "@stylistic/line-comment-position": ["error", "above"],
+          "@stylistic/linebreak-style": ["error", "unix"],
+          "@stylistic/multiline-comment-style": ["error", "separate-lines"],
+          "@stylistic/newline-per-chained-call": ["error", { ignoreChainWithDepth: 1 }],
           "@stylistic/no-extra-semi": "error",
-          "@stylistic/object-property-newline": "error",
+          "@stylistic/nonblock-statement-body-position": ["error", "beside"],
+          "@stylistic/object-property-newline": ["error", { allowAllPropertiesOnSameLine: true }],
+          "@stylistic/one-var-declaration-per-line": ["error", "initializations"],
           "@stylistic/semi-style": "error",
           "@stylistic/wrap-regex": "off",
           "@stylistic/array-bracket-newline": [
@@ -46,41 +59,13 @@ function getConfig() {
               multiline: true,
             },
           ],
-          "@stylistic/curly-newline": [
+          "@stylistic/jsx-curly-brace-presence": [
             "error",
-            "always",
-          ],
-          "@stylistic/function-call-argument-newline": [
-            "error",
-            "consistent",
-          ],
-          "@stylistic/function-call-spacing": [
-            "error",
-            "never",
-          ],
-          "@stylistic/function-paren-newline": [
-            "error",
-            "multiline",
-          ],
-          "@stylistic/generator-star-spacing": [
-            "error",
-            "after",
-          ],
-          "@stylistic/implicit-arrow-linebreak": [
-            "error",
-            "below",
-          ],
-          "@stylistic/jsx-indent": [
-            "error",
-            indent,
             {
-              checkAttributes: true,
-              indentLogicalExpressions: true,
+              children: "always",
+              propElementValues: "always",
+              props: "never",
             },
-          ],
-          "@stylistic/jsx-newline": [
-            "error",
-            { prevent: false },
           ],
           "@stylistic/jsx-pascal-case": [
             "error",
@@ -104,21 +89,10 @@ function getConfig() {
               ignoreCase: true,
               multiline: "last",
               noSortAlphabetically: true,
+              reservedFirst: ["key", "ref"],
               shorthandFirst: false,
               shorthandLast: true,
-              reservedFirst: [
-                "key",
-                "ref",
-              ],
             },
-          ],
-          "@stylistic/line-comment-position": [
-            "error",
-            "above",
-          ],
-          "@stylistic/linebreak-style": [
-            "error",
-            "unix",
           ],
           "@stylistic/lines-around-comment": [
             "error",
@@ -161,14 +135,6 @@ function getConfig() {
               tabWidth: indent,
             },
           ],
-          "@stylistic/multiline-comment-style": [
-            "error",
-            "separate-lines",
-          ],
-          "@stylistic/newline-per-chained-call": [
-            "error",
-            { ignoreChainWithDepth: 1 },
-          ],
           "@stylistic/no-confusing-arrow": [
             "error",
             {
@@ -176,21 +142,38 @@ function getConfig() {
               onlyOneSimpleParam: false,
             },
           ],
-          "@stylistic/nonblock-statement-body-position": [
-            "error",
-            "beside",
-          ],
           "@stylistic/object-curly-newline": [
             "error",
             {
-              consistent: false,
-              minProperties: 2,
-              multiline: true,
+              ExportDeclaration: {
+                consistent: false,
+                minProperties: 2,
+                multiline: true,
+              },
+              ImportDeclaration: {
+                consistent: false,
+                minProperties: 2,
+                multiline: true,
+              },
+              ObjectExpression: {
+                consistent: false,
+                minProperties: 2,
+                multiline: true,
+              },
+              ObjectPattern: {
+                consistent: false,
+                minProperties: 2,
+                multiline: true,
+              },
             },
           ],
-          "@stylistic/one-var-declaration-per-line": [
+          "@stylistic/object-curly-spacing": [
             "error",
-            "initializations",
+            "always",
+            {
+              arraysInObjects: true,
+              objectsInObjects: true,
+            },
           ],
           "@stylistic/padding-line-between-statements": [
             "error",

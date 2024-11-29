@@ -20,11 +20,8 @@ const baseNamingConvention = [
     trailingUnderscore: "forbid",
   },
   {
+    format: ["camelCase", "PascalCase"],
     selector: "import",
-    format: [
-      "camelCase",
-      "PascalCase",
-    ],
   },
 ];
 

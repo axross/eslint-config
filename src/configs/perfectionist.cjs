@@ -9,47 +9,21 @@ function getConfig() {
 
     config.push(perfectionistPlugin.configs["recommended-natural"], {
       rules: {
+        "perfectionist/sort-named-imports": ["error", { groupKind: "types-first" }],
         "perfectionist/sort-classes": [
           "error",
           {
             groups: [
               "index-signature",
-              [
-                "property",
-                "accessor-property",
-              ],
-              [
-                "protected-property",
-                "protected-accessor-property",
-              ],
-              [
-                "private-property",
-                "private-accessor-property",
-              ],
-              [
-                "get-method",
-                "set-method",
-              ],
-              [
-                "protected-get-method",
-                "protected-set-method",
-              ],
-              [
-                "private-get-method",
-                "private-set-method",
-              ],
-              [
-                "method",
-                "function-property",
-              ],
-              [
-                "protected-method",
-                "protected-function-property",
-              ],
-              [
-                "private-method",
-                "private-function-property",
-              ],
+              ["property", "accessor-property"],
+              ["protected-property", "protected-accessor-property"],
+              ["private-property", "private-accessor-property"],
+              ["get-method", "set-method"],
+              ["protected-get-method", "protected-set-method"],
+              ["private-get-method", "private-set-method"],
+              ["method", "function-property"],
+              ["protected-method", "protected-function-property"],
+              ["private-method", "private-function-property"],
               "constructor",
               "static-block",
               "static-property",
@@ -65,22 +39,10 @@ function getConfig() {
             groups: [
               "side-effect",
               "builtin",
-              [
-                "external",
-                "external-type",
-              ],
-              [
-                "internal",
-                "internal-type",
-              ],
-              [
-                "parent",
-                "parent-type",
-              ],
-              [
-                "sibling",
-                "sibling-type",
-              ],
+              ["external", "external-type"],
+              ["internal", "internal-type"],
+              ["parent", "parent-type"],
+              ["sibling", "sibling-type"],
               "index",
               "index-type",
               "style",
@@ -97,10 +59,7 @@ function getConfig() {
               children: "^children$",
               className: "^className$",
               ref: "^ref$",
-              style: [
-                "^style$",
-                "^[s]?css$",
-              ],
+              style: ["^style$", "^[s]?css$"],
             },
             groups: [
               "unknown",
@@ -134,34 +93,18 @@ function getConfig() {
                 "enum",
                 "export-enum",
               ],
-              [
-                "class",
-                "export-class",
-              ],
-              [
-                "function",
-                "export-function",
-              ],
+              ["class", "export-class"],
+              ["function", "export-function"],
             ],
           },
-        ],
-        "perfectionist/sort-named-imports": [
-          "error",
-          { groupKind: "types-first" },
         ],
         "perfectionist/sort-objects": [
           "error",
           {
             customGroups: {
-              id: [
-                "id$",
-                "key$",
-              ],
+              id: ["id$", "key$"],
               index: ["index$"],
-              name: [
-                "^name$",
-                "^title$",
-              ],
+              name: ["^name$", "^title$"],
               timestamp: ["edAt$"],
             },
             groups: [

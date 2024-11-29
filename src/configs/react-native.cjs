@@ -6,7 +6,11 @@ function getConfig() {
 
   if (hasPkg("react-native")) {
     config.push({
-      ignores: ["android/*", "ios/*", ".expo/*"],
+      ignores: [
+        "android/*",
+        "ios/*",
+        ".expo/*",
+      ],
     });
   }
 
@@ -14,17 +18,11 @@ function getConfig() {
     const reactNativePlugin = require("@react-native/eslint-plugin");
 
     config.push(
-      {
-        plugins: {
-          "@react-native": reactNativePlugin,
-        },
-      },
+      { plugins: { "@react-native": reactNativePlugin } },
       {
         files: ["**/*.?(m|c)@(j|t)s?(x)"],
-        rules: {
-          "@react-native/platform-colors": "error",
-        },
-      }
+        rules: { "@react-native/platform-colors": "error" },
+      },
     );
   }
 

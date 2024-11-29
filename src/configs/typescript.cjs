@@ -39,6 +39,7 @@ function getConfigs({ tsconfigRootDir } = {}) {
           "@typescript-eslint/consistent-type-exports": "error",
           "@typescript-eslint/default-param-last": "error",
           "@typescript-eslint/dot-notation": "error",
+          "@typescript-eslint/explicit-function-return-type": ["error", { allowExpressions: true }],
           "@typescript-eslint/explicit-member-accessibility": "error",
           "@typescript-eslint/explicit-module-boundary-types": "error",
           "@typescript-eslint/init-declarations": "off",
@@ -46,6 +47,7 @@ function getConfigs({ tsconfigRootDir } = {}) {
           "@typescript-eslint/member-delimiter-style": "error",
           "@typescript-eslint/member-ordering": "error",
           "@typescript-eslint/method-signature-style": "error",
+          "@typescript-eslint/naming-convention": ["error", ...baseNamingConvention],
           "@typescript-eslint/no-import-type-side-effects": "off",
           "@typescript-eslint/no-loop-func": "error",
           "@typescript-eslint/no-restricted-imports": "error",
@@ -63,6 +65,7 @@ function getConfigs({ tsconfigRootDir } = {}) {
           "@typescript-eslint/promise-function-async": "off",
           "@typescript-eslint/require-array-sort-compare": "error",
           "@typescript-eslint/sort-type-constituents": "error",
+          "@typescript-eslint/strict-boolean-expressions": ["error", { allowNullableString: true }],
           "@typescript-eslint/switch-exhaustiveness-check": "error",
           "@typescript-eslint/type-annotation-spacing": "error",
           "@typescript-eslint/typedef": "error",
@@ -72,14 +75,6 @@ function getConfigs({ tsconfigRootDir } = {}) {
               fixStyle: "inline-type-imports",
               prefer: "type-imports",
             },
-          ],
-          "@typescript-eslint/explicit-function-return-type": [
-            "error",
-            { allowExpressions: true },
-          ],
-          "@typescript-eslint/naming-convention": [
-            "error",
-            ...baseNamingConvention,
           ],
           "@typescript-eslint/no-magic-numbers": [
             "error",
@@ -100,10 +95,6 @@ function getConfigs({ tsconfigRootDir } = {}) {
           ],
           "@typescript-eslint/no-unnecessary-parameter-property-assignment":
             "error",
-          "@typescript-eslint/strict-boolean-expressions": [
-            "error",
-            { allowNullableString: true },
-          ],
         },
       },
       {
@@ -113,17 +104,15 @@ function getConfigs({ tsconfigRootDir } = {}) {
             "error",
             ...baseNamingConvention,
             {
+              format: ["camelCase", "PascalCase"],
               leadingUnderscore: "forbid",
               selector: "variableLike",
               trailingUnderscore: "forbid",
-              format: [
-                "camelCase",
-                "PascalCase",
-              ],
             },
             {
               format: null,
               selector: "objectLiteralProperty",
+              types: ["number", "string"],
               custom: {
                 match: true,
                 regex: "^--[a-z]+(?:-[a-z]+)*$",
@@ -132,10 +121,6 @@ function getConfigs({ tsconfigRootDir } = {}) {
                 match: true,
                 regex: "^--[a-z]+(?:-[a-z]+)*$",
               },
-              types: [
-                "number",
-                "string",
-              ],
             },
             {
               format: null,
@@ -164,17 +149,15 @@ function getConfigs({ tsconfigRootDir } = {}) {
             "error",
             ...baseNamingConvention,
             {
+              format: ["camelCase", "PascalCase"],
               leadingUnderscore: "forbid",
               selector: "variableLike",
               trailingUnderscore: "forbid",
-              format: [
-                "camelCase",
-                "PascalCase",
-              ],
             },
             {
               format: null,
               selector: "objectLiteralProperty",
+              types: ["number", "string"],
               custom: {
                 match: true,
                 regex: "^--[a-z]+(?:-[a-z]+)*$",
@@ -183,10 +166,6 @@ function getConfigs({ tsconfigRootDir } = {}) {
                 match: true,
                 regex: "^--[a-z]+(?:-[a-z]+)*$",
               },
-              types: [
-                "number",
-                "string",
-              ],
             },
             {
               format: null,
@@ -230,17 +209,15 @@ function getConfigs({ tsconfigRootDir } = {}) {
             "error",
             ...baseNamingConvention,
             {
+              format: ["camelCase", "PascalCase"],
               leadingUnderscore: "forbid",
               selector: "variableLike",
               trailingUnderscore: "forbid",
-              format: [
-                "camelCase",
-                "PascalCase",
-              ],
             },
             {
               format: null,
               selector: "objectLiteralProperty",
+              types: ["number", "string"],
               custom: {
                 match: true,
                 regex: "^--[a-z]+(?:-[a-z]+)*$",
@@ -249,10 +226,6 @@ function getConfigs({ tsconfigRootDir } = {}) {
                 match: true,
                 regex: "^--[a-z]+(?:-[a-z]+)*$",
               },
-              types: [
-                "number",
-                "string",
-              ],
             },
             {
               format: null,

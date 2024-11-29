@@ -1,6 +1,6 @@
 const hasPkg = require("has-pkg");
 
-function getConfigs() {
+function getConfigs({ allowedUnassignedImports = [] } = {}) {
   /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
   const config = [];
 
@@ -19,11 +19,13 @@ function getConfigs() {
           // i avoid using the config itself because this config includes their
           // own languageOptions, which overwrites the globals
           ...importXPlugin.flatConfigs.recommended.rules,
+          "import-x/consistent-type-specifier-style": ["error", "prefer-inline"],
           "import-x/dynamic-import-chunkname": "off",
           "import-x/exports-last": "off",
           "import-x/extensions": "error",
           "import-x/first": "error",
           "import-x/group-exports": "error",
+          "import-x/max-dependencies": ["error", { max: 20 }],
           "import-x/newline-after-import": "error",
           "import-x/no-absolute-path": "error",
           "import-x/no-amd": "error",
@@ -53,14 +55,6 @@ function getConfigs() {
           "import-x/no-webpack-loader-syntax": "error",
           "import-x/prefer-default-export": "off",
           "import-x/unambiguous": "off",
-          "import-x/consistent-type-specifier-style": [
-            "error",
-            "prefer-top-level",
-          ],
-          "import-x/max-dependencies": [
-            "error",
-            { max: 20 },
-          ],
           "import-x/no-namespace": [
             "error",
             {
@@ -78,6 +72,7 @@ function getConfigs() {
               allow: [
                 "**/*.css",
                 "server-only",
+                ...allowedUnassignedImports,
               ],
             },
           ],
@@ -113,16 +108,10 @@ function getConfigs() {
         rules: { "import-x/no-commonjs": "off" },
       },
       {
-        files: [
-          "**/app/**/page.?(m|c)@(j|t)sx",
-          "**/app/**/layout.?(m|c)@(j|t)sx",
-        ],
+        files: ["**/app/**/page.?(m|c)@(j|t)sx", "**/app/**/layout.?(m|c)@(j|t)sx"],
         rules: {
           "import-x/no-default-export": "off",
-          "import-x/prefer-default-export": [
-            "error",
-            { target: "any" },
-          ],
+          "import-x/prefer-default-export": ["error", { target: "any" }],
         },
       },
       {

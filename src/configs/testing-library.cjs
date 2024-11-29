@@ -5,17 +5,13 @@ function getConfig() {
   const config = [];
 
   if (
-    hasPkg("eslint-plugin-testing-library") &&
-    hasPkg("@testing-library/react")
+    hasPkg("eslint-plugin-testing-library")
+    && hasPkg("@testing-library/react")
   ) {
     const testingLibraryPlugin = require("eslint-plugin-testing-library");
 
     config.push(
-      {
-        plugins: {
-          "testing-library": testingLibraryPlugin,
-        },
-      },
+      { plugins: { "testing-library": testingLibraryPlugin } },
       {
         files: ["**/*.@(spec|test).?(m|c)@(j|t)sx"],
         rules: {
@@ -46,7 +42,7 @@ function getConfig() {
             },
           ],
         },
-      }
+      },
     );
   }
 

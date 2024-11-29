@@ -1,5 +1,11 @@
 const hasPkg = require("has-pkg");
 
+const allowedAbbreviations = {
+  db: false,
+  params: false,
+  searchParams: false,
+};
+
 function getConfigs() {
   /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
   const config = [];
@@ -11,22 +17,10 @@ function getConfigs() {
       unicornPlugin.configs["flat/all"],
       {
         rules: {
+          "unicorn/expiring-todo-comments": ["error", { allowWarningComments: true }],
           "unicorn/no-keyword-prefix": "off",
           "unicorn/no-null": "off",
-          "unicorn/expiring-todo-comments": [
-            "error",
-            { allowWarningComments: true },
-          ],
-          "unicorn/prevent-abbreviations": [
-            "error",
-            {
-              replacements: {
-                db: false,
-                params: false,
-                searchParams: false,
-              },
-            },
-          ],
+          "unicorn/prevent-abbreviations": ["error", { replacements: allowedAbbreviations }],
         },
       },
       {
@@ -36,10 +30,12 @@ function getConfigs() {
             "error",
             {
               replacements: {
+                ...allowedAbbreviations,
                 prop: false,
                 props: false,
                 ref: false,
                 refs: false,
+                routeParams: false,
                 searchParams: false,
               },
             },
@@ -53,10 +49,12 @@ function getConfigs() {
             "error",
             {
               replacements: {
+                ...allowedAbbreviations,
                 prop: false,
                 props: false,
                 ref: false,
                 refs: false,
+                routeParams: false,
                 searchParams: false,
               },
             },
@@ -78,11 +76,8 @@ function getConfigs() {
         },
       },
       {
+        files: ["*rc.?(m)js?(x)", "*.config.?(m)js?(x)"],
         rules: { "unicorn/prefer-module": "off" },
-        files: [
-          "*rc.?(m)js?(x)",
-          "*.config.?(m)js?(x)",
-        ],
       },
     );
   }

@@ -9,12 +9,8 @@ function getConfig() {
 
     config.push({
       files: ["**/*.?(m|c)@(j|t)s?(x)"],
-      plugins: {
-        compat: compatPlugin,
-      },
-      rules: {
-        ...compatPlugin.configs.recommended.rules,
-      },
+      plugins: { compat: compatPlugin },
+      rules: { ...compatPlugin.configs.recommended.rules },
     });
   }
 

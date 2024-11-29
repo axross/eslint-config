@@ -8,11 +8,7 @@ function getConfig() {
     const storybookPlugin = require("eslint-plugin-storybook");
 
     config.push(
-      {
-        plugins: {
-          storybook: storybookPlugin,
-        },
-      },
+      { plugins: { storybook: storybookPlugin } },
       {
         files: ["**/*.stories.?(m|c)@(j|t)s?(x)"],
         rules: {
@@ -20,7 +16,7 @@ function getConfig() {
           ...storybookPlugin.configs["csf-strict"].rules,
           ...storybookPlugin.configs["addon-interactions"].rules,
         },
-      }
+      },
     );
   }
 
