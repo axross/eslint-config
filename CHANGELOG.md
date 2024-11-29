@@ -1,3 +1,10 @@
+# [2.21.0](https://github.com/axross/eslint-config/compare/v2.20.1...v2.21.0) (2024-11-29)
+
+
+### Features
+
+* optimize configs ([addbb06](https://github.com/axross/eslint-config/commit/addbb06086f9c072b7f3c9c6527c33af812b2c46))
+
 ## [2.20.1](https://github.com/axross/eslint-config/compare/v2.20.0...v2.20.1) (2024-11-28)
 
 
