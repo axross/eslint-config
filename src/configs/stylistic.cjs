@@ -116,7 +116,7 @@ function getConfig() {
               allowObjectStart: true,
               allowTypeEnd: true,
               allowTypeStart: true,
-              applyDefaultIgnorePatterns: false,
+              applyDefaultIgnorePatterns: true,
               beforeBlockComment: true,
               beforeLineComment: true,
             },
