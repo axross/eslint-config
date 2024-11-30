@@ -1,3 +1,10 @@
+## [2.21.2](https://github.com/axross/eslint-config/compare/v2.21.1...v2.21.2) (2024-11-30)
+
+
+### Bug Fixes
+
+* apply default ignore patterns ([53d269d](https://github.com/axross/eslint-config/commit/53d269d8048e85922cb45c7419d79098336c27ea))
+
 ## [2.21.1](https://github.com/axross/eslint-config/compare/v2.21.0...v2.21.1) (2024-11-30)
 
 
