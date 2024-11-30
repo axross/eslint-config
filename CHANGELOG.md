@@ -1,3 +1,10 @@
+## [2.21.1](https://github.com/axross/eslint-config/compare/v2.21.0...v2.21.1) (2024-11-30)
+
+
+### Bug Fixes
+
+* allow component identifiers in parameter-like types/values ([43a076d](https://github.com/axross/eslint-config/commit/43a076d7e2d86a96dec519b8f9082583906372df))
+
 # [2.21.0](https://github.com/axross/eslint-config/compare/v2.20.1...v2.21.0) (2024-11-29)
 
 
