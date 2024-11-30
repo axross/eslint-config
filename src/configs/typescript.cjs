@@ -106,8 +106,16 @@ function getConfigs({ tsconfigRootDir } = {}) {
             {
               format: ["camelCase", "PascalCase"],
               leadingUnderscore: "forbid",
-              selector: "variableLike",
               trailingUnderscore: "forbid",
+              selector: [
+                "function",
+                "variableLike",
+                "typeProperty",
+                "typeMethod",
+                "typeParameter",
+                "parameterProperty",
+                "objectLiteralProperty",
+              ],
             },
             {
               format: null,
