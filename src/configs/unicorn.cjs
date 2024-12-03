@@ -10,7 +10,8 @@ if (hasPkg("@react-navigation/native") || hasPkg("expo-router")) {
   allowedAbbreviations = {
     ...allowedAbbreviations,
     navigatorParamList: false,
-    searchParams: false,
+    routeParamList: false,
+    routesParamList: false,
     stackParamList: false,
   };
 }
