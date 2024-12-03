@@ -1,3 +1,10 @@
+# [2.23.0](https://github.com/axross/eslint-config/compare/v2.22.2...v2.23.0) (2024-12-03)
+
+
+### Features
+
+* support allowDefaultProject overloads ([cbdb27b](https://github.com/axross/eslint-config/commit/cbdb27b56ba9e5016c8efcca950e7687852b364d))
+
 ## [2.22.2](https://github.com/axross/eslint-config/compare/v2.22.1...v2.22.2) (2024-12-03)
 
 
