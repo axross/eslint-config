@@ -1,17 +1,10 @@
 const hasPkg = require("has-pkg");
 
-let allowedAbbreviations = {
+const allowedAbbreviations = {
   db: false,
   params: false,
   searchParams: false,
 };
-
-if (hasPkg("@react-navigation/native") || hasPkg("expo-router")) {
-  allowedAbbreviations = {
-    ...allowedAbbreviations,
-    rootParamList: false,
-  };
-}
 
 function getConfigs() {
   /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */

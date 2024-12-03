@@ -5,7 +5,9 @@ const {
 } = require("../constants.cjs");
 const languageOptionsGlobals = require("../globals.cjs");
 
-function getConfigs({ tsconfigRootDir } = {}) {
+function getConfigs({
+  allowDefaultProject = [], tsconfigRootDir,
+} = {}) {
   /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
   const config = [];
 
@@ -22,7 +24,7 @@ function getConfigs({ tsconfigRootDir } = {}) {
           parser: typescriptPlugin.parser,
           sourceType: "module",
           parserOptions: {
-            projectService: { allowDefaultProject: ["*.config.{js,mjs,cjs,jsx,mjsx,cjsx,ts,mts,cts,tsx,mtsx,ctsx}"] },
+            projectService: { allowDefaultProject: ["*.config.{js,mjs,cjs,jsx,mjsx,cjsx}", ...allowDefaultProject] },
             tsconfigRootDir,
           },
         },
