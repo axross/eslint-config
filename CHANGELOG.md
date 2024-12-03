@@ -1,3 +1,10 @@
+# [2.22.0](https://github.com/axross/eslint-config/compare/v2.21.2...v2.22.0) (2024-12-03)
+
+
+### Features
+
+* allow react-navigation specific abbreviations ([fe909eb](https://github.com/axross/eslint-config/commit/fe909eb5f2d7795b27ffcd9a5dc13890c3139a57))
+
 ## [2.21.2](https://github.com/axross/eslint-config/compare/v2.21.1...v2.21.2) (2024-11-30)
 
 
