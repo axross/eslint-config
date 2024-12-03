@@ -1,3 +1,10 @@
+## [2.22.1](https://github.com/axross/eslint-config/compare/v2.22.0...v2.22.1) (2024-12-03)
+
+
+### Bug Fixes
+
+* add missing abbreviations ([038acfd](https://github.com/axross/eslint-config/commit/038acfde79e02288e5c8f3e519c0989f12f0777b))
+
 # [2.22.0](https://github.com/axross/eslint-config/compare/v2.21.2...v2.22.0) (2024-12-03)
 
 
