@@ -1,3 +1,10 @@
+## [2.22.2](https://github.com/axross/eslint-config/compare/v2.22.1...v2.22.2) (2024-12-03)
+
+
+### Bug Fixes
+
+* allow only the react-navigation's default type definition ([1b31974](https://github.com/axross/eslint-config/commit/1b31974962fddba21a7ae654ba0fc1c1f1202dbe))
+
 ## [2.22.1](https://github.com/axross/eslint-config/compare/v2.22.0...v2.22.1) (2024-12-03)
 
 
