@@ -40,7 +40,7 @@ function getConfig() {
           "@stylistic/newline-per-chained-call": ["error", { ignoreChainWithDepth: 1 }],
           "@stylistic/no-extra-semi": "error",
           "@stylistic/nonblock-statement-body-position": ["error", "beside"],
-          "@stylistic/object-property-newline": ["error", { allowAllPropertiesOnSameLine: true }],
+          "@stylistic/object-property-newline": "error",
           "@stylistic/one-var-declaration-per-line": ["error", "initializations"],
           "@stylistic/semi-style": "error",
           "@stylistic/wrap-regex": "off",
@@ -54,7 +54,7 @@ function getConfig() {
           "@stylistic/array-element-newline": [
             "error",
             {
-              consistent: false,
+              consistent: true,
               minItems: 3,
               multiline: true,
             },
@@ -146,22 +146,22 @@ function getConfig() {
             "error",
             {
               ExportDeclaration: {
-                consistent: false,
+                consistent: true,
                 minProperties: 2,
                 multiline: true,
               },
               ImportDeclaration: {
-                consistent: false,
+                consistent: true,
                 minProperties: 2,
                 multiline: true,
               },
               ObjectExpression: {
-                consistent: false,
+                consistent: true,
                 minProperties: 2,
                 multiline: true,
               },
               ObjectPattern: {
-                consistent: false,
+                consistent: true,
                 minProperties: 2,
                 multiline: true,
               },
