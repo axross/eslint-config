@@ -121,6 +121,10 @@ function getConfigs({ allowedUnassignedImports = [] } = {}) {
           "import-x/no-default-export": "off",
         },
       },
+      {
+        files: ["**/*.config.?(m|c)@(j|t)s?(x)"],
+        rules: { "import-x/no-default-export": "off" },
+      },
     );
 
     if (hasPkg("prettier") && hasPkg("eslint-config-prettier")) {
