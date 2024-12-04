@@ -1,3 +1,10 @@
+## [2.24.1](https://github.com/axross/eslint-config/compare/v2.24.0...v2.24.1) (2024-12-04)
+
+
+### Bug Fixes
+
+* enable consistent newline style ([6a4c362](https://github.com/axross/eslint-config/commit/6a4c362070eff65fdfb92caaca26700df09e5391))
+
 # [2.24.0](https://github.com/axross/eslint-config/compare/v2.23.1...v2.24.0) (2024-12-04)
 
 
