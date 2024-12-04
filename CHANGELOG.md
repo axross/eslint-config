@@ -1,3 +1,10 @@
+## [2.23.1](https://github.com/axross/eslint-config/compare/v2.23.0...v2.23.1) (2024-12-04)
+
+
+### Bug Fixes
+
+* disable no-default-export for config files ([2c9e5d6](https://github.com/axross/eslint-config/commit/2c9e5d6d0e8f8999d559a8a1456fe4b875a07c7a))
+
 # [2.23.0](https://github.com/axross/eslint-config/compare/v2.22.2...v2.23.0) (2024-12-03)
 
 
