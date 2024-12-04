@@ -1,3 +1,10 @@
+# [2.24.0](https://github.com/axross/eslint-config/compare/v2.23.1...v2.24.0) (2024-12-04)
+
+
+### Features
+
+* ignore react-native flow files from import-x dependency resolver ([8fbd76a](https://github.com/axross/eslint-config/commit/8fbd76abeddc02918ec434e297a03f6c7f953757))
+
 ## [2.23.1](https://github.com/axross/eslint-config/compare/v2.23.0...v2.23.1) (2024-12-04)
 
 
