@@ -9,6 +9,15 @@ function getConfigs({ allowedUnassignedImports = [] } = {}) {
 
     config.push(
       {
+        settings: {
+          "import-x/ignore": [
+            // react-native has several flow files and they cause some parsing problems with the typescript parser.
+            // e.g. https://github.com/facebook/react-native/blob/949d229b5fd24b871e9e3d2f2dc505120e59cb3a/packages/react-native/Libraries/Types/CodegenTypes.js#L13
+            String.raw`node_modules/react-native/.+\.js`,
+          ],
+        },
+      },
+      {
         name: importXPlugin.flatConfigs.recommended.name,
         plugins: importXPlugin.flatConfigs.recommended.plugins,
       },

@@ -24,6 +24,8 @@ function getConfigs({
           parser: typescriptPlugin.parser,
           sourceType: "module",
           parserOptions: {
+            ecmaVersion: "latest",
+            projectFolderIgnoreList: ["**/node_modules/**"],
             projectService: { allowDefaultProject: ["*.config.{js,mjs,cjs,jsx,mjsx,cjsx}", ...allowDefaultProject] },
             tsconfigRootDir,
           },

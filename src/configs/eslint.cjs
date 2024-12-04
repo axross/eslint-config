@@ -1,7 +1,9 @@
+const globals = require("globals");
 const hasPkg = require("has-pkg");
 const {
   ignoredMagicNumbers, maxComplexity,
 } = require("../constants.cjs");
+const languageOptionsGlobals = require("../globals.cjs");
 
 function getConfigs() {
   /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
@@ -83,8 +85,8 @@ function getConfigs() {
         files: ["**/*.?(c)js?(x)"],
         languageOptions: {
           globals: {
-            module: "readonly",
-            require: "readonly",
+            ...languageOptionsGlobals,
+            ...globals.commonjs,
           },
         },
       },
@@ -99,8 +101,8 @@ function getConfigs() {
         files: ["**/*rc.?(c)js?(x)", "**/*.config.?(c)js?(x)"],
         languageOptions: {
           globals: {
-            module: "readonly",
-            require: "readonly",
+            ...languageOptionsGlobals,
+            ...globals.commonjs,
           },
         },
       },
