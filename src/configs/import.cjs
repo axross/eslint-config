@@ -124,7 +124,11 @@ function getConfigs({ allowedUnassignedImports = [] } = {}) {
         },
       },
       {
-        files: ["**/*.stories.?(m|c)@(j|t)s?(x)"],
+        files: [
+          "**/*.stories.?(m|c)@(j|t)s?(x)",
+          ".storybook/preview.?(m|c)@(j|t)s?(x)",
+          ".storybook/main.?(m|c)@(j|t)s?(x)",
+        ],
         rules: {
           "import-x/group-exports": "off",
           "import-x/no-default-export": "off",
