@@ -1,3 +1,10 @@
+## [2.24.2](https://github.com/axross/eslint-config/compare/v2.24.1...v2.24.2) (2024-12-06)
+
+
+### Bug Fixes
+
+* allow default exports in storybook config files ([7489fa8](https://github.com/axross/eslint-config/commit/7489fa8750c6d61e99db92f41958fdc62b02f25a))
+
 ## [2.24.1](https://github.com/axross/eslint-config/compare/v2.24.0...v2.24.1) (2024-12-04)
 
 
