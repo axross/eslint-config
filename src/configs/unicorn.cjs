@@ -17,6 +17,7 @@ function getConfigs() {
       unicornPlugin.configs["flat/all"],
       {
         rules: {
+          "prefer-json-parse-buffer": "off",
           "unicorn/expiring-todo-comments": ["error", { allowWarningComments: true }],
           "unicorn/no-keyword-prefix": "off",
           "unicorn/no-null": "off",
