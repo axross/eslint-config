@@ -1,3 +1,10 @@
+# [2.25.0](https://github.com/axross/eslint-config/compare/v2.24.2...v2.25.0) (2024-12-07)
+
+
+### Features
+
+* turn off json.parse buffer rule ([bb49094](https://github.com/axross/eslint-config/commit/bb49094e98d0e72977fbd810100726f32058e825))
+
 ## [2.24.2](https://github.com/axross/eslint-config/compare/v2.24.1...v2.24.2) (2024-12-06)
 
 
