@@ -24,6 +24,17 @@ function getConfigs() {
           "unicorn/prevent-abbreviations": ["error", { replacements: allowedAbbreviations }],
         },
       },
+    );
+
+    if (hasPkg("react-native")) {
+      config.push({
+        rules: {
+          "unicorn/prefer-module": "off",
+        },
+      });
+    }
+
+    config.push(
       {
         files: ["**/*.?(m|c)@(j|t)sx"],
         rules: {
