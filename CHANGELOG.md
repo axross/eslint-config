@@ -1,3 +1,10 @@
+## [2.25.1](https://github.com/axross/eslint-config/compare/v2.25.0...v2.25.1) (2024-12-08)
+
+
+### Bug Fixes
+
+* allow require() in react native projects ([e107d06](https://github.com/axross/eslint-config/commit/e107d0687b785e72a7deb054eb4f66b69dc093ff))
+
 # [2.25.0](https://github.com/axross/eslint-config/compare/v2.24.2...v2.25.0) (2024-12-07)
 
 
