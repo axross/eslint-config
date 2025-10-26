@@ -28,7 +28,10 @@ function getConfigs({ allowedUnassignedImports = [] } = {}) {
           // i avoid using the config itself because this config includes their
           // own languageOptions, which overwrites the globals
           ...importXPlugin.flatConfigs.recommended.rules,
-          "import-x/consistent-type-specifier-style": ["error", "prefer-inline"],
+          "import-x/consistent-type-specifier-style": [
+            "error",
+            "prefer-inline",
+          ],
           "import-x/dynamic-import-chunkname": "off",
           "import-x/exports-last": "off",
           "import-x/extensions": "error",
@@ -81,6 +84,7 @@ function getConfigs({ allowedUnassignedImports = [] } = {}) {
               allow: [
                 "**/*.css",
                 "server-only",
+                "expo-router/entry",
                 ...allowedUnassignedImports,
               ],
             },
@@ -88,9 +92,9 @@ function getConfigs({ allowedUnassignedImports = [] } = {}) {
           "import-x/order": [
             "error",
             {
-              "alphabetize": { order: "asc" },
+              alphabetize: { order: "asc" },
               "newlines-between": "never",
-              "groups": [
+              groups: [
                 "builtin",
                 "external",
                 "internal",
@@ -98,7 +102,7 @@ function getConfigs({ allowedUnassignedImports = [] } = {}) {
                 "sibling",
                 "index",
               ],
-              "pathGroups": [
+              pathGroups: [
                 {
                   group: "internal",
                   pattern: "~/**",
@@ -117,13 +121,6 @@ function getConfigs({ allowedUnassignedImports = [] } = {}) {
         rules: { "import-x/no-commonjs": "off" },
       },
       {
-        files: ["**/app/**/page.?(m|c)@(j|t)sx", "**/app/**/layout.?(m|c)@(j|t)sx"],
-        rules: {
-          "import-x/no-default-export": "off",
-          "import-x/prefer-default-export": ["error", { target: "any" }],
-        },
-      },
-      {
         files: [
           "**/*.stories.?(m|c)@(j|t)s?(x)",
           ".storybook/preview.?(m|c)@(j|t)s?(x)",
@@ -137,8 +134,31 @@ function getConfigs({ allowedUnassignedImports = [] } = {}) {
       {
         files: ["**/*.config.?(m|c)@(j|t)s?(x)"],
         rules: { "import-x/no-default-export": "off" },
-      },
+      }
     );
+
+    if (hasPkg("next")) {
+      config.push({
+        files: [
+          "**/app/**/page.?(m|c)@(j|t)sx",
+          "**/app/**/layout.?(m|c)@(j|t)sx",
+        ],
+        rules: {
+          "import-x/no-default-export": "off",
+          "import-x/prefer-default-export": ["error", { target: "any" }],
+        },
+      });
+    }
+
+    if (hasPkg("expo-router")) {
+      config.push({
+        files: ["**/app/**/*.?(m|c)@(j|t)sx"],
+        rules: {
+          "import-x/no-default-export": "off",
+          "import-x/prefer-default-export": ["error", { target: "any" }],
+        },
+      });
+    }
 
     if (hasPkg("prettier") && hasPkg("eslint-config-prettier")) {
       config.push({
