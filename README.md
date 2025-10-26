@@ -9,7 +9,7 @@ A hand-crafted [ESLint](https://eslint.org/) configuration set.
 As the minimal setup, you can install 📦 `@axross/eslint-config` along with ESLint:
 
 ```
-npm i -D @axross/eslint-config eslint
+npm i -D @axross/eslint-config --omit optional
 ```
 
 And create/update **eslint.config.cjs** as the following:
@@ -18,7 +18,7 @@ And create/update **eslint.config.cjs** as the following:
 /* global __dirname:readonly */
 
 module.exports = [
-  ...require("./src/config.cjs")({ tsconfigRootDir: __dirname }),
+  ...require("@axross/eslint-config")({ tsconfigRootDir: __dirname }),
 ];
 ```
 
