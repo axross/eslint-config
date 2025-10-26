@@ -9,7 +9,10 @@ function getConfig() {
 
     config.push(perfectionistPlugin.configs["recommended-natural"], {
       rules: {
-        "perfectionist/sort-named-imports": ["error", { groupKind: "types-first" }],
+        "perfectionist/sort-named-imports": [
+          "error",
+          { groupKind: "types-first" },
+        ],
         "perfectionist/sort-classes": [
           "error",
           {
@@ -76,6 +79,7 @@ function getConfig() {
         ],
         "perfectionist/sort-modules": "off",
         "perfectionist/sort-objects": "off",
+        "perfectionist/sort-object-types": "off",
         "perfectionist/sort-union-types": [
           "error",
           {
@@ -89,9 +93,16 @@ function getConfig() {
               "named",
               "operator",
               "import",
-              "literal",
+              "unsorted-literal",
               "keyword",
               "nullish",
+            ],
+            customGroups: [
+              {
+                groupName: "unsorted-literal",
+                type: "unsorted",
+                selector: "literal",
+              },
             ],
           },
         ],
