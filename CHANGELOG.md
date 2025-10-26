@@ -1,3 +1,10 @@
+## [2.26.1](https://github.com/axross/eslint-config/compare/v2.26.0...v2.26.1) (2025-10-26)
+
+
+### Bug Fixes
+
+* delete optional dependencies ([73d9446](https://github.com/axross/eslint-config/commit/73d944673d815d6d700afdc87c25a254994c40b5))
+
 # [2.26.0](https://github.com/axross/eslint-config/compare/v2.25.1...v2.26.0) (2025-10-26)
 
 
