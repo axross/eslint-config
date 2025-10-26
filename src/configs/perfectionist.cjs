@@ -74,50 +74,8 @@ function getConfig() {
             ],
           },
         ],
-        "perfectionist/sort-modules": [
-          "error",
-          {
-            groups: [
-              [
-                "declare-enum",
-                "declare-interface",
-                "declare-type",
-                "declare-class",
-                "declare-function",
-              ],
-              [
-                "interface",
-                "export-interface",
-                "type",
-                "export-type",
-                "enum",
-                "export-enum",
-              ],
-              ["class", "export-class"],
-              ["function", "export-function"],
-            ],
-          },
-        ],
-        "perfectionist/sort-objects": [
-          "error",
-          {
-            customGroups: {
-              id: ["id$", "key$"],
-              index: ["index$"],
-              name: ["^name$", "^title$"],
-              timestamp: ["edAt$"],
-            },
-            groups: [
-              "id",
-              "index",
-              "name",
-              "unknown",
-              "timestamp",
-              "method",
-              "multiline",
-            ],
-          },
-        ],
+        "perfectionist/sort-modules": "off",
+        "perfectionist/sort-objects": "off",
         "perfectionist/sort-union-types": [
           "error",
           {
