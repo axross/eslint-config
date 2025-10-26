@@ -1,7 +1,6 @@
 const ignoredMagicNumbers = [
   -1,
   0,
-  1,
 ];
 const indent = 2;
 const maxLineLength = 120;

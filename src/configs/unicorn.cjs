@@ -11,11 +11,23 @@ function getConfigs() {
   const config = [];
 
   if (hasPkg("eslint-plugin-unicorn")) {
-    const unicornPlugin = require("eslint-plugin-unicorn");
+    const unicornPlugin = require("eslint-plugin-unicorn").default;
+
+    if (hasPkg("globals")) {
+      const globals = require("globals");
+
+      config.push({
+        languageOptions: {
+          globals: globals.builtin,
+        },
+      });
+    }
 
     config.push(
-      unicornPlugin.configs["flat/all"],
       {
+        plugins: {
+          unicorn: unicornPlugin,
+        },
         rules: {
           "prefer-json-parse-buffer": "off",
           "unicorn/expiring-todo-comments": ["error", { allowWarningComments: true }],
