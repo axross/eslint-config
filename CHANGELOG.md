@@ -1,3 +1,10 @@
+# [2.27.0](https://github.com/axross/eslint-config/compare/v2.26.1...v2.27.0) (2025-10-26)
+
+
+### Features
+
+* disable property sortings ([e331182](https://github.com/axross/eslint-config/commit/e331182e4f4789411daa361a6f2f3ce464116bce))
+
 ## [2.26.1](https://github.com/axross/eslint-config/compare/v2.26.0...v2.26.1) (2025-10-26)
 
 
