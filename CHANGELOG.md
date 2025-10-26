@@ -1,3 +1,15 @@
+# [2.26.0](https://github.com/axross/eslint-config/compare/v2.25.1...v2.26.0) (2025-10-26)
+
+
+### Bug Fixes
+
+* support newer eslint-unicorn ([b6ab6df](https://github.com/axross/eslint-config/commit/b6ab6df7a5c0dc96ffbc9b46f786605fd7f3a3c5))
+
+
+### Features
+
+* allow expo-router/entry with no assignation ([2d41780](https://github.com/axross/eslint-config/commit/2d41780d3b25d656f08092e9e1e7ec0e7de76618))
+
 ## [2.25.1](https://github.com/axross/eslint-config/compare/v2.25.0...v2.25.1) (2024-12-08)
 
 
