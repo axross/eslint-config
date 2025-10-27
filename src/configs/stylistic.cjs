@@ -25,6 +25,7 @@ function getConfig() {
       }),
       {
         rules: {
+          "@stylistic/brace-style": ["error", "1tbs"],
           "@stylistic/curly-newline": ["error", "always"],
           "@stylistic/function-call-argument-newline": ["error", "consistent"],
           "@stylistic/function-call-spacing": ["error", "never"],
@@ -32,6 +33,8 @@ function getConfig() {
           "@stylistic/generator-star-spacing": ["error", "after"],
           "@stylistic/implicit-arrow-linebreak": ["error", "below"],
           "@stylistic/jsx-child-element-spacing": "error",
+          "@stylistic/jsx-closing-bracket-location": ["error", "line-aligned"],
+          "@stylistic/jsx-first-prop-new-line": ["error", "multiline"],
           "@stylistic/jsx-newline": ["error", { prevent: false }],
           "@stylistic/line-comment-position": ["error", "above"],
           "@stylistic/linebreak-style": ["error", "unix"],
