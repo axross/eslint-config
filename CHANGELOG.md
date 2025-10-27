@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/axross/eslint-config/compare/v3.0.0...v3.1.0) (2025-10-27)
+
+
+### Features
+
+* **eslint-plugin-expo:** add eslint-plugin-expo support ([d2dbd4d](https://github.com/axross/eslint-config/commit/d2dbd4d872f683e0c6b01d13ce74ee2cb4f57ffa))
+
 # [3.0.0](https://github.com/axross/eslint-config/compare/v2.27.0...v3.0.0) (2025-10-27)
 
 # [2.27.0](https://github.com/axross/eslint-config/compare/v2.26.1...v2.27.0) (2025-10-26)
