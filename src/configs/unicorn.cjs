@@ -23,20 +23,18 @@ function getConfigs() {
       });
     }
 
-    config.push(
-      {
-        plugins: {
-          unicorn: unicornPlugin,
-        },
-        rules: {
-          "prefer-json-parse-buffer": "off",
-          "unicorn/expiring-todo-comments": ["error", { allowWarningComments: true }],
-          "unicorn/no-keyword-prefix": "off",
-          "unicorn/no-null": "off",
-          "unicorn/prevent-abbreviations": ["error", { replacements: allowedAbbreviations }],
-        },
+    config.push({
+      plugins: {
+        unicorn: unicornPlugin,
       },
-    );
+      rules: {
+        "prefer-json-parse-buffer": "off",
+        "unicorn/expiring-todo-comments": ["error", { allowWarningComments: true }],
+        "unicorn/no-keyword-prefix": "off",
+        "unicorn/no-null": "off",
+        "unicorn/prevent-abbreviations": ["error", { replacements: allowedAbbreviations }],
+      },
+    });
 
     if (hasPkg("react-native")) {
       config.push({

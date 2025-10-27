@@ -53,6 +53,7 @@ function getConfig() {
             ],
           },
         ],
+        "perfectionist/sort-interfaces": "off",
         "perfectionist/sort-jsx-props": [
           "error",
           {
@@ -80,6 +81,7 @@ function getConfig() {
         "perfectionist/sort-modules": "off",
         "perfectionist/sort-objects": "off",
         "perfectionist/sort-object-types": "off",
+        "perfectionist/sort-switch-case": "off",
         "perfectionist/sort-union-types": [
           "error",
           {
@@ -108,6 +110,14 @@ function getConfig() {
         ],
       },
     });
+
+    if (hasPkg("eslint-plugin-import-x")) {
+      config.push({
+        rules: {
+          "perfectionist/sort-imports": "off",
+        },
+      });
+    }
   }
 
   return config;

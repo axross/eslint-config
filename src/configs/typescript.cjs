@@ -48,7 +48,6 @@ function getConfigs({
           "@typescript-eslint/explicit-module-boundary-types": "error",
           "@typescript-eslint/init-declarations": "off",
           "@typescript-eslint/max-params": "error",
-          "@typescript-eslint/member-delimiter-style": "error",
           "@typescript-eslint/member-ordering": "error",
           "@typescript-eslint/method-signature-style": "error",
           "@typescript-eslint/naming-convention": ["error", ...baseNamingConvention],
@@ -71,7 +70,6 @@ function getConfigs({
           "@typescript-eslint/sort-type-constituents": "error",
           "@typescript-eslint/strict-boolean-expressions": ["error", { allowNullableString: true }],
           "@typescript-eslint/switch-exhaustiveness-check": "error",
-          "@typescript-eslint/type-annotation-spacing": "error",
           "@typescript-eslint/typedef": "error",
           "@typescript-eslint/consistent-type-imports": [
             "error",

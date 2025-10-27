@@ -92,9 +92,9 @@ function getConfigs({ allowedUnassignedImports = [] } = {}) {
           "import-x/order": [
             "error",
             {
-              alphabetize: { order: "asc" },
+              "alphabetize": { order: "asc" },
               "newlines-between": "never",
-              groups: [
+              "groups": [
                 "builtin",
                 "external",
                 "internal",
@@ -102,10 +102,16 @@ function getConfigs({ allowedUnassignedImports = [] } = {}) {
                 "sibling",
                 "index",
               ],
-              pathGroups: [
+              "pathGroups": [
                 {
-                  group: "internal",
                   pattern: "~/**",
+                  group: "internal",
+                  position: "before",
+                },
+                {
+                  pattern: "@/**",
+                  group: "internal",
+                  position: "before",
                 },
               ],
             },
@@ -114,7 +120,9 @@ function getConfigs({ allowedUnassignedImports = [] } = {}) {
       },
       {
         files: ["**/*.?(m|c)ts?(x)"],
-        rules: { "import-x/namespace": "off" },
+        rules: {
+          "import-x/namespace": "off",
+        },
       },
       {
         files: ["**/*.@(js|cjs)"],
@@ -134,7 +142,7 @@ function getConfigs({ allowedUnassignedImports = [] } = {}) {
       {
         files: ["**/*.config.?(m|c)@(j|t)s?(x)"],
         rules: { "import-x/no-default-export": "off" },
-      }
+      },
     );
 
     if (hasPkg("next")) {

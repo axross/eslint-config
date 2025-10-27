@@ -28,8 +28,11 @@ function getConfigs() {
           "multiline-comment-style": "off",
           "no-console": "warn",
           "no-continue": "off",
+          "no-nested-ternary": "error",
           "no-undefined": "off",
+          "no-unneeded-ternary": "error",
           "no-use-before-define": "off",
+          "no-ternary": "off",
           "no-warning-comments": "warn",
           "one-var": ["error", "never"],
           "quote-props": ["error", "as-needed"],
@@ -76,10 +79,6 @@ function getConfigs() {
           "no-unused-vars": "off",
           "no-useless-assignment": "off",
         },
-      },
-      {
-        files: ["**/*.?(m|c)@(j|t)sx"],
-        rules: { "no-ternary": "off" },
       },
       {
         files: ["**/*.?(c)js?(x)"],
