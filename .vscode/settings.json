@@ -1,11 +1,9 @@
 {
-  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.fixAll.eslint": "explicit"
+  },
   "[javascript]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit"
-    },
-    "editor.formatOnSave": false,
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-    "editor.tabSize": 2
+    "editor.formatOnSave": false
   },
 }

@@ -158,6 +158,39 @@ function getConfigs({ allowedUnassignedImports = [] } = {}) {
       });
     }
 
+    if (hasPkg("react-native")) {
+      const fileExtensions = [
+        ".cjs",
+        ".mjs",
+        ".js",
+        ".jsx",
+        ".ts",
+        ".tsx",
+        ".d.ts",
+      ];
+      const platformSubextensions = [
+        ".android",
+        ".ios",
+        ...(hasPkg("expo") ? [".web", ".native"] : []),
+      ];
+      const extensions = [];
+
+      for (const platformSubExtension of [...platformSubextensions, ""]) {
+        for (const fileExtension of fileExtensions) {
+          extensions.push(`${platformSubExtension}${fileExtension}`);
+        }
+      }
+
+      config.push({
+        settings: {
+          "import/extensions": extensions,
+          "import/resolver": {
+            node: { extensions },
+          },
+        },
+      });
+    }
+
     if (hasPkg("expo-router")) {
       config.push({
         files: ["**/app/**/*.?(m|c)@(j|t)sx"],
