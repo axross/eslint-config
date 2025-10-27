@@ -1,3 +1,10 @@
+## [3.1.1](https://github.com/axross/eslint-config/compare/v3.1.0...v3.1.1) (2025-10-27)
+
+
+### Bug Fixes
+
+* **@stylistic/eslint-plugin:** fix weird styling ([ee1b0d9](https://github.com/axross/eslint-config/commit/ee1b0d95535c4cddca7cbb95866939d55097c575))
+
 # [3.1.0](https://github.com/axross/eslint-config/compare/v3.0.0...v3.1.0) (2025-10-27)
 
 
