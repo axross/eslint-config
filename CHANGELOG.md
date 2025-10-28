@@ -1,3 +1,10 @@
+## [3.2.1](https://github.com/axross/eslint-config/compare/v3.2.0...v3.2.1) (2025-10-28)
+
+
+### Bug Fixes
+
+* add missing change ([4d1a66f](https://github.com/axross/eslint-config/commit/4d1a66fafc1eba9fecaa22119dfed895a112b738))
+
 # [3.2.0](https://github.com/axross/eslint-config/compare/v3.1.1...v3.2.0) (2025-10-28)
 
 
