@@ -7,6 +7,12 @@ function getConfig() {
   if (hasPkg("eslint-plugin-perfectionist")) {
     const perfectionistPlugin = require("eslint-plugin-perfectionist");
 
+    config.push({
+      rules: {
+        "sort-imports": "off",
+      },
+    });
+
     config.push(perfectionistPlugin.configs["recommended-natural"], {
       rules: {
         "perfectionist/sort-named-imports": [
