@@ -1,3 +1,10 @@
+## [3.2.2](https://github.com/axross/eslint-config/compare/v3.2.1...v3.2.2) (2025-10-28)
+
+
+### Bug Fixes
+
+* **@stylistic/eslint-plugin:** update newline-per-chained-call ([b92fb81](https://github.com/axross/eslint-config/commit/b92fb81f6d967048de5ba5219937734e698dc3c7))
+
 ## [3.2.1](https://github.com/axross/eslint-config/compare/v3.2.0...v3.2.1) (2025-10-28)
 
 
