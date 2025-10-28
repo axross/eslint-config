@@ -1,3 +1,10 @@
+# [3.2.0](https://github.com/axross/eslint-config/compare/v3.1.1...v3.2.0) (2025-10-28)
+
+
+### Features
+
+* change preferred line length ([04e7ab3](https://github.com/axross/eslint-config/commit/04e7ab3c89854287b468b06e31af6aee37b3966e))
+
 ## [3.1.1](https://github.com/axross/eslint-config/compare/v3.1.0...v3.1.1) (2025-10-27)
 
 
