@@ -1,7 +1,5 @@
 const hasPkg = require("has-pkg");
-const {
-  indent, maxLineLength,
-} = require("../constants.cjs");
+const { indent, maxCodeLineLength, maxCommentLineLength } = require("../constants.cjs");
 
 function getConfig() {
   /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
@@ -31,7 +29,7 @@ function getConfig() {
           "@stylistic/function-call-spacing": ["error", "never"],
           "@stylistic/function-paren-newline": ["error", "multiline"],
           "@stylistic/generator-star-spacing": ["error", "after"],
-          "@stylistic/implicit-arrow-linebreak": ["error", "below"],
+          "@stylistic/implicit-arrow-linebreak": ["error", "beside"],
           "@stylistic/jsx-child-element-spacing": "error",
           "@stylistic/jsx-closing-bracket-location": ["error", "line-aligned"],
           "@stylistic/jsx-first-prop-new-line": ["error", "multiline"],
@@ -129,8 +127,8 @@ function getConfig() {
           "@stylistic/max-len": [
             "error",
             {
-              code: maxLineLength,
-              comments: maxLineLength,
+              code: maxCodeLineLength,
+              comments: maxCommentLineLength,
               ignoreComments: false,
               ignoreRegExpLiterals: true,
               ignoreStrings: true,
@@ -152,22 +150,18 @@ function getConfig() {
             {
               ExportDeclaration: {
                 consistent: true,
-                minProperties: 2,
                 multiline: true,
               },
               ImportDeclaration: {
                 consistent: true,
-                minProperties: 2,
                 multiline: true,
               },
               ObjectExpression: {
                 consistent: true,
-                minProperties: 2,
                 multiline: true,
               },
               ObjectPattern: {
                 consistent: true,
-                minProperties: 2,
                 multiline: true,
               },
             },

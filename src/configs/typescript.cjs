@@ -5,9 +5,7 @@ const {
 } = require("../constants.cjs");
 const languageOptionsGlobals = require("../globals.cjs");
 
-function getConfigs({
-  allowDefaultProject = [], tsconfigRootDir,
-} = {}) {
+function getConfigs({ allowDefaultProject = [], tsconfigRootDir } = {}) {
   /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray} */
   const config = [];
 
@@ -26,7 +24,12 @@ function getConfigs({
           parserOptions: {
             ecmaVersion: "latest",
             projectFolderIgnoreList: ["**/node_modules/**"],
-            projectService: { allowDefaultProject: ["*.config.{js,mjs,cjs,jsx,mjsx,cjsx}", ...allowDefaultProject] },
+            projectService: {
+              allowDefaultProject: [
+                "*.config.{js,mjs,cjs,jsx,mjsx,cjsx}",
+                ...allowDefaultProject,
+              ],
+            },
             tsconfigRootDir,
           },
         },
@@ -43,14 +46,20 @@ function getConfigs({
           "@typescript-eslint/consistent-type-exports": "error",
           "@typescript-eslint/default-param-last": "error",
           "@typescript-eslint/dot-notation": "error",
-          "@typescript-eslint/explicit-function-return-type": ["error", { allowExpressions: true }],
+          "@typescript-eslint/explicit-function-return-type": [
+            "error",
+            { allowExpressions: true },
+          ],
           "@typescript-eslint/explicit-member-accessibility": "error",
           "@typescript-eslint/explicit-module-boundary-types": "error",
           "@typescript-eslint/init-declarations": "off",
           "@typescript-eslint/max-params": "error",
           "@typescript-eslint/member-ordering": "error",
           "@typescript-eslint/method-signature-style": "error",
-          "@typescript-eslint/naming-convention": ["error", ...baseNamingConvention],
+          "@typescript-eslint/naming-convention": [
+            "error",
+            ...baseNamingConvention,
+          ],
           "@typescript-eslint/no-import-type-side-effects": "off",
           "@typescript-eslint/no-loop-func": "error",
           "@typescript-eslint/no-restricted-imports": "error",
@@ -68,7 +77,10 @@ function getConfigs({
           "@typescript-eslint/promise-function-async": "off",
           "@typescript-eslint/require-array-sort-compare": "error",
           "@typescript-eslint/sort-type-constituents": "error",
-          "@typescript-eslint/strict-boolean-expressions": ["error", { allowNullableString: true }],
+          "@typescript-eslint/strict-boolean-expressions": [
+            "error",
+            { allowNullableString: true },
+          ],
           "@typescript-eslint/switch-exhaustiveness-check": "error",
           "@typescript-eslint/typedef": "error",
           "@typescript-eslint/consistent-type-imports": [

@@ -1,8 +1,6 @@
 const globals = require("globals");
 const hasPkg = require("has-pkg");
-const {
-  ignoredMagicNumbers, maxComplexity,
-} = require("../constants.cjs");
+const { ignoredMagicNumbers, maxComplexity } = require("../constants.cjs");
 const languageOptionsGlobals = require("../globals.cjs");
 
 function getConfigs() {

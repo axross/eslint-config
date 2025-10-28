@@ -69,7 +69,10 @@ function getConfigs() {
           "react/no-this-in-sfc": "error",
           "react/no-typos": "error",
           "react/no-unsafe": "error",
-          "react/no-unstable-nested-components": ["error", { allowAsProps: true }],
+          "react/no-unstable-nested-components": [
+            "error",
+            { allowAsProps: true },
+          ],
           "react/no-unused-class-component-methods": "error",
           "react/no-unused-prop-types": "error",
           "react/no-unused-state": "error",
@@ -77,7 +80,10 @@ function getConfigs() {
           "react/prefer-es6-class": "error",
           "react/prefer-exact-props": "error",
           "react/prefer-read-only-props": "error",
-          "react/prefer-stateless-function": ["warn", { ignorePureComponents: true }],
+          "react/prefer-stateless-function": [
+            "warn",
+            { ignorePureComponents: true },
+          ],
           "react/require-optimization": "error",
           "react/self-closing-comp": "error",
           "react/sort-comp": "error",
@@ -166,14 +172,20 @@ function getConfigs() {
       },
     );
 
-    if (hasPkg("eslint-plugin-perfectionist") || hasPkg("@stylistic/eslint-plugin")) {
+    if (
+      hasPkg("eslint-plugin-perfectionist")
+      || hasPkg("@stylistic/eslint-plugin")
+    ) {
       config.push({
         files: ["**/*.?(m|c)@(j|t)sx"],
         rules: { "react/jsx-sort-props": "off" },
       });
     }
 
-    if (hasPkg("@stylistic/eslint-plugin") || hasPkg("eslint-config-prettier")) {
+    if (
+      hasPkg("@stylistic/eslint-plugin")
+      || hasPkg("eslint-config-prettier")
+    ) {
       config.push({
         files: ["**/*.?(m|c)@(j|t)sx"],
         rules: {
@@ -192,8 +204,7 @@ function getConfigs() {
           "react/jsx-one-expression-per-line": "off",
           "react/jsx-props-no-multi-spaces": "off",
           "react/self-closing-comp": "off",
-          "react/jsx-curly-brace-presence":
-            "off",
+          "react/jsx-curly-brace-presence": "off",
         },
       });
     }

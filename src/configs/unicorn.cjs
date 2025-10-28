@@ -29,10 +29,16 @@ function getConfigs() {
       },
       rules: {
         "prefer-json-parse-buffer": "off",
-        "unicorn/expiring-todo-comments": ["error", { allowWarningComments: true }],
+        "unicorn/expiring-todo-comments": [
+          "error",
+          { allowWarningComments: true },
+        ],
         "unicorn/no-keyword-prefix": "off",
         "unicorn/no-null": "off",
-        "unicorn/prevent-abbreviations": ["error", { replacements: allowedAbbreviations }],
+        "unicorn/prevent-abbreviations": [
+          "error",
+          { replacements: allowedAbbreviations },
+        ],
       },
     });
 
