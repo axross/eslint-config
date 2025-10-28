@@ -38,7 +38,7 @@ function getConfig() {
           "@stylistic/linebreak-style": ["error", "unix"],
           "@stylistic/member-delimiter-style": "error",
           "@stylistic/multiline-comment-style": ["error", "separate-lines"],
-          "@stylistic/newline-per-chained-call": ["error", { ignoreChainWithDepth: 1 }],
+          "@stylistic/newline-per-chained-call": ["error", { ignoreChainWithDepth: 2 }],
           "@stylistic/no-extra-semi": "error",
           "@stylistic/no-multi-spaces": "error",
           "@stylistic/nonblock-statement-body-position": ["error", "beside"],
