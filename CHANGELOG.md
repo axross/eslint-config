@@ -1,3 +1,10 @@
+## [3.2.3](https://github.com/axross/eslint-config/compare/v3.2.2...v3.2.3) (2025-10-28)
+
+
+### Bug Fixes
+
+* **eslint-plugin-perfectionist:** resolve rule conflicts ([11bba46](https://github.com/axross/eslint-config/commit/11bba469043e6259945e768897978bd2c9b5d4ad))
+
 ## [3.2.2](https://github.com/axross/eslint-config/compare/v3.2.1...v3.2.2) (2025-10-28)
 
 
