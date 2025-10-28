@@ -1,6 +1,6 @@
 const ignoredMagicNumbers = [-1, 0];
 const indent = 2;
-const maxCodeLineLength = 120;
+const maxCodeLineLength = 80;
 const maxCommentLineLength = 120;
 const maxComplexity = 50;
 const baseNamingConvention = [
