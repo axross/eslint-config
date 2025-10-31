@@ -233,10 +233,12 @@ function getConfigs() {
     const reactHooksPlugin = require("eslint-plugin-react-hooks");
 
     config.push(
-      { plugins: { "react-hooks": reactHooksPlugin } },
+      {
+        plugins: reactHooksPlugin.configs["recommended-latest"].plugins,
+      },
       {
         files: ["*.?(m|c)@(j|t)sx", "use*.@(js|ts)"],
-        rules: { ...reactHooksPlugin.configs.recommended.rules },
+        rules: { ...reactHooksPlugin.configs["recommended-latest"].rules },
       },
       {
         files: ["**/*.stories.?(m|c)@(j|t)s?(x)"],
