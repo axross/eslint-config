@@ -1,3 +1,12 @@
+# [3.3.0](https://github.com/axross/eslint-config/compare/v3.2.3...v3.3.0) (2025-10-31)
+
+
+### Features
+
+* **eslint-config-prettier:** update supported eslint-config-prettier version ([4c91ac9](https://github.com/axross/eslint-config/commit/4c91ac9cc1d34103f5127c073eb5e13d2f028630))
+* **eslint-plugin-react-hooks:** update supported eslint-plugin-react-hooks version ([f704258](https://github.com/axross/eslint-config/commit/f704258f05c0b8317295c27af1d4d7d7d0642c45))
+* **eslint-plugin-storybook:** update supported eslint-plugin-storybook version ([451970e](https://github.com/axross/eslint-config/commit/451970e3aa4cdd3fd23b37d31be3ca1db7b4d561))
+
 ## [3.2.3](https://github.com/axross/eslint-config/compare/v3.2.2...v3.2.3) (2025-10-28)
 
 
